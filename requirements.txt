@@ -1,0 +1,14 @@
+feedparser>=6.0
+requests>=2.32
+trafilatura>=1.12
+transformers>=4.44
+groq>=0.11
+python-dotenv>=1.0
+pydantic>=2.9
+streamlit>=1.38
+pandas>=2.2
+
+# torch is installed separately (CPU-only wheel) in the GitHub Actions
+# workflow and in the local setup instructions below, to avoid pulling in
+# large CUDA dependencies that aren't needed for CPU inference:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
