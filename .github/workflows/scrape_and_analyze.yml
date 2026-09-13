@@ -2,8 +2,14 @@ name: Scrape, analyze, and email fund news digest
 
 on:
   schedule:
-    # 12:00 UTC Mon & Wed - adjust to suit your class time (cron is in UTC)
-    - cron: "0 12 * * 1,3"
+    # Every day at 6:00 AM Beirut time. GitHub Actions cron always runs in UTC
+    # and does NOT auto-adjust for daylight saving, so this hour must be
+    # updated by hand twice a year:
+    #   - Beirut summer time (EEST, UTC+3, roughly late March - late October): use "0 3 * * *"
+    #   - Beirut winter time (EET, UTC+2, roughly late October - late March):  use "0 4 * * *"
+    # Currently set for EEST (summer). When Lebanon switches back to winter
+    # time, change the line below from "0 3" to "0 4".
+    - cron: "0 3 * * *"
   workflow_dispatch: {}   # lets you trigger a run manually from the Actions tab
 
 permissions:

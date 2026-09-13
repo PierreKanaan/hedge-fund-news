@@ -92,6 +92,7 @@ for item in filtered:
             f"· confidence {a.get('confidence', 0):.0%}</span>",
             unsafe_allow_html=True,
         )
+        st.caption(f"**Horizon:** {a.get('horizon', '')}")
         st.markdown("**Talking points (read this to the class):**")
         st.info(a.get("explanation", ""))
         st.markdown("**Cheat-sheet bullets:**")

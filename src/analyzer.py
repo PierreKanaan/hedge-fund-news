@@ -19,6 +19,7 @@ class TradeNote(BaseModel):
     catalyst: str
     position: str
     instrument: str
+    horizon: str
     explanation: str
     rationale: list
     risk: str
@@ -44,15 +45,22 @@ Given a news item (headline, article text, and a sentiment signal from a finance
 produce a trade-oriented note that a student can read aloud to defend the position live in
 front of their class, including likely questions from classmates or the professor.
 
+IMPORTANT: these are swing/position trades, NOT day trades. Never reason about
+intraday price action or say something "could rally today" or "by the close."
+Every position must be justified on a holding horizon of about one week to
+several months, based on a fundamental or macro thesis that plays out over
+that time, not short-lived intraday noise.
+
 Respond ONLY with a JSON object with exactly these fields:
 {{
   "summary": "1-2 sentence plain-English summary of the news itself",
   "catalyst": "one sentence naming the specific trigger/event driving this (e.g. an earnings beat, a Fed statement, a product announcement) - not generic",
   "position": "long" | "short" | "hold",
   "instrument": "specific ticker or instrument you'd trade on this (e.g. a watchlist ticker, a sector ETF, or the relevant company's ticker)",
-  "explanation": "4-6 sentences, written as spoken talking points, walking through the reasoning chain end to end: what happened -> why it matters for this instrument -> how the sentiment/valuation/market context supports the position -> why this position specifically (not the alternative). Assume the listener has NOT read the article - make it self-contained. Plain language, no jargon without a quick definition.",
+  "horizon": "the expected holding period for this specific thesis and what would signal it's time to close the position - e.g. '2-4 weeks, until the next earnings print' or '3-6 months, as the AI capex cycle plays out'. Always at least one week, never intraday/same-day.",
+  "explanation": "4-6 sentences, written as spoken talking points, walking through the reasoning chain end to end: what happened -> why it matters for this instrument over the stated horizon -> how the sentiment/valuation/market context supports the position -> why this position specifically (not the alternative). Assume the listener has NOT read the article - make it self-contained. Plain language, no jargon without a quick definition.",
   "rationale": ["2 to 3 short bullet points - a quick-reference cheat sheet version of the explanation, for slides or fast recall during Q&A"],
-  "risk": "one sentence on the main risk to this thesis, phrased so the student can answer 'what could go wrong?' if asked",
+  "risk": "one sentence on the main risk to this thesis over the stated horizon, phrased so the student can answer 'what could go wrong?' if asked",
   "confidence": 0.0 to 1.0
 }}
 No markdown, no prose outside the JSON object.
@@ -108,6 +116,7 @@ def analyze_item(client, item: dict) -> dict:
         "catalyst": "n/a",
         "position": "hold",
         "instrument": (item.get("tickers") or ["N/A"])[0],
+        "horizon": "n/a",
         "explanation": "Automated analysis failed for this item after two attempts - read the source article directly before presenting on it.",
         "rationale": ["Automated analysis failed; flagged for manual review."],
         "risk": f"Analysis error: {last_error}",

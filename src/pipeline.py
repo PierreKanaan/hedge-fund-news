@@ -24,6 +24,7 @@ def _mock_analysis(items: list) -> list:
             "catalyst": "n/a (dry run)",
             "position": "hold",
             "instrument": (item.get("tickers") or ["N/A"])[0],
+            "horizon": "n/a (dry run)",
             "explanation": "[dry-run] Groq not called - set GROQ_API_KEY for a real explanation.",
             "rationale": ["[dry-run] Groq not called - set GROQ_API_KEY for real analysis."],
             "risk": "n/a (dry run)",
