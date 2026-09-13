@@ -85,12 +85,16 @@ for item in filtered:
         meta_cols[2].caption(f"FinBERT: {sentiment.get('label', 'n/a')} ({sentiment.get('confidence', 0)})")
 
         st.write(a.get("summary", ""))
+        st.caption(f"**Catalyst:** {a.get('catalyst', '')}")
         st.markdown(
             f"<span style='background:{color};color:white;padding:4px 12px;"
-            f"border-radius:12px;font-weight:600;'>{position.upper()} — {a.get('instrument','')}</span>",
+            f"border-radius:12px;font-weight:600;'>{position.upper()} — {a.get('instrument','')} "
+            f"· confidence {a.get('confidence', 0):.0%}</span>",
             unsafe_allow_html=True,
         )
+        st.markdown("**Talking points (read this to the class):**")
+        st.info(a.get("explanation", ""))
+        st.markdown("**Cheat-sheet bullets:**")
         for bullet in a.get("rationale", []):
             st.markdown(f"- {bullet}")
-        st.caption(f"⚠️ Risk: {a.get('risk', '')}")
-        st.caption(f"Confidence: {a.get('confidence', 0):.0%}")
+        st.caption(f"⚠️ If they ask \"what could go wrong\": {a.get('risk', '')}")

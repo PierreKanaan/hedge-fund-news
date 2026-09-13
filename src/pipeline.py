@@ -21,8 +21,10 @@ def _mock_analysis(items: list) -> list:
     for item in items:
         item["analysis"] = {
             "summary": item.get("summary") or item["title"],
+            "catalyst": "n/a (dry run)",
             "position": "hold",
             "instrument": (item.get("tickers") or ["N/A"])[0],
+            "explanation": "[dry-run] Groq not called - set GROQ_API_KEY for a real explanation.",
             "rationale": ["[dry-run] Groq not called - set GROQ_API_KEY for real analysis."],
             "risk": "n/a (dry run)",
             "confidence": 0.0,

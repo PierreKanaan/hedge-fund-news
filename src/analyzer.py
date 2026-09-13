@@ -16,8 +16,10 @@ VALID_POSITIONS = {"long", "short", "hold"}
 
 class TradeNote(BaseModel):
     summary: str
+    catalyst: str
     position: str
     instrument: str
+    explanation: str
     rationale: list
     risk: str
     confidence: float
@@ -39,16 +41,18 @@ class TradeNote(BaseModel):
 SYSTEM_PROMPT = f"""You are a hedge fund analyst at a student-run fund covering: {', '.join(SECTOR_FOCUS)}.
 Your watchlist tickers are: {', '.join(WATCHLIST)}.
 Given a news item (headline, article text, and a sentiment signal from a finance NLP model),
-produce a concise, trade-oriented note. Be specific and decisive - this is used to justify a
-position to classmates in a presentation, not a hedge.
+produce a trade-oriented note that a student can read aloud to defend the position live in
+front of their class, including likely questions from classmates or the professor.
 
 Respond ONLY with a JSON object with exactly these fields:
 {{
-  "summary": "1-2 sentence plain-English summary of the news",
+  "summary": "1-2 sentence plain-English summary of the news itself",
+  "catalyst": "one sentence naming the specific trigger/event driving this (e.g. an earnings beat, a Fed statement, a product announcement) - not generic",
   "position": "long" | "short" | "hold",
   "instrument": "specific ticker or instrument you'd trade on this (e.g. a watchlist ticker, a sector ETF, or the relevant company's ticker)",
-  "rationale": ["2 to 3 short bullet points justifying the position"],
-  "risk": "one sentence on the main risk to this thesis",
+  "explanation": "4-6 sentences, written as spoken talking points, walking through the reasoning chain end to end: what happened -> why it matters for this instrument -> how the sentiment/valuation/market context supports the position -> why this position specifically (not the alternative). Assume the listener has NOT read the article - make it self-contained. Plain language, no jargon without a quick definition.",
+  "rationale": ["2 to 3 short bullet points - a quick-reference cheat sheet version of the explanation, for slides or fast recall during Q&A"],
+  "risk": "one sentence on the main risk to this thesis, phrased so the student can answer 'what could go wrong?' if asked",
   "confidence": 0.0 to 1.0
 }}
 No markdown, no prose outside the JSON object.
@@ -101,8 +105,10 @@ def analyze_item(client, item: dict) -> dict:
 
     item["analysis"] = {
         "summary": item.get("summary") or item["title"],
+        "catalyst": "n/a",
         "position": "hold",
         "instrument": (item.get("tickers") or ["N/A"])[0],
+        "explanation": "Automated analysis failed for this item after two attempts - read the source article directly before presenting on it.",
         "rationale": ["Automated analysis failed; flagged for manual review."],
         "risk": f"Analysis error: {last_error}",
         "confidence": 0.0,

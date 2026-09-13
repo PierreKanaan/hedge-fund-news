@@ -27,13 +27,18 @@ def _item_html(item: dict) -> str:
         {item.get('source','')} · tickers: {tickers} · FinBERT: {sentiment.get('label','n/a')}
         ({sentiment.get('confidence', 0)})
       </div>
-      <div style="font-size:13px;margin-bottom:8px;">{a.get('summary','')}</div>
+      <div style="font-size:13px;color:#555;margin-bottom:8px;"><b>Catalyst:</b> {a.get('catalyst','')}</div>
       <div style="display:inline-block;background:{color};color:#fff;font-size:12px;
-                  font-weight:600;padding:3px 10px;border-radius:12px;margin-bottom:8px;">
-        {position.upper()} — {a.get('instrument','')}
+                  font-weight:600;padding:3px 10px;border-radius:12px;margin-bottom:10px;">
+        {position.upper()} — {a.get('instrument','')} · confidence {a.get('confidence', 0):.0%}
       </div>
-      <ul style="font-size:13px;margin:6px 0 6px 18px;padding:0;">{rationale_html}</ul>
-      <div style="font-size:12px;color:#8a3a00;"><b>Risk:</b> {a.get('risk','')}</div>
+      <div style="font-size:13px;line-height:1.5;background:#f7f7f7;border-radius:6px;
+                  padding:10px 12px;margin-bottom:10px;">
+        <b>Talking points (read this to the class):</b><br>{a.get('explanation','')}
+      </div>
+      <div style="font-size:12px;color:#555;margin-bottom:4px;"><b>Cheat-sheet bullets:</b></div>
+      <ul style="font-size:13px;margin:0 0 8px 18px;padding:0;">{rationale_html}</ul>
+      <div style="font-size:12px;color:#8a3a00;"><b>If they ask "what could go wrong":</b> {a.get('risk','')}</div>
     </div>
     """
 
