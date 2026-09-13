@@ -42,8 +42,11 @@ LOOKBACK_HOURS = 48
 # (keeps each run fast/cheap and within free API rate limits)
 MAX_ITEMS_PER_RUN = 16
 
-# Groq model used for summary/recommendation generation
-GROQ_MODEL = "llama-3.3-70b-versatile"
+# Groq model used for summary/recommendation generation.
+# Groq's free-tier model lineup changes over time - if this starts 404ing,
+# run `curl https://api.groq.com/openai/v1/models -H "Authorization: Bearer $GROQ_API_KEY"`
+# to see what's currently available and swap the id below.
+GROQ_MODEL = "openai/gpt-oss-120b"
 
 # Hugging Face model id for finance sentiment
 FINBERT_MODEL = "ProsusAI/finbert"

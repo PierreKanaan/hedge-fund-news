@@ -78,7 +78,8 @@ def _call_groq(client, user_prompt: str) -> str:
         ],
         response_format={"type": "json_object"},
         temperature=0.3,
-        max_tokens=500,
+        max_tokens=1500,
+        reasoning_effort="low",
     )
     return completion.choices[0].message.content
 
