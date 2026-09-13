@@ -6,6 +6,7 @@ malformed JSON.
 """
 import json
 import os
+import time
 
 from pydantic import BaseModel, ValidationError, field_validator
 
@@ -125,7 +126,15 @@ def _call_groq(client, user_prompt: str) -> str:
     return completion.choices[0].message.content
 
 
-def analyze_item(client, item: dict) -> dict:
+def _is_daily_quota_error(exc: Exception) -> bool:
+    text = str(exc).lower()
+    return "per day" in text or "tpd" in text or "tokens per day" in text
+
+
+def analyze_item(client, item: dict) -> tuple:
+    """Returns (item, quota_exhausted: bool). quota_exhausted signals the
+    caller to stop hitting Groq for the rest of this run - the daily token
+    budget is gone and retrying won't help until it rolls over."""
     user_prompt = _build_user_prompt(item)
 
     last_error = None
@@ -135,10 +144,18 @@ def analyze_item(client, item: dict) -> dict:
             parsed = json.loads(raw)
             note = TradeNote(**parsed)
             item["analysis"] = note.model_dump()
-            return item
+            return item, False
         except (json.JSONDecodeError, ValidationError, Exception) as exc:
             last_error = exc
             print(f"[analyzer] attempt {attempt + 1} failed for '{item['title'][:60]}': {exc}")
+            if _is_daily_quota_error(exc):
+                print("[analyzer] daily token quota exhausted, skipping retry and remaining items")
+                break
+            if "429" in str(exc) or "rate" in str(exc).lower():
+                print("[analyzer] rate limited, backing off 20s before retry")
+                time.sleep(20)
+
+    quota_exhausted = _is_daily_quota_error(last_error) if last_error else False
 
     item["analysis"] = {
         "summary": item.get("summary") or item["title"],
@@ -153,7 +170,7 @@ def analyze_item(client, item: dict) -> dict:
         "risk": f"Analysis error: {last_error}",
         "confidence": 0.0,
     }
-    return item
+    return item, quota_exhausted
 
 
 def annotate_items(items: list) -> list:
@@ -164,6 +181,23 @@ def annotate_items(items: list) -> list:
         raise RuntimeError("GROQ_API_KEY is not set")
     client = Groq(api_key=api_key)
 
+    quota_exhausted = False
     for item in items:
-        analyze_item(client, item)
+        if quota_exhausted:
+            item["analysis"] = {
+                "summary": item.get("summary") or item["title"],
+                "catalyst": "n/a",
+                "position": "hold",
+                "asset_class": "equity",
+                "instrument": (item.get("tickers") or ["N/A"])[0],
+                "market": "n/a",
+                "horizon": "n/a",
+                "explanation": "Skipped - today's Groq free-tier token budget ran out earlier in this run.",
+                "rationale": ["Groq daily token quota exhausted; this item was not analyzed."],
+                "risk": "n/a",
+                "confidence": 0.0,
+            }
+            continue
+        _, quota_exhausted = analyze_item(client, item)
+        time.sleep(1.5)  # stay comfortably under Groq's free-tier per-minute rate limit
     return items

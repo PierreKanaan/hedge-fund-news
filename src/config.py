@@ -54,7 +54,13 @@ LOOKBACK_HOURS = 48
 
 # Max number of items to run through sentiment + LLM analysis per pipeline run
 # (keeps each run fast/cheap and within free API rate limits)
-MAX_ITEMS_PER_RUN = 16
+MAX_ITEMS_PER_RUN = 40
+
+# Repo identity, used by the dashboard's "run scraper now" button to trigger
+# the GitHub Actions workflow via the GitHub API.
+GITHUB_OWNER = "PierreKanaan"
+GITHUB_REPO_NAME = "hedge-fund-news"
+GITHUB_WORKFLOW_FILE = "scrape_and_analyze.yml"
 
 # Groq model used for summary/recommendation generation.
 # Groq's free-tier model lineup changes over time - if this starts 404ing,

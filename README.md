@@ -82,13 +82,41 @@ schedule).
    (Free tier apps sleep after ~12h with no visitors; the first open after a
    gap takes ~30-60s to wake up, so open it a minute before presenting.)
 
+### 8. Enable the "Run scraper now" button on the dashboard
+The dashboard has a button that triggers a fresh scrape/analysis run on
+demand, by calling the GitHub Actions API - separate from the repo secrets
+in step 6, this needs a token added to the *Streamlit app's own* secrets:
+1. Create a GitHub token: https://github.com/settings/tokens → "Fine-grained
+   tokens" → generate one scoped to just this repo, with **Actions:
+   Read and write** permission.
+2. In Streamlit Community Cloud: open your app → Settings → Secrets → add:
+   ```
+   GITHUB_TOKEN = "your token here"
+   ```
+3. Save. The button will now work; without this it just shows a clear
+   message instead of failing silently.
+
 ## Customizing
 
 - **Watchlist / sectors / macro keywords**: edit `src/config.py`.
-- **Schedule**: edit the `cron` line in `.github/workflows/scrape_and_analyze.yml`
-  (cron is UTC — convert your local Mon/Wed prep time).
-- **How many items per run**: `MAX_ITEMS_PER_RUN` in `src/config.py`.
+- **Schedule**: edit the `cron` line in `.github/workflows/scrape_and_analyze.yml`.
+- **How many items per run**: `MAX_ITEMS_PER_RUN` in `src/config.py` (currently 40).
 - **Email look**: `src/emailer.py` (`_item_html` / `build_digest_html`).
+- **Dashboard look**: `dashboard/app.py` (CSS is inline at the top of the file).
+
+## A real limit worth knowing: Groq's daily token cap
+
+Groq's free tier caps usage at **200,000 tokens/day** (separate from, and
+usually tighter than, its per-minute limit) - shared across *every* call:
+the scheduled run, any manual "Run scraper now" clicks, and local testing.
+One scheduled run of 40 items comfortably fits (roughly 90k-120k tokens), but
+repeatedly re-running the pipeline the same day (e.g. testing, or clicking
+"Run scraper now" more than once or twice) can exhaust it. When that
+happens, remaining items for that run get a "Groq daily token quota
+exhausted" placeholder instead of real analysis (the pipeline fails fast and
+gracefully rather than hanging or crashing) - it recovers gradually over the
+following ~24h on a rolling basis, no action needed, just don't re-trigger
+runs back-to-back the same day.
 
 ## Project layout
 ```
