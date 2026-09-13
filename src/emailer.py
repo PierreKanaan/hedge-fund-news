@@ -30,8 +30,9 @@ def _item_html(item: dict) -> str:
       <div style="font-size:13px;color:#555;margin-bottom:8px;"><b>Catalyst:</b> {a.get('catalyst','')}</div>
       <div style="display:inline-block;background:{color};color:#fff;font-size:12px;
                   font-weight:600;padding:3px 10px;border-radius:12px;margin-bottom:6px;">
-        {position.upper()} — {a.get('instrument','')} · confidence {a.get('confidence', 0):.0%}
+        {position.upper()} — {a.get('instrument','')} ({a.get('asset_class','')}) · confidence {a.get('confidence', 0):.0%}
       </div>
+      <div style="font-size:12px;color:#555;margin-bottom:2px;"><b>Market:</b> {a.get('market','')}</div>
       <div style="font-size:12px;color:#555;margin-bottom:10px;"><b>Horizon:</b> {a.get('horizon','')}</div>
       <div style="font-size:13px;line-height:1.5;background:#f7f7f7;border-radius:6px;
                   padding:10px 12px;margin-bottom:10px;">

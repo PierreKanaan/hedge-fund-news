@@ -58,15 +58,19 @@ if not items:
 
 all_tickers = sorted({t for i in items for t in i.get("tickers", [])})
 positions = sorted({i.get("analysis", {}).get("position", "hold") for i in items})
+asset_classes = sorted({i.get("analysis", {}).get("asset_class", "equity") for i in items})
 
 ticker_filter = st.sidebar.multiselect("Filter by ticker", all_tickers)
 position_filter = st.sidebar.multiselect("Filter by position", positions)
+asset_class_filter = st.sidebar.multiselect("Filter by asset class", asset_classes)
 
 filtered = items
 if ticker_filter:
     filtered = [i for i in filtered if set(i.get("tickers", [])) & set(ticker_filter)]
 if position_filter:
     filtered = [i for i in filtered if i.get("analysis", {}).get("position") in position_filter]
+if asset_class_filter:
+    filtered = [i for i in filtered if i.get("analysis", {}).get("asset_class") in asset_class_filter]
 
 st.sidebar.markdown("---")
 st.sidebar.metric("Items shown", len(filtered))
@@ -89,10 +93,10 @@ for item in filtered:
         st.markdown(
             f"<span style='background:{color};color:white;padding:4px 12px;"
             f"border-radius:12px;font-weight:600;'>{position.upper()} — {a.get('instrument','')} "
-            f"· confidence {a.get('confidence', 0):.0%}</span>",
+            f"({a.get('asset_class','')}) · confidence {a.get('confidence', 0):.0%}</span>",
             unsafe_allow_html=True,
         )
-        st.caption(f"**Horizon:** {a.get('horizon', '')}")
+        st.caption(f"**Market:** {a.get('market', '')}  ·  **Horizon:** {a.get('horizon', '')}")
         st.markdown("**Talking points (read this to the class):**")
         st.info(a.get("explanation", ""))
         st.markdown("**Cheat-sheet bullets:**")

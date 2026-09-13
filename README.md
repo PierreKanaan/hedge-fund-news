@@ -2,9 +2,12 @@
 
 Automated pipeline for a student "hedge fund" group project: scrapes financial
 news, runs it through FinBERT (sentiment) + Groq (an LLM) to produce a
-summary, a recommended position (long/short/hold), rationale, and risk for
-each item, then delivers it twice a week (Mon/Wed) via email and a live
-dashboard. 100% free stack.
+summary, a recommended position (long/short/hold) across any asset class a
+fund might trade (equities, ETFs, options, futures, currencies, bonds) with
+the specific exchange/market it trades on, a holding horizon (days to
+months - never day-trade/intraday calls), and a presentation-ready
+explanation, then delivers it every morning via email and a live dashboard.
+100% free stack.
 
 ## Stack
 
@@ -69,7 +72,8 @@ Add all 5: `GROQ_API_KEY`, `FINNHUB_API_KEY`, `GMAIL_ADDRESS`,
 `GMAIL_APP_PASSWORD`, `EMAIL_RECIPIENTS` (comma-separated emails).
 
 Test it: Actions tab → "Scrape, analyze, and email fund news digest" →
-Run workflow (uses the `workflow_dispatch` trigger, no need to wait for Monday).
+Run workflow (uses the `workflow_dispatch` trigger, no need to wait for the
+schedule).
 
 ### 7. Deploy the dashboard
 1. Go to https://share.streamlit.io, sign in with GitHub.

@@ -18,11 +18,25 @@ WATCHLIST = [
 SECTOR_FOCUS = ["Technology", "AI/Semiconductors", "Consumer Discretionary"]
 
 # Keywords that flag a broad macro/market-moving story even if it doesn't
-# mention a watchlist ticker (rates, inflation, Fed, indices, etc.)
+# mention a watchlist ticker. Covers rates/inflation, but also FX, bonds,
+# futures/commodities, and non-US markets (esp. Japan) so the fund isn't
+# limited to US large-cap equity news - a hedge fund trades across all of
+# these asset classes and markets.
 MACRO_KEYWORDS = [
-    "federal reserve", "fed ", "interest rate", "inflation", "cpi", "jobs report",
-    "unemployment", "gdp", "recession", "s&p 500", "nasdaq", "dow jones",
-    "treasury yield", "ecb", "tariff", "oil price", "opec",
+    # Rates / inflation / US macro
+    "federal reserve", "fed ", "interest rate", "rate hike", "rate cut", "inflation",
+    "cpi", "jobs report", "unemployment", "gdp", "recession", "s&p 500", "nasdaq",
+    "dow jones", "treasury yield", "10-year", "yield curve",
+    # Currencies / FX
+    "dollar index", "dxy", "currency", "forex", "fx market", "usd/jpy", "eur/usd",
+    "yen", "euro", "pound sterling",
+    # Bonds / rates products
+    "bond market", "bond yield", "treasury note", "treasury bond",
+    # Futures / commodities
+    "futures", "crude oil", "wti", "brent", "opec", "gold price", "commodities",
+    # Non-US markets, esp. Japan
+    "bank of japan", "boj", "nikkei", "japan", "tokyo stock exchange",
+    "ecb", "european central bank", "bank of england", "china", "tariff",
 ]
 
 # Free RSS feeds, no API key required.

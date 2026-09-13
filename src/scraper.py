@@ -91,38 +91,40 @@ def fetch_finnhub_items(api_key: str) -> list:
 
     items = []
 
-    # General market news
-    try:
-        resp = requests.get(
-            f"{FINNHUB_BASE}/news",
-            params={"category": "general", "token": api_key},
-            timeout=15,
-        )
-        resp.raise_for_status()
-        for entry in resp.json():
-            published = datetime.fromtimestamp(entry.get("datetime", 0), tz=timezone.utc)
-            if not _within_lookback(published):
-                continue
-            title = entry.get("headline", "").strip()
-            summary = entry.get("summary", "").strip()
-            url = entry.get("url", "").strip()
-            if not title or not url:
-                continue
-            combined = f"{title} {summary}"
-            items.append(
-                {
-                    "id": _item_id(url),
-                    "title": title,
-                    "summary": summary,
-                    "url": url,
-                    "source": entry.get("source", "Finnhub"),
-                    "published_at": published.isoformat(),
-                    "tickers": _match_tickers(combined),
-                    "is_macro": _is_macro(combined),
-                }
+    # General market news + dedicated forex news (so currency stories show up
+    # reliably rather than relying only on keyword matches in general news)
+    for category in ("general", "forex"):
+        try:
+            resp = requests.get(
+                f"{FINNHUB_BASE}/news",
+                params={"category": category, "token": api_key},
+                timeout=15,
             )
-    except Exception as exc:
-        print(f"[scraper] Finnhub general news request failed: {exc}")
+            resp.raise_for_status()
+            for entry in resp.json():
+                published = datetime.fromtimestamp(entry.get("datetime", 0), tz=timezone.utc)
+                if not _within_lookback(published):
+                    continue
+                title = entry.get("headline", "").strip()
+                summary = entry.get("summary", "").strip()
+                url = entry.get("url", "").strip()
+                if not title or not url:
+                    continue
+                combined = f"{title} {summary}"
+                items.append(
+                    {
+                        "id": _item_id(url),
+                        "title": title,
+                        "summary": summary,
+                        "url": url,
+                        "source": entry.get("source", "Finnhub"),
+                        "published_at": published.isoformat(),
+                        "tickers": _match_tickers(combined),
+                        "is_macro": _is_macro(combined) or category == "forex",
+                    }
+                )
+        except Exception as exc:
+            print(f"[scraper] Finnhub {category} news request failed: {exc}")
 
     # Company-specific news for each watchlist ticker
     today = datetime.now(timezone.utc).date()
