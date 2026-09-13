@@ -2,14 +2,20 @@ name: Scrape, analyze, and email fund news digest
 
 on:
   schedule:
-    # Every day at 6:00 AM Beirut time. GitHub Actions cron always runs in UTC
-    # and does NOT auto-adjust for daylight saving, so this hour must be
-    # updated by hand twice a year:
-    #   - Beirut summer time (EEST, UTC+3, roughly late March - late October): use "0 3 * * *"
-    #   - Beirut winter time (EET, UTC+2, roughly late October - late March):  use "0 4 * * *"
+    # Targets 3:00 AM Beirut time (not 6:00) - GitHub Actions scheduled
+    # workflows are NOT guaranteed to fire exactly on time (delays of
+    # minutes to several hours are documented/common, especially for
+    # triggers set at the exact top of the hour, which is why the minute is
+    # offset to :13 here). Targeting 3am instead of 6am builds in a buffer
+    # so a delayed run still lands well before the morning.
+    #
+    # GitHub Actions cron always runs in UTC and does NOT auto-adjust for
+    # daylight saving, so this must be updated by hand twice a year:
+    #   - Beirut summer time (EEST, UTC+3, roughly late March - late October): use "13 0 * * *"
+    #   - Beirut winter time (EET, UTC+2, roughly late October - late March):  use "13 1 * * *"
     # Currently set for EEST (summer). When Lebanon switches back to winter
-    # time, change the line below from "0 3" to "0 4".
-    - cron: "0 3 * * *"
+    # time, change the line below from "13 0" to "13 1".
+    - cron: "13 0 * * *"
   workflow_dispatch: {}   # lets you trigger a run manually from the Actions tab
 
 permissions:
