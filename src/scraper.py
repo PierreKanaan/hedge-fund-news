@@ -5,6 +5,7 @@ and extracts full article text for downstream analysis.
 """
 import hashlib
 import os
+import re
 import time
 from datetime import datetime, timedelta, timezone
 
@@ -18,9 +19,16 @@ from src.config import (
     MACRO_KEYWORDS,
     LOOKBACK_HOURS,
     MAX_ITEMS_PER_RUN,
+    TICKER_SECTOR,
+    TICKER_SECTOR_WEIGHT,
 )
 
 FINNHUB_BASE = "https://finnhub.io/api/v1"
+
+# Word-boundary matching (not a naive substring check) - short tickers like
+# "DE" or "MS" would otherwise false-match inside unrelated words ("MADE",
+# "MSFT") or other tickers.
+_TICKER_PATTERNS = {t: re.compile(rf"\b{re.escape(t)}\b") for t in WATCHLIST}
 
 
 def _item_id(url: str) -> str:
@@ -29,7 +37,16 @@ def _item_id(url: str) -> str:
 
 def _match_tickers(text: str) -> list:
     text_upper = text.upper()
-    return [t for t in WATCHLIST if t in text_upper]
+    return [t for t, pattern in _TICKER_PATTERNS.items() if pattern.search(text_upper)]
+
+
+def _resolve_sector(tickers: list):
+    """Sector of the highest-weighted matched ticker, or None if no ticker
+    matched (a pure macro/cross-asset item)."""
+    if not tickers:
+        return None
+    best = max(tickers, key=lambda t: TICKER_SECTOR_WEIGHT.get(t, 0))
+    return TICKER_SECTOR.get(best)
 
 
 def _is_macro(text: str) -> bool:
@@ -180,15 +197,59 @@ def dedupe(items: list) -> list:
             existing = seen[key]
             existing["tickers"] = sorted(set(existing["tickers"] + item["tickers"]))
             existing["is_macro"] = existing["is_macro"] or item["is_macro"]
-    return list(seen.values())
+
+    result = list(seen.values())
+    for item in result:
+        item["sector"] = _resolve_sector(item["tickers"])
+    return result
+
+
+def _item_score(item: dict) -> float:
+    """Combines sector weight, macro relevance, and recency into a single
+    ranking score. Sector weight tilts the odds toward higher-weighted
+    sectors (Technology) without hard-gating lower-weighted ones out - a
+    very fresh, important story elsewhere can still outscore a stale,
+    lower-priority tech item."""
+    try:
+        published = datetime.fromisoformat(item["published_at"])
+        hours_old = (datetime.now(timezone.utc) - published).total_seconds() / 3600
+    except (ValueError, KeyError):
+        hours_old = LOOKBACK_HOURS
+    recency = max(0.0, 1.0 - hours_old / LOOKBACK_HOURS)  # 1.0 = brand new, 0.0 = at the edge of the window
+
+    ticker_weights = [TICKER_SECTOR_WEIGHT.get(t, 1.0) for t in item["tickers"]]
+    sector_component = max(ticker_weights) if ticker_weights else 0.0
+
+    macro_component = 0.5 if item["is_macro"] else 0.0
+
+    return sector_component + macro_component + recency
 
 
 def rank_and_trim(items: list, limit: int) -> list:
-    def score(item):
-        return (len(item["tickers"]) > 0, item["is_macro"], item["published_at"])
+    """Weighted score alone isn't enough on its own: Technology's higher
+    weight combined with its much higher real news volume can otherwise
+    sweep every slot, leaving zero room for other sectors even when they
+    have genuinely relevant news that day. So each sector present gets a
+    guaranteed shot at one slot (its own single best-scoring item) first;
+    everything else - which will still mostly be Technology, given its
+    weight and volume - fills the remaining slots by pure weighted score."""
+    ranked = sorted(items, key=_item_score, reverse=True)
 
-    ranked = sorted(items, key=score, reverse=True)
-    return ranked[:limit]
+    guaranteed = []
+    seen_sectors = set()
+    for item in ranked:
+        sector = item.get("sector")
+        if sector and sector not in seen_sectors:
+            guaranteed.append(item)
+            seen_sectors.add(sector)
+
+    guaranteed_ids = {id(i) for i in guaranteed}
+    remaining_slots = max(0, limit - len(guaranteed))
+    fill = [i for i in ranked if id(i) not in guaranteed_ids][:remaining_slots]
+
+    combined = guaranteed + fill
+    combined.sort(key=_item_score, reverse=True)  # restore importance order for display
+    return combined[:limit]
 
 
 def attach_full_text(items: list) -> list:
@@ -220,4 +281,4 @@ def scrape() -> list:
 
 if __name__ == "__main__":
     for i in scrape():
-        print(f"- [{i['source']}] {i['title']} (tickers={i['tickers']}, macro={i['is_macro']})")
+        print(f"- [{i['source']}] {i['title']} (tickers={i['tickers']}, sector={i['sector']}, macro={i['is_macro']})")

@@ -1,21 +1,67 @@
 """
-Central place to tune what the fund covers. Edit WATCHLIST and MACRO_KEYWORDS
+Central place to tune what the fund covers. Edit SECTORS and MACRO_KEYWORDS
 to match your group's strategy/thesis for the semester.
 """
 
-# Tickers/companies your fund actively covers. Used to pull ticker-specific
-# news from Finnhub and to prioritize relevance when scoring headlines.
-WATCHLIST = [
-    "AAPL",
-    "MSFT",
-    "NVDA",
-    "TSLA",
-    "AMZN",
-]
+# Sectors the fund covers, each with a watchlist of tickers and a relevance
+# weight. Weight influences which news wins one of the day's limited item
+# slots (see scraper._item_score) - it's a multiplier on top of relevance
+# signals like a ticker match and recency, not a hard quota or filter. That
+# means a high-weight sector (Technology) usually dominates, but a very
+# fresh/important story in a lower-weight sector can still outrank a stale,
+# minor tech story - weight tilts the odds, it doesn't guarantee the outcome.
+SECTORS = {
+    "Technology / AI & Semiconductors": {
+        "weight": 2.0,
+        "tickers": ["AAPL", "MSFT", "NVDA"],
+    },
+    "Consumer Discretionary": {
+        "weight": 1.0,
+        "tickers": ["AMZN", "TSLA"],
+    },
+    "Healthcare / Pharma": {
+        "weight": 1.0,
+        "tickers": ["JNJ", "UNH", "LLY", "PFE"],
+    },
+    "Financials / Banks": {
+        "weight": 1.0,
+        "tickers": ["JPM", "GS", "BAC", "WFC"],
+    },
+    "Energy": {
+        "weight": 1.0,
+        "tickers": ["XOM", "CVX", "OXY"],
+    },
+    "Agriculture / Commodities": {
+        "weight": 1.0,
+        "tickers": ["ADM", "DE", "MOS", "CTVA"],
+    },
+    "Industrials / Defense": {
+        "weight": 1.0,
+        "tickers": ["BA", "LMT", "CAT"],
+    },
+    "Consumer Staples": {
+        "weight": 0.8,
+        "tickers": ["PG", "KO", "WMT"],
+    },
+}
 
-# Sectors/themes, purely descriptive - passed to the LLM as context so it
-# knows your fund's mandate when suggesting positions.
-SECTOR_FOCUS = ["Technology", "AI/Semiconductors", "Consumer Discretionary"]
+# Derived lookups - built once here so scraper.py/analyzer.py/dashboard
+# don't each have to flatten SECTORS themselves.
+WATCHLIST = [t for s in SECTORS.values() for t in s["tickers"]]
+TICKER_SECTOR = {t: name for name, s in SECTORS.items() for t in s["tickers"]}
+TICKER_SECTOR_WEIGHT = {t: s["weight"] for s in SECTORS.values() for t in s["tickers"]}
+
+# Weights applied to the FINAL display/sort order only (the LLM decides
+# asset class during analysis, after news has already been selected, so
+# this can't influence which news gets picked the way sector weight does).
+ASSET_CLASS_WEIGHTS = {
+    "equity": 1.0, "etf": 0.9, "option": 0.7,
+    "future": 0.6, "currency": 0.6, "bond": 0.6,
+}
+
+# Purely descriptive, passed to the LLM as context so it knows the fund's
+# overall mandate. Kept separate from SECTORS' tickers/weights above.
+SECTOR_FOCUS = list(SECTORS.keys())
 
 # Keywords that flag a broad macro/market-moving story even if it doesn't
 # mention a watchlist ticker. Covers rates/inflation, but also FX, bonds,

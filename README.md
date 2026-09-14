@@ -117,11 +117,39 @@ in step 6, this needs a token added to the *Streamlit app's own* secrets:
 
 ## Customizing
 
-- **Watchlist / sectors / macro keywords**: edit `src/config.py`.
+- **Sectors, tickers, and weights**: edit `SECTORS` in `src/config.py` - a
+  dict of sector name -> `{"weight": float, "tickers": [...]}`. Weight
+  tilts which news wins one of the day's limited slots (see "Sector
+  coverage & weighting" below) - it's not a hard filter or quota.
+- **Macro keywords**: edit `src/config.py`.
 - **Schedule**: edit the `cron` line in `.github/workflows/scrape_and_analyze.yml`.
 - **How many items per run**: `MAX_ITEMS_PER_RUN` in `src/config.py` (currently 40).
 - **Email look**: `src/emailer.py` (`_item_html` / `build_digest_html`).
 - **Dashboard look**: `dashboard/app.py` (CSS is inline at the top of the file).
+
+## Sector coverage & weighting
+
+The fund covers 8 sectors (Technology/AI & Semiconductors, Consumer
+Discretionary, Healthcare/Pharma, Financials/Banks, Energy,
+Agriculture/Commodities, Industrials/Defense, Consumer Staples), each with
+its own watchlist tickers and a numeric weight in `src/config.py`. Selection
+works in two steps (`scraper.rank_and_trim`):
+1. Every sector with genuinely relevant news that day gets a guaranteed shot
+   at one slot (its own single best-scoring story) - so a sector never gets
+   completely shut out just because Technology has 10x the news volume.
+2. All remaining slots fill by a weighted score (sector weight × recency ×
+   macro relevance) - Technology's higher weight (2.0 vs 1.0 for most other
+   sectors) means it still wins most of these, by design.
+
+Net effect: mostly tech-oriented, but every sector with real news gets
+noticed rather than being swept entirely. Ticker matching uses word
+boundaries (not substring matching), so short tickers like `DE` or `MS`
+don't false-match inside unrelated words.
+
+`ASSET_CLASS_WEIGHTS` also exists in config, but only for the LLM's asset
+class choice (equity/ETF/option/future/currency/bond) which happens
+*during* analysis, after news is already selected - it can't influence
+which news gets picked the way sector weight does.
 
 ## A real limit worth knowing: Groq's daily token cap
 

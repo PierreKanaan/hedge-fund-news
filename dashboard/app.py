@@ -190,15 +190,18 @@ def render_news_feed():
 
     all_tickers = sorted({t for i in items for t in i.get("tickers", [])})
     asset_classes_present = sorted({i.get("analysis", {}).get("asset_class", "equity") for i in items})
+    sectors_present = sorted({i.get("sector") for i in items if i.get("sector")})
 
-    filter_cols = st.columns([2, 3, 3])
+    filter_cols = st.columns([2, 2, 3, 3])
     with filter_cols[0]:
         ticker_filter = st.multiselect("Ticker", all_tickers)
     with filter_cols[1]:
+        sector_filter = st.multiselect("Sector", sectors_present)
+    with filter_cols[2]:
         position_filter = st.segmented_control(
             "Position", ["long", "short", "hold"], selection_mode="multi", default=[]
         )
-    with filter_cols[2]:
+    with filter_cols[3]:
         asset_class_filter = st.segmented_control(
             "Asset class", asset_classes_present, selection_mode="multi", default=[]
         )
@@ -206,6 +209,8 @@ def render_news_feed():
     filtered = items
     if ticker_filter:
         filtered = [i for i in filtered if set(i.get("tickers", [])) & set(ticker_filter)]
+    if sector_filter:
+        filtered = [i for i in filtered if i.get("sector") in sector_filter]
     if position_filter:
         filtered = [i for i in filtered if i.get("analysis", {}).get("position") in position_filter]
     if asset_class_filter:
@@ -239,7 +244,7 @@ def render_news_feed():
             <div class="news-card" style="animation-delay:{min(idx, 8) * 0.05}s;">
               <div class="news-title"><a href="{item['url']}" target="_blank">{item['title']}</a></div>
               <div class="news-meta">
-                {item.get('source','')} · {published} · tickers: {tickers}
+                {item.get('source','')} · {published} · tickers: {tickers} · sector: {item.get('sector') or 'Macro / cross-asset'}
                 · FinBERT: {sentiment.get('label','n/a')} ({sentiment.get('confidence', 0)})
               </div>
               <div class="subtle-box"><b>Catalyst:</b> {a.get('catalyst','')}</div>
