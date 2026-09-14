@@ -63,9 +63,13 @@ cp .env.example .env
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
-# Dry run: scrapes + scores + writes data/latest.json, no email sent.
-# Works even without GROQ_API_KEY (uses placeholder analysis) so you can
-# sanity-check the scraper and dashboard first.
+# Fully free test - scrapes, scores, snapshots prices, writes data/latest.json,
+# but skips Groq entirely (placeholder analysis) and skips email. Use this to
+# test the scraper/ranking/dashboard without touching Groq's daily quota.
+python -m src.pipeline --dry-run --skip-groq
+
+# Dry run with REAL Groq analysis (uses quota) but no email - good for
+# checking actual analysis quality without spamming your inbox.
 python -m src.pipeline --dry-run
 
 # View the dashboard locally

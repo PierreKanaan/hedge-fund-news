@@ -2,9 +2,15 @@
 Orchestrates the full run: scrape -> sentiment -> LLM analysis -> persist -> email.
 
 Usage:
-    python -m src.pipeline              # full run, sends email
-    python -m src.pipeline --dry-run    # scrape + sentiment + analysis, no email,
-                                         # and skips Groq calls too if no key is set
+    python -m src.pipeline                       # full run, sends email
+    python -m src.pipeline --dry-run              # no email, but still calls Groq
+                                                    # for real analysis (uses quota)
+    python -m src.pipeline --dry-run --skip-groq  # fully free test: scrape, sentiment,
+                                                    # price snapshots, placeholder analysis -
+                                                    # no email, no Groq quota used at all.
+                                                    # Good for testing the scraper/ranking/
+                                                    # dashboard without touching the daily
+                                                    # token budget.
 """
 import argparse
 import json
@@ -35,20 +41,21 @@ def _mock_analysis(items: list) -> list:
     return items
 
 
-def run(dry_run: bool = False) -> dict:
+def run(dry_run: bool = False, skip_groq: bool = False) -> dict:
     print("[pipeline] scraping...")
     items = scraper.scrape()
 
     print("[pipeline] scoring sentiment (FinBERT)...")
     items = sentiment.annotate_items(items)
 
-    if os.environ.get("GROQ_API_KEY"):
+    if os.environ.get("GROQ_API_KEY") and not skip_groq:
         print("[pipeline] running LLM analysis (Groq)...")
         from src import analyzer
 
         items = analyzer.annotate_items(items)
     else:
-        print("[pipeline] GROQ_API_KEY not set, using placeholder analysis")
+        reason = "--skip-groq passed" if skip_groq else "GROQ_API_KEY not set"
+        print(f"[pipeline] {reason}, using placeholder analysis (no Groq quota used)")
         items = _mock_analysis(items)
 
     print("[pipeline] snapshotting entry prices...")
@@ -85,5 +92,9 @@ def run(dry_run: bool = False) -> dict:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="skip sending email")
+    parser.add_argument(
+        "--skip-groq", action="store_true",
+        help="use placeholder analysis instead of calling Groq - free, uses no daily token quota",
+    )
     args = parser.parse_args()
-    run(dry_run=args.dry_run)
+    run(dry_run=args.dry_run, skip_groq=args.skip_groq)
