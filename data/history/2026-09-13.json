@@ -72,8 +72,8 @@
         "risk": "If Tesla\u2019s Robotaxi service scales faster than expected and margins improve, the stock could rally, eroding the short thesis.",
         "confidence": 0.68
       },
-      "chart_symbol": "NVDA",
-      "entry_price": 218.29
+      "chart_symbol": "TSLA",
+      "entry_price": 365.44
     },
     {
       "id": "e15b02f55b774874",
@@ -180,8 +180,8 @@
         "risk": "If the market rallies strongly and tech mega\u2011caps continue to outpace smaller names, VOO could outperform RSP, eroding the relative gain of the long position.",
         "confidence": 0.68
       },
-      "chart_symbol": "NVDA",
-      "entry_price": 218.29
+      "chart_symbol": "RSP",
+      "entry_price": 214.87
     },
     {
       "id": "6ee11a75cbf1ffd8",
@@ -217,8 +217,8 @@
         "risk": "If Sirius XM\u2019s new low\u2011priced products fail to attract users or advertisers, the competitive pressure on Amazon could be less than expected, limiting any upside or downside for AMZN.",
         "confidence": 0.58
       },
-      "chart_symbol": "AAPL",
-      "entry_price": 332.27
+      "chart_symbol": "AMZN",
+      "entry_price": 256.78
     },
     {
       "id": "cfd058bfea4ea4dc",
