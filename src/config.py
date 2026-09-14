@@ -55,7 +55,7 @@ TICKER_SECTOR_WEIGHT = {t: s["weight"] for s in SECTORS.values() for t in s["tic
 # asset class during analysis, after news has already been selected, so
 # this can't influence which news gets picked the way sector weight does).
 ASSET_CLASS_WEIGHTS = {
-    "equity": 1.0, "etf": 0.9, "option": 0.7,
+    "equity": 1.0, "etf": 0.9, "commodity": 0.9, "option": 0.7,
     "future": 0.6, "currency": 0.6, "bond": 0.6,
 }
 
@@ -80,6 +80,11 @@ MACRO_KEYWORDS = [
     "bond market", "bond yield", "treasury note", "treasury bond",
     # Futures / commodities
     "futures", "crude oil", "wti", "brent", "opec", "gold price", "commodities",
+    "natural gas", "silver", "copper", "wheat", "corn", "soybean",
+    # Geopolitical - these move commodities (esp. oil) even when the
+    # headline doesn't mention "oil" or "commodity" directly
+    "middle east", "israel", "iran", "strait of hormuz", "houthi", "red sea",
+    "geopolitical", "sanctions",
     # Non-US markets, esp. Japan
     "bank of japan", "boj", "nikkei", "japan", "tokyo stock exchange",
     "ecb", "european central bank", "bank of england", "china", "tariff",

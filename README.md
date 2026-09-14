@@ -3,7 +3,8 @@
 Automated pipeline for a student "hedge fund" group project: scrapes financial
 news, runs it through FinBERT (sentiment) + Groq (an LLM) to produce a
 summary, a recommended position (long/short/hold) across any asset class a
-fund might trade (equities, ETFs, options, futures, currencies, bonds) with
+fund might trade (equities, ETFs, options, futures, currencies, bonds,
+commodities) with
 the specific exchange/market it trades on, a holding horizon (days to
 months - never day-trade/intraday calls), and a presentation-ready
 explanation, then delivers it every morning via email and a live dashboard.

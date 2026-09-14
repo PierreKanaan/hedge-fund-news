@@ -35,7 +35,7 @@ GITHUB_WORKFLOW_FILE = "scrape_and_analyze.yml"
 
 POSITION_COLORS = {"long": "#1a7f37", "short": "#c62828", "hold": "#8a6d00"}
 ASSET_CLASS_ICONS = {
-    "equity": "📈", "etf": "🧺", "option": "🎯",
+    "equity": "📈", "etf": "🧺", "option": "🎯", "commodity": "🛢️",
     "future": "⏳", "currency": "💱", "bond": "🏦",
 }
 VERDICT_LABELS = {"hit": "✅ Hit", "miss": "❌ Miss", "too_early": "⏳ Too early"}

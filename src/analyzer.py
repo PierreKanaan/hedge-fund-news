@@ -13,7 +13,7 @@ from pydantic import BaseModel, ValidationError, field_validator
 from src.config import GROQ_MODEL, WATCHLIST, SECTOR_FOCUS
 
 VALID_POSITIONS = {"long", "short", "hold"}
-VALID_ASSET_CLASSES = {"equity", "etf", "option", "future", "currency", "bond"}
+VALID_ASSET_CLASSES = {"equity", "etf", "option", "future", "currency", "bond", "commodity"}
 
 
 class TradeNote(BaseModel):
@@ -68,25 +68,38 @@ the catalyst takes longer to play out.
 IMPORTANT - instrument choice: a real hedge fund does not only trade US
 large-cap stocks. Pick whichever instrument and asset class most directly
 expresses the thesis - equities, ETFs, options (e.g. "AAPL Jan-2027 190
-Call"), futures (e.g. "CME E-mini S&P 500 future /ES", "WTI crude future
-/CL", "10-Year Treasury Note future /ZN"), currencies/FX (e.g. "USD/JPY",
-"EUR/USD"), or bonds/rate products (e.g. "iShares 20+ Year Treasury Bond ETF
-TLT"). A Fed rate story is often better expressed via a rate future, a bond
-ETF, or the dollar than by a random stock. Always name the specific market or
-exchange the instrument trades on - mainly the NYSE/NASDAQ for US equities
-since that's this fund's primary focus, but use the correct market when the
-news points elsewhere (e.g. Tokyo Stock Exchange for a Japanese company, the
-Bank of Japan for yen-driven FX moves, CME/CBOT for futures, the interbank/FX
-market for currency pairs, LSE for UK-listed names, etc.).
+Call"), futures (e.g. "CME E-mini S&P 500 future /ES", "10-Year Treasury
+Note future /ZN"), currencies/FX (e.g. "USD/JPY", "EUR/USD"), bonds/rate
+products (e.g. "iShares 20+ Year Treasury Bond ETF TLT"), or commodities
+(e.g. "WTI Crude Oil", "Brent Crude", "Gold", "Natural Gas"). A Fed rate
+story is often better expressed via a rate future, a bond ETF, or the
+dollar than by a random stock. Geopolitical stories (e.g. Middle East
+tensions) are very often better expressed as a direct commodity trade (oil,
+gold) than a random related equity.
+
+IMPORTANT - commodity vs. future/etf: if the trade is fundamentally about a
+physical commodity (oil, gold, silver, natural gas, copper, agricultural
+products like corn/wheat/soybeans), classify asset_class as "commodity" -
+even if you'd actually express it via a futures contract or a commodity
+ETF wrapper. Reserve "future" for non-commodity futures (equity-index,
+rate) and "etf" for non-commodity ETFs, so "commodity" reliably captures
+every commodity-driven thesis regardless of wrapper.
+
+Always name the specific market or exchange the instrument trades on -
+mainly the NYSE/NASDAQ for US equities since that's this fund's primary
+focus, but use the correct market when the news points elsewhere (e.g.
+Tokyo Stock Exchange for a Japanese company, the Bank of Japan for
+yen-driven FX moves, CME/CBOT/NYMEX for futures and commodities, the
+interbank/FX market for currency pairs, LSE for UK-listed names, etc.).
 
 Respond ONLY with a JSON object with exactly these fields:
 {{
   "summary": "1-2 sentence plain-English summary of the news itself",
   "catalyst": "one sentence naming the specific trigger/event driving this (e.g. an earnings beat, a Fed statement, a product announcement) - not generic",
   "position": "long" | "short" | "hold",
-  "asset_class": "equity" | "etf" | "option" | "future" | "currency" | "bond",
-  "instrument": "the specific ticker/contract/pair you'd trade, matching asset_class (e.g. 'NVDA', 'TLT', 'AAPL Jan-2027 190 Call', 'CME /ES', 'USD/JPY')",
-  "market": "the specific exchange or market this trades on, e.g. 'NASDAQ', 'NYSE', 'Tokyo Stock Exchange (TSE)', 'CME (futures)', 'CBOT (futures)', 'FX interbank/OTC market'",
+  "asset_class": "equity" | "etf" | "option" | "future" | "currency" | "bond" | "commodity",
+  "instrument": "the specific ticker/contract/pair/commodity you'd trade, matching asset_class (e.g. 'NVDA', 'TLT', 'AAPL Jan-2027 190 Call', 'CME /ES', 'USD/JPY', 'WTI Crude Oil', 'Gold')",
+  "market": "the specific exchange or market this trades on, e.g. 'NASDAQ', 'NYSE', 'Tokyo Stock Exchange (TSE)', 'CME (futures)', 'CBOT (futures)', 'NYMEX (commodities)', 'FX interbank/OTC market'",
   "horizon": "the expected holding period for this specific thesis and what would signal it's time to close the position - e.g. '3-5 days, into the earnings print' or '3-6 months, as the AI capex cycle plays out'. Never intraday/same-day.",
   "explanation": "4-6 sentences, written as spoken talking points, walking through the reasoning chain end to end: what happened -> why it matters for this instrument over the stated horizon -> how the sentiment/valuation/market context supports the position -> why this position specifically (not the alternative). Assume the listener has NOT read the article - make it self-contained. Plain language, no jargon without a quick definition.",
   "rationale": ["2 to 3 short bullet points - a quick-reference cheat sheet version of the explanation, for slides or fast recall during Q&A"],

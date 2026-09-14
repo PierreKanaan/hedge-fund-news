@@ -23,6 +23,17 @@ _FUTURES_MAP = {
     "/YM": "YM=F", "/RTY": "RTY=F", "/SI": "SI=F",
 }
 
+# Common commodity names (as the LLM would write them in plain English) ->
+# yfinance's continuous-contract ticker. Checked as a case-insensitive
+# substring match against the instrument text, since commodities are
+# usually named in prose ("WTI Crude Oil", "Gold") rather than as a ticker.
+_COMMODITY_MAP = {
+    "wti": "CL=F", "crude oil": "CL=F", "brent": "BZ=F",
+    "natural gas": "NG=F", "gold": "GC=F", "silver": "SI=F", "copper": "HG=F",
+    "corn": "ZC=F", "wheat": "ZW=F", "soybean": "ZS=F",
+    "coffee": "KC=F", "cotton": "CT=F", "sugar": "SB=F",
+}
+
 _PLAIN_TICKER_RE = re.compile(r"^[A-Z]{1,5}$")
 _SLASH_PAIR_RE = re.compile(r"^([A-Z]{2,5})/([A-Z]{2,5})$")
 _LEADING_TICKER_RE = re.compile(r"^([A-Z]{1,5})\b")
@@ -42,6 +53,10 @@ def resolve_chart_symbol(item: dict):
             return instrument
         if instrument in _FX_MAP:
             return _FX_MAP[instrument]
+        instrument_lower = instrument.lower()
+        for name, symbol in _COMMODITY_MAP.items():
+            if name in instrument_lower:
+                return symbol
         pair_match = _SLASH_PAIR_RE.match(instrument)
         if pair_match:
             # Not a recognized FX major - most likely a crypto pair (e.g.
