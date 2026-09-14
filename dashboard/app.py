@@ -42,6 +42,12 @@ VERDICT_LABELS = {"hit": "✅ Hit", "miss": "❌ Miss", "too_early": "⏳ Too ea
 TRACK_RECORD_GRACE_DAYS = 2
 TRACK_RECORD_THRESHOLD_PCT = 1.0
 
+CHART_RANGES = {
+    "Day": {"period": "1d", "interval": "5m"},
+    "Week": {"period": "5d", "interval": "30m"},
+    "Month": {"period": "1mo", "interval": "1d"},
+}
+
 st.set_page_config(page_title="Fund News Dashboard", page_icon="📈", layout="wide")
 
 st.markdown(
@@ -93,9 +99,9 @@ def load_report(path):
         return json.load(f)
 
 
-@st.cache_data(ttl=3600)
-def cached_price_history(symbol, period="1mo"):
-    hist = prices.get_price_history(symbol, period=period)
+@st.cache_data(ttl=900)
+def cached_price_history(symbol, period, interval):
+    hist = prices.get_price_history(symbol, period=period, interval=interval)
     return hist.to_dict() if hist is not None else None
 
 
@@ -207,6 +213,12 @@ def render_news_feed():
 
     st.caption(f"Showing {len(filtered)} of {len(items)} items")
 
+    chart_range = st.segmented_control(
+        "Chart range (applies to all charts below)",
+        list(CHART_RANGES.keys()), default="Month", key="chart_range",
+    ) or "Month"
+    range_cfg = CHART_RANGES[chart_range]
+
     for idx, item in enumerate(filtered):
         a = item.get("analysis", {})
         position = a.get("position", "hold")
@@ -248,17 +260,17 @@ def render_news_feed():
         symbol = item.get("chart_symbol")
         st.markdown('<div class="chart-wrap">', unsafe_allow_html=True)
         if symbol:
-            hist_dict = cached_price_history(symbol)
+            hist_dict = cached_price_history(symbol, range_cfg["period"], range_cfg["interval"])
             if hist_dict:
                 series = pd.Series(hist_dict)
                 entry_price = item.get("entry_price")
-                caption = f"📉 {symbol} - last 1mo"
+                caption = f"📉 {symbol} - {chart_range.lower()} view"
                 if entry_price is not None:
                     caption += f" · entry price when flagged: ${entry_price}"
                 st.caption(caption)
                 st.line_chart(series, height=160)
             else:
-                st.caption(f"Chart unavailable for {symbol} right now.")
+                st.caption(f"Chart unavailable for {symbol} on this timeframe right now.")
         else:
             st.caption("No chartable symbol for this instrument (e.g. a specific option contract).")
         st.markdown("</div>", unsafe_allow_html=True)

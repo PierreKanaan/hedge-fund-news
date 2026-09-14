@@ -24,30 +24,42 @@ _FUTURES_MAP = {
 }
 
 _PLAIN_TICKER_RE = re.compile(r"^[A-Z]{1,5}$")
+_SLASH_PAIR_RE = re.compile(r"^([A-Z]{2,5})/([A-Z]{2,5})$")
+_LEADING_TICKER_RE = re.compile(r"^([A-Z]{1,5})\b")
 
 
 def resolve_chart_symbol(item: dict):
     """Best-effort mapping from a recommendation to a yfinance-chartable
-    symbol. Prefers the matched watchlist ticker (most reliable - it's the
-    real company driving the thesis even when the recommended instrument is
-    a derivative on it), then falls back to parsing the free-form
-    'instrument' text for FX/futures/plain-ticker cases. Returns None (skip
-    charting) for anything else, e.g. a specific options contract, rather
-    than guessing at something that might mislead."""
+    symbol. Always tries the actual recommended 'instrument' text FIRST -
+    that's what the position is actually about. The matched watchlist
+    ticker is only a last-resort fallback, since it can be an unrelated
+    incidental mention in the article (e.g. a crypto piece that name-drops
+    an AI stock for comparison) rather than the real underlying."""
+    instrument = (item.get("analysis", {}) or {}).get("instrument", "").strip()
+
+    if instrument:
+        if _PLAIN_TICKER_RE.match(instrument):
+            return instrument
+        if instrument in _FX_MAP:
+            return _FX_MAP[instrument]
+        pair_match = _SLASH_PAIR_RE.match(instrument)
+        if pair_match:
+            # Not a recognized FX major - most likely a crypto pair (e.g.
+            # "XRP/USD"), which yfinance addresses as "XRP-USD".
+            base, quote = pair_match.groups()
+            return f"{base}-{quote}"
+        for code, symbol in _FUTURES_MAP.items():
+            if code in instrument:
+                return symbol
+        # Longer descriptive instrument, e.g. an options contract like
+        # "AAPL Jan-2027 190 Call" - chart the underlying it's named after.
+        leading = _LEADING_TICKER_RE.match(instrument)
+        if leading:
+            return leading.group(1)
+
     tickers = item.get("tickers") or []
     if tickers:
         return tickers[0]
-
-    instrument = (item.get("analysis", {}) or {}).get("instrument", "").strip()
-    if not instrument:
-        return None
-    if instrument in _FX_MAP:
-        return _FX_MAP[instrument]
-    for code, symbol in _FUTURES_MAP.items():
-        if code in instrument:
-            return symbol
-    if _PLAIN_TICKER_RE.match(instrument):
-        return instrument
     return None
 
 
@@ -64,11 +76,11 @@ def get_last_price(symbol):
         return None
 
 
-def get_price_history(symbol, period="1mo"):
+def get_price_history(symbol, period="1mo", interval="1d"):
     if not symbol:
         return None
     try:
-        hist = yf.Ticker(symbol).history(period=period)
+        hist = yf.Ticker(symbol).history(period=period, interval=interval)
         if hist.empty:
             return None
         return hist["Close"]
