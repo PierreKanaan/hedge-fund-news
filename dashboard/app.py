@@ -40,7 +40,7 @@ ASSET_CLASS_ICONS = {
 }
 VERDICT_LABELS = {"hit": "✅ Hit", "miss": "❌ Miss", "too_early": "⏳ Too early"}
 TRACK_RECORD_GRACE_DAYS = 2
-TRACK_RECORD_THRESHOLD_PCT = 1.0
+TRACK_RECORD_THRESHOLD_PCT = 2.0  # a realistic take-profit/stop-out level, not noise-level movement
 
 CHART_RANGES = {
     "Day": {"period": "1d", "interval": "5m"},
@@ -279,10 +279,12 @@ def render_news_feed():
 def render_track_record():
     st.subheader("📊 Track Record")
     st.caption(
-        f"Every long/short pick vs. its price today. Picks younger than "
-        f"{TRACK_RECORD_GRACE_DAYS} days are marked \"too early\" rather than scored - "
-        f"not enough time has passed to judge the thesis fairly. Holds aren't directional "
-        f"bets, so they're excluded from scoring."
+        f"Every long/short pick vs. its live/last-close price whenever you open this tab "
+        f"(not a scheduled market-open check). Picks younger than {TRACK_RECORD_GRACE_DAYS} days "
+        f"are marked \"too early\" - not enough time has passed to judge the thesis fairly. "
+        f"Once past that, a move needs to clear ±{TRACK_RECORD_THRESHOLD_PCT:.0f}% "
+        f"(a realistic take-profit/stop-out level) to count as a Hit or Miss - anything smaller "
+        f"still shows as pending. Holds aren't directional bets, so they're excluded from scoring."
     )
 
     files = sorted(glob.glob(os.path.join(HISTORY_DIR, "*.json")))
