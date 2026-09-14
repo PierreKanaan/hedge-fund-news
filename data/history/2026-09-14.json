@@ -34,7 +34,9 @@
         ],
         "risk": "If Tesla\u2019s robot rollout is delayed or fails to meet expectations, the competitive threat may be irrelevant and the stock could stay strong.",
         "confidence": 0.55
-      }
+      },
+      "chart_symbol": "TSLA",
+      "entry_price": 365.44
     },
     {
       "id": "8d9290b62862a473",
@@ -69,7 +71,9 @@
         ],
         "risk": "If the Fed signals a more aggressive stance on inflation or if AI firms announce new breakthroughs that offset regulatory concerns, the sell\u2011off could reverse quickly.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "481421ab0c3f6afc",
@@ -104,7 +108,9 @@
         ],
         "risk": "If the AI slowdown call fails to translate into policy or market sentiment, Nvidia could rebound on earnings or product news, eroding the short position.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "0e1113d203428fb1",
@@ -138,7 +144,9 @@
         ],
         "risk": "If a broader market sell\u2011off is triggered by Berkshire\u2019s continued underperformance, high\u2011beta tech like Nvidia could be pulled down.",
         "confidence": 0.62
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "8b3d9b20b2db4c07",
@@ -173,7 +181,9 @@
         ],
         "risk": "If the AI slowdown call fails to translate into concrete policy or if Nvidia reports stronger\u2011than\u2011expected earnings, the stock could rebound, eroding the short.",
         "confidence": 0.71
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "b218844773dd4441",
@@ -208,7 +218,9 @@
         ],
         "risk": "If regulators take a hands\u2011off approach and AI spending remains robust, Nvidia could continue rallying, eroding the put's value.",
         "confidence": 0.71
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "b2b3beef681a4c38",
@@ -242,7 +254,9 @@
         ],
         "risk": "If Nvidia misses its growth or product cadence expectations, earnings could fall short and the stock may revert to higher multiples, eroding the upside.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "b70f28fa678cccb4",
@@ -276,7 +290,9 @@
         ],
         "risk": "If a broad market correction wipes out price trends across sectors, the ETF\u2019s momentum signals could generate rapid turnover and underperformance relative to the S&P 500.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "c826868c65553919",
@@ -310,7 +326,9 @@
         ],
         "risk": "If an unexpected macro shock (e.g., a sharp rate hike) suddenly depresses tech valuations, our NVDA position could suffer.",
         "confidence": 0.32
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "8fd10cb7847040f8",
@@ -345,7 +363,9 @@
         ],
         "risk": "If AI capex remains robust or Nvidia beats expectations, the stock could rally, erasing the short thesis.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "MSFT",
+      "entry_price": 495.63
     },
     {
       "id": "ac8e7751e2636b52",
@@ -379,7 +399,9 @@
         ],
         "risk": "If the Fed unexpectedly cuts rates or if AI demand stalls, NVDA could see a sharp price decline, turning a neutral stance into a loss.",
         "confidence": 0.58
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "5f24339fd234eee6",
@@ -413,7 +435,9 @@
         ],
         "risk": "If AI spending slows or NVIDIA\u2019s growth slows, the cash\u2011flow assumptions could prove optimistic, limiting upside.",
         "confidence": 0.71
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "46f2e236560a4f84",
@@ -447,7 +471,9 @@
         ],
         "risk": "If AWS utilization accelerates faster than expected and free cash flow turns positive, the stock could rally, erasing the short thesis.",
         "confidence": 0.68
-      }
+      },
+      "chart_symbol": "AMZN",
+      "entry_price": 256.78
     },
     {
       "id": "3e7397b44dbb02c7",
@@ -481,7 +507,9 @@
         ],
         "risk": "If a rapid shift to alternative accelerators (e.g., AMD or custom chips) accelerates, NVIDIA\u2019s hardware longevity advantage could erode, hurting the stock.",
         "confidence": 0.73
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "da3d00de56bf8a8b",
@@ -515,7 +543,9 @@
         ],
         "risk": "If crypto activity rebounds strongly after the subsidy ends, unexpected GPU demand could lift Nvidia\u2019s stock, making a missed upside risk.",
         "confidence": 0.32
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "c408d8e8a63b393d",
@@ -550,7 +580,9 @@
         ],
         "risk": "If the AI slowdown narrative fizzles or the Fed signals a dovish stance, the market could rally, making the put lose value.",
         "confidence": 0.71
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "df4faca519025cca",
@@ -584,7 +616,9 @@
         ],
         "risk": "If a sudden Nvidia\u2011related event (e.g., earnings miss or AI demand slowdown) occurs, our unchanged exposure could be mis\u2011aligned.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "9b59a86e1adfeec1",
@@ -618,7 +652,9 @@
         ],
         "risk": "If consumer adoption of the high\u2011priced foldable is weak or supply constraints delay shipments, the stock could stall or fall.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "ecb63531a14bfd12",
@@ -652,7 +688,9 @@
         ],
         "risk": "If a major AI\u2011hardware partnership or supply\u2011chain news for Nvidia surfaces unexpectedly, we could miss an upside opportunity by staying flat",
         "confidence": 0.38
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "3492ffbeae661f7d",
@@ -687,7 +725,9 @@
         ],
         "risk": "If California regulators deny a paid\u2011driverless permit or the pilot fails to attract riders, the robotaxi story could stall and weigh on Amazon\u2019s stock.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "AMZN",
+      "entry_price": 256.78
     },
     {
       "id": "95921ff8d95315ec",
@@ -721,7 +761,9 @@
         ],
         "risk": "If AI spending slows faster than expected or Nvidia\u2019s supply chain constraints hit, the stock could underperform.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "f3181b0c2bd030fa",
@@ -755,7 +797,9 @@
         ],
         "risk": "If the Firmus sites are delayed or the OpenAI contract scales down, the anticipated hardware demand may not materialize, limiting NVIDIA\u2019s near\u2011term earnings boost.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "83142eefd2d53ed4",
@@ -791,7 +835,9 @@
         ],
         "risk": "If Nvidia decides not to invest or the IPO is delayed/cancelled, the anticipated demand boost evaporates and the stock could revert to prior levels.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "AMZN",
+      "entry_price": 256.78
     },
     {
       "id": "f2d2aa9f30e874db",
@@ -825,7 +871,9 @@
         ],
         "risk": "If the election leads to a Democratic administration that reverses the strategic reserve policy or imposes stricter crypto regulations, Bitcoin demand could fall sharply.",
         "confidence": 0.68
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "d1e90130776b4931",
@@ -859,7 +907,9 @@
         ],
         "risk": "If Kroger\u2019s dividend growth stalls or the stock price falls sharply, the projected yield advantage disappears.",
         "confidence": 0.42
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "008ee5fa9d2517b2",
@@ -893,7 +943,9 @@
         ],
         "risk": "If European AI spending stays weak or the Hugging Face integration stalls, Nvidia\u2019s growth could be muted, pressuring the stock.",
         "confidence": 0.62
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "b2311e330e5ce2a3",
@@ -927,7 +979,9 @@
         ],
         "risk": "If AI spending accelerates faster than expected, NVDA could rally, making a missed long opportunity.",
         "confidence": 0.42
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "d5d845cb36adb66f",
@@ -961,7 +1015,9 @@
         ],
         "risk": "If the Fed unexpectedly holds rates or delivers dovish guidance, the market could rally on relief, pushing Nvidia higher and hurting the short.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "9c62f100fb7f483e",
@@ -996,7 +1052,9 @@
         ],
         "risk": "If Tesla\u2019s Robotaxi service scales faster than expected and earnings beat forecasts, the stock could rally, eroding the short position.",
         "confidence": 0.68
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "e15b02f55b774874",
@@ -1030,7 +1088,9 @@
         ],
         "risk": "If grid or regulatory delays slow the Australian build\u2011out, the anticipated near\u2011term revenue boost could be postponed.",
         "confidence": 0.84
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "cb92d619e437c337",
@@ -1064,7 +1124,9 @@
         ],
         "risk": "If AI security adoption slows or Microsoft\u2019s integration with Zscaler falters, the expected revenue boost could be muted.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "MSFT",
+      "entry_price": 495.63
     },
     {
       "id": "b45316ec98c08ea4",
@@ -1099,7 +1161,9 @@
         ],
         "risk": "If the tech sector rallies or Nvidia releases unexpectedly strong guidance, the short could quickly turn loss-making.",
         "confidence": 0.68
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "6ee11a75cbf1ffd8",
@@ -1134,7 +1198,9 @@
         ],
         "risk": "If the ad\u2011supported and sports packages fail to attract enough new subscribers, cash\u2011flow growth could stall and the stock may underperform.",
         "confidence": 0.71
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "cfd058bfea4ea4dc",
@@ -1168,7 +1234,9 @@
         ],
         "risk": "A prolonged crypto bear market or renewed regulatory crackdown could keep demand low and prevent price appreciation.",
         "confidence": 0.68
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "04af129c30dc3fc5",
@@ -1202,7 +1270,9 @@
         ],
         "risk": "If the flexible AI factory fails to demonstrate reliable grid\u2011responsive performance or is further delayed, any anticipated boost to NVIDIA\u2019s AI demand could evaporate, pressuring the stock.",
         "confidence": 0.42
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "255e6c261775cabb",
@@ -1236,7 +1306,9 @@
         ],
         "risk": "If the Fed signals a more aggressive tightening than expected, broader market panic could spill over and pull down even resilient stocks like Apple.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "5da432c5b5847976",
@@ -1270,7 +1342,9 @@
         ],
         "risk": "If Oracle\u2019s AI projects stall or customers shift to alternative accelerators, Nvidia\u2019s incremental revenue could fall short of expectations, pressuring the stock.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "db67366e646bcf53",
@@ -1304,7 +1378,9 @@
         ],
         "risk": "If the AI market softens faster than expected or NVIDIA misses its own earnings, the sector rally could reverse, hurting NVDA's price.",
         "confidence": 0.68
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "20b71f963ec72232",
@@ -1340,7 +1416,9 @@
         ],
         "risk": "If Tesla provides detailed pricing and scaling plans that reassure investors, or if the Fed signals a more dovish stance, the stock could rebound and the short would lose money.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "45ba451143240361",
@@ -1374,7 +1452,9 @@
         ],
         "risk": "If the Fed unexpectedly cuts rates or signals a more dovish stance, consumer\u2011discretionary sentiment could improve and Amazon\u2019s stock may rally, hurting the short position",
         "confidence": 0.62
-      }
+      },
+      "chart_symbol": "AMZN",
+      "entry_price": 256.78
     }
   ]
 }
