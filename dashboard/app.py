@@ -8,15 +8,24 @@ Run locally:  streamlit run dashboard/app.py
 import glob
 import json
 import os
+import sys
 from datetime import date, datetime
 
 import pandas as pd
 import requests
 import streamlit as st
 
-from src import prices
+# Streamlit Community Cloud runs this script from a different working
+# directory context than local `streamlit run`, so the repo root isn't
+# automatically on sys.path there - add it explicitly before importing
+# anything from src.
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _REPO_ROOT not in sys.path:
+    sys.path.insert(0, _REPO_ROOT)
 
-DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
+from src import prices  # noqa: E402
+
+DATA_DIR = os.path.join(_REPO_ROOT, "data")
 LATEST_PATH = os.path.join(DATA_DIR, "latest.json")
 HISTORY_DIR = os.path.join(DATA_DIR, "history")
 
