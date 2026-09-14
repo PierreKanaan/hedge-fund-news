@@ -34,7 +34,9 @@
         ],
         "risk": "If the Fed unexpectedly pauses or cuts rates, or if Nvidia releases unexpectedly strong earnings that offset rate concerns, the stock could rally, hurting the short position.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "9c62f100fb7f483e",
@@ -69,7 +71,9 @@
         ],
         "risk": "If Tesla\u2019s Robotaxi service scales faster than expected and margins improve, the stock could rally, eroding the short thesis.",
         "confidence": 0.68
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "e15b02f55b774874",
@@ -103,7 +107,9 @@
         ],
         "risk": "If grid or regulatory delays stall the Australian build\u2011out, revenue expectations could be postponed, dampening the stock\u2019s rally.",
         "confidence": 0.88
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "cb92d619e437c337",
@@ -137,7 +143,9 @@
         ],
         "risk": "If AI security adoption slows or Zscaler\u2019s solutions fail to gain market share, the expected upside for Microsoft could be muted.",
         "confidence": 0.62
-      }
+      },
+      "chart_symbol": "MSFT",
+      "entry_price": 495.63
     },
     {
       "id": "b45316ec98c08ea4",
@@ -171,7 +179,9 @@
         ],
         "risk": "If the market rallies strongly and tech mega\u2011caps continue to outpace smaller names, VOO could outperform RSP, eroding the relative gain of the long position.",
         "confidence": 0.68
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "6ee11a75cbf1ffd8",
@@ -206,7 +216,9 @@
         ],
         "risk": "If Sirius XM\u2019s new low\u2011priced products fail to attract users or advertisers, the competitive pressure on Amazon could be less than expected, limiting any upside or downside for AMZN.",
         "confidence": 0.58
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "cfd058bfea4ea4dc",
@@ -240,7 +252,9 @@
         ],
         "risk": "The main risk is that we miss a potential upside if XRP\u2019s market recovery spills over into broader risk\u2011on sentiment that could lift tech stocks, but we cannot capture it directly.",
         "confidence": 0.12
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "04af129c30dc3fc5",
@@ -274,7 +288,9 @@
         ],
         "risk": "If the Virginia factory\u2019s flexibility fails to deliver reliable performance or is delayed further, any anticipated boost to NVIDIA\u2019s GPU demand could evaporate, limiting upside.",
         "confidence": 0.58
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "255e6c261775cabb",
@@ -308,7 +324,9 @@
         ],
         "risk": "If the Fed signals a more dovish stance or oil prices fall sharply, the broader market rally could lift all stocks, reducing Apple\u2019s relative edge and limiting upside.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "5da432c5b5847976",
@@ -342,7 +360,9 @@
         ],
         "risk": "If Oracle\u2019s contracts translate into bring\u2011your\u2011own\u2011hardware deals that bypass Nvidia GPUs, the expected revenue boost could be muted.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "db67366e646bcf53",
@@ -376,7 +396,9 @@
         ],
         "risk": "If broader AI chip demand softens or Nvidia\u2019s own earnings disappoint, the sector\u2011wide sell\u2011off could spill over to Nvidia.",
         "confidence": 0.68
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "45ba451143240361",
@@ -410,7 +432,9 @@
         ],
         "risk": "If the Fed\u2019s guidance is ambiguous or markets discount the rate outlook quickly, the expected price move may be muted, limiting upside potential.",
         "confidence": 0.62
-      }
+      },
+      "chart_symbol": "AMZN",
+      "entry_price": 256.78
     },
     {
       "id": "bc9d2e249cebb33e",
@@ -444,7 +468,9 @@
         ],
         "risk": "If Tesla\u2019s AI and robotics investments fail to generate revenue or further margin pressure emerges, the stock could decline sharply before the next earnings window.",
         "confidence": 0.68
-      }
+      },
+      "chart_symbol": "TSLA",
+      "entry_price": 365.44
     },
     {
       "id": "779db7c66154196c",
@@ -478,7 +504,9 @@
         ],
         "risk": "If Azure growth slows below guidance or capex overruns pressure margins, the stock could underperform.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "MSFT",
+      "entry_price": 495.63
     },
     {
       "id": "7a5f88ae802d6c33",
@@ -512,7 +540,9 @@
         ],
         "risk": "If AWS growth slows or macro\u2011economic pressure forces retail margins lower than expected, the stock could stall despite the endorsement.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "AMZN",
+      "entry_price": 256.78
     },
     {
       "id": "7dbe2745dbc42de3",
@@ -546,7 +576,9 @@
         ],
         "risk": "If integration stalls or AI demand weakens further, the stock could stay flat or decline, eroding the option premium.",
         "confidence": 0.68
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "aa4cbbf24e046fd5",
@@ -580,7 +612,9 @@
         ],
         "risk": "A sudden slowdown in hyperscaler AI spending or a broader tech market correction could compress NVIDIA\u2019s valuation before the earnings catalyst materializes.",
         "confidence": 0.78
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "65afef1ae7b14274",
@@ -612,7 +646,9 @@
         ],
         "risk": "Analysis error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m2c6ppdkejfvkwgt1kk3wfzq` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199575, Requested 1908. Please try again in 10m40.656s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "de54aa0f63abfc45",
@@ -644,7 +680,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "a3b98380dd51c11a",
@@ -677,7 +715,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "abb1dc9d89cb86ba",
@@ -709,7 +749,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "fa6a248955e1cfc6",
@@ -741,7 +783,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "45ff1af4768ed5d8",
@@ -773,7 +817,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "0f6371715dee376f",
@@ -805,7 +851,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "8e6115d80dfa56eb",
@@ -837,7 +885,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "66c1f02ccdb1c5c3",
@@ -869,7 +919,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "b7a2681f6c659503",
@@ -901,7 +953,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "db69004eb946f3ae",
@@ -933,7 +987,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "TSLA",
+      "entry_price": 365.44
     },
     {
       "id": "98c2c6aec50d8d1f",
@@ -965,7 +1021,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "d6388c353e56cfae",
@@ -997,7 +1055,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "823b10e153456d7d",
@@ -1029,7 +1089,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "a5eca26a9a59e3f3",
@@ -1061,7 +1123,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "c9fa5ab99a474634",
@@ -1093,7 +1157,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "MSFT",
+      "entry_price": 495.63
     },
     {
       "id": "10918535a5a84110",
@@ -1125,7 +1191,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "578669ae781cf719",
@@ -1157,7 +1225,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     },
     {
       "id": "3dac8fc574d70e2d",
@@ -1189,7 +1259,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "58a9cbefa5613d81",
@@ -1221,7 +1293,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "ede8fdb850e58f5d",
@@ -1253,7 +1327,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "9639947c10b87fe9",
@@ -1287,7 +1363,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 332.27
     },
     {
       "id": "98a4bc5effb72106",
@@ -1319,7 +1397,9 @@
         ],
         "risk": "n/a",
         "confidence": 0.0
-      }
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 218.29
     }
   ]
 }

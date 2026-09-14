@@ -20,6 +20,25 @@ explanation, then delivers it every morning via email and a live dashboard.
 | Scheduling            | GitHub Actions (cron, free)         | Runs even if your laptop is off |
 | Email                  | Gmail SMTP + App Password           | Free, no third-party email service |
 | Dashboard               | Streamlit Community Cloud (free)  | Live, browsable from phone or laptop |
+| Prices / charts          | `yfinance` (free, no API key)    | Entry-price snapshots + price charts |
+
+## Price charts & track record
+
+Each pick now gets a `chart_symbol` (best-effort - the matched watchlist
+ticker when there is one, else parsed from the instrument text for FX/
+futures/plain tickers; a specific options contract is left unchartable
+rather than guessed at) and an `entry_price` snapshot, captured at analysis
+time via `yfinance`. The dashboard uses these for:
+- A small price chart under each news card (News Feed tab).
+- A **Track Record** tab: every long/short pick vs. its price today, scored
+  Hit/Miss once at least 2 days have passed (younger picks show "too early"
+  rather than being scored), with an overall hit rate. Holds aren't
+  directional bets, so they're excluded from scoring.
+
+`yfinance` hits Yahoo Finance's unofficial API, so treat it like the other
+free-tier dependencies here: usually reliable, occasionally flaky - a
+missing price/chart fails gracefully (shows "unavailable") rather than
+breaking the pipeline or dashboard.
 
 ## One-time setup
 

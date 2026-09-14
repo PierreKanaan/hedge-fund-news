@@ -7,6 +7,7 @@ python-dotenv>=1.0
 pydantic>=2.9
 streamlit>=1.38
 pandas>=2.2
+yfinance>=0.2
 
 # torch is installed separately (CPU-only wheel) in the GitHub Actions
 # workflow and in the local setup instructions below, to avoid pulling in

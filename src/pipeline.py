@@ -12,7 +12,7 @@ import os
 from datetime import datetime, timezone
 
 from src.config import LATEST_PATH, HISTORY_DIR, DATA_DIR
-from src import scraper, sentiment
+from src import scraper, sentiment, prices
 
 
 def _mock_analysis(items: list) -> list:
@@ -50,6 +50,12 @@ def run(dry_run: bool = False) -> dict:
     else:
         print("[pipeline] GROQ_API_KEY not set, using placeholder analysis")
         items = _mock_analysis(items)
+
+    print("[pipeline] snapshotting entry prices...")
+    for item in items:
+        symbol = prices.resolve_chart_symbol(item)
+        item["chart_symbol"] = symbol
+        item["entry_price"] = prices.get_last_price(symbol) if symbol else None
 
     report = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
