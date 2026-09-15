@@ -64,6 +64,13 @@ def run(dry_run: bool = False, skip_groq: bool = False) -> dict:
         item["chart_symbol"] = symbol
         item["entry_price"] = prices.get_last_price(symbol) if symbol else None
 
+    # The full article body was only needed as LLM/FinBERT input. It's half
+    # of each day's file and nothing downstream (dashboard, email, track
+    # record) reads it, so drop it before persisting - keeps years of
+    # history in the repo instead of months.
+    for item in items:
+        item.pop("text", None)
+
     report = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "item_count": len(items),
