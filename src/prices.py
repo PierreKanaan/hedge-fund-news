@@ -91,14 +91,21 @@ def get_last_price(symbol):
         return None
 
 
-def get_price_history(symbol, period="1mo", interval="1d"):
+def get_ohlc_history(symbol, period="1mo", interval="1d"):
+    """Full OHLCV frame (Open/High/Low/Close/Volume, DatetimeIndex) for the
+    dashboard's interactive charts. None if the symbol/timeframe has no data."""
     if not symbol:
         return None
     try:
         hist = yf.Ticker(symbol).history(period=period, interval=interval)
         if hist.empty:
             return None
-        return hist["Close"]
+        return hist[["Open", "High", "Low", "Close", "Volume"]]
     except Exception as exc:
         print(f"[prices] failed to fetch history for {symbol}: {exc}")
         return None
+
+
+def get_price_history(symbol, period="1mo", interval="1d"):
+    hist = get_ohlc_history(symbol, period=period, interval=interval)
+    return hist["Close"] if hist is not None else None

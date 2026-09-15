@@ -12,8 +12,10 @@ import sys
 from datetime import date, datetime
 
 import pandas as pd
+import plotly.graph_objects as go
 import requests
 import streamlit as st
+from plotly.subplots import make_subplots
 
 # Streamlit Community Cloud runs this script from a different working
 # directory context than local `streamlit run`, so the repo root isn't
@@ -42,11 +44,21 @@ VERDICT_LABELS = {"hit": "✅ Hit", "miss": "❌ Miss", "too_early": "⏳ Too ea
 TRACK_RECORD_GRACE_DAYS = 2
 TRACK_RECORD_THRESHOLD_PCT = 2.0  # a realistic take-profit/stop-out level, not noise-level movement
 
+# yfinance (period, interval) per timeframe. Intraday bars for the short
+# ranges, daily for the medium ones, weekly for 5Y so the chart stays light.
 CHART_RANGES = {
-    "Day": {"period": "1d", "interval": "5m"},
-    "Week": {"period": "5d", "interval": "30m"},
-    "Month": {"period": "1mo", "interval": "1d"},
+    "1D": {"period": "1d", "interval": "5m"},
+    "5D": {"period": "5d", "interval": "30m"},
+    "1M": {"period": "1mo", "interval": "1d"},
+    "3M": {"period": "3mo", "interval": "1d"},
+    "6M": {"period": "6mo", "interval": "1d"},
+    "YTD": {"period": "ytd", "interval": "1d"},
+    "1Y": {"period": "1y", "interval": "1d"},
+    "5Y": {"period": "5y", "interval": "1wk"},
 }
+CHART_TYPES = ["Line", "Candles"]
+CHART_INDICATORS = ["SMA 20", "SMA 50", "Volume"]
+DEFAULT_CHART_SETTINGS = {"range": "3M", "type": "Line", "indicators": ["Volume"], "entry": True}
 
 st.set_page_config(page_title="Fund News Dashboard", page_icon="📈", layout="wide")
 
@@ -100,9 +112,78 @@ def load_report(path):
 
 
 @st.cache_data(ttl=900)
-def cached_price_history(symbol, period, interval):
-    hist = prices.get_price_history(symbol, period=period, interval=interval)
-    return hist.to_dict() if hist is not None else None
+def cached_ohlc_history(symbol, period, interval):
+    return prices.get_ohlc_history(symbol, period=period, interval=interval)
+
+
+def build_price_figure(df, symbol, interval, chart_type, indicators, entry_price, flagged_at, position):
+    """Interactive Plotly price chart. The y-axis autoscales to the data's
+    own range (Streamlit's built-in line_chart anchors at zero, which
+    flattened every stock's move into a straight line), plus zoom/pan, a
+    range slider, optional SMAs/volume, and the entry-price marker so the
+    move since the trade was flagged is visible at a glance."""
+    show_volume = "Volume" in indicators and df["Volume"].fillna(0).sum() > 0
+    fig = make_subplots(
+        rows=2 if show_volume else 1, cols=1, shared_xaxes=True,
+        row_heights=[0.75, 0.25] if show_volume else [1.0], vertical_spacing=0.03,
+    )
+    line_color = POSITION_COLORS.get(position, "#1f77b4")
+
+    if chart_type == "Candles":
+        fig.add_trace(go.Candlestick(
+            x=df.index, open=df["Open"], high=df["High"], low=df["Low"], close=df["Close"],
+            name=symbol, increasing_line_color="#1a7f37", decreasing_line_color="#c62828",
+        ), row=1, col=1)
+    else:
+        fig.add_trace(go.Scatter(
+            x=df.index, y=df["Close"], mode="lines", name=symbol,
+            line=dict(color=line_color, width=2),
+            hovertemplate="%{x|%b %d %Y %H:%M}<br>Close: %{y:,.2f}<extra></extra>",
+        ), row=1, col=1)
+
+    for label, window, color in (("SMA 20", 20, "#f28e2b"), ("SMA 50", 50, "#7b4fbf")):
+        if label in indicators and len(df) >= window:
+            fig.add_trace(go.Scatter(
+                x=df.index, y=df["Close"].rolling(window).mean(), mode="lines",
+                name=label, line=dict(color=color, width=1.2, dash="dot"),
+                hovertemplate=label + ": %{y:,.2f}<extra></extra>",
+            ), row=1, col=1)
+
+    if show_volume:
+        up = df["Close"] >= df["Open"]
+        fig.add_trace(go.Bar(
+            x=df.index, y=df["Volume"], name="Volume", marker_color=up.map({True: "#1a7f37", False: "#c62828"}),
+            opacity=0.45, hovertemplate="Vol: %{y:,.0f}<extra></extra>",
+        ), row=2, col=1)
+
+    if entry_price is not None:
+        fig.add_hline(
+            y=entry_price, line=dict(color="#888", width=1, dash="dash"), row=1, col=1,
+            annotation_text=f"entry ${entry_price:,.2f}", annotation_position="top left",
+            annotation_font=dict(size=11, color="#888"),
+        )
+    if flagged_at is not None:
+        flagged_ts = pd.Timestamp(flagged_at)
+        idx_tz = df.index.tz
+        flagged_ts = flagged_ts.tz_convert(idx_tz) if flagged_ts.tzinfo and idx_tz else flagged_ts.tz_localize(None)
+        if df.index.min() <= flagged_ts <= df.index.max():
+            fig.add_vline(x=flagged_ts, line=dict(color="#888", width=1, dash="dot"), row=1, col=1)
+
+    layout = dict(
+        height=380 if show_volume else 300, margin=dict(l=10, r=10, t=10, b=10),
+        showlegend=True, legend=dict(orientation="h", yanchor="bottom", y=1.01, x=0, font=dict(size=11)),
+        hovermode="x unified", dragmode="zoom",
+        xaxis=dict(rangeslider=dict(visible=not show_volume, thickness=0.06)),
+    )
+    fig.update_layout(**layout)
+    fig.update_yaxes(autorange=True, fixedrange=False, tickformat=",.2f", row=1, col=1)
+    if show_volume:
+        fig.update_yaxes(showticklabels=False, row=2, col=1)
+        fig.update_xaxes(rangeslider=dict(visible=False), row=1, col=1)
+    if interval in ("1d", "1wk"):
+        fig.update_xaxes(rangebreaks=[dict(bounds=["sat", "mon"])])  # hide weekend gaps
+    fig.update_xaxes(showspikes=True, spikemode="across", spikesnap="cursor", spikethickness=1)
+    return fig
 
 
 @st.cache_data(ttl=1800)
@@ -218,11 +299,20 @@ def render_news_feed():
 
     st.caption(f"Showing {len(filtered)} of {len(items)} items")
 
-    chart_range = st.segmented_control(
-        "Chart range (applies to all charts below)",
-        list(CHART_RANGES.keys()), default="Month", key="chart_range",
-    ) or "Month"
-    range_cfg = CHART_RANGES[chart_range]
+    with st.expander("⚙️ Chart defaults (each card can override its own timeframe)", expanded=False):
+        c1, c2, c3, c4 = st.columns([2.2, 1.2, 2, 1])
+        default_range = c1.segmented_control(
+            "Timeframe", list(CHART_RANGES.keys()),
+            default=DEFAULT_CHART_SETTINGS["range"], key="chart_default_range",
+        ) or DEFAULT_CHART_SETTINGS["range"]
+        chart_type = c2.segmented_control(
+            "Type", CHART_TYPES, default=DEFAULT_CHART_SETTINGS["type"], key="chart_type",
+        ) or DEFAULT_CHART_SETTINGS["type"]
+        indicators = c3.multiselect(
+            "Indicators", CHART_INDICATORS, default=DEFAULT_CHART_SETTINGS["indicators"], key="chart_indicators",
+        )
+        show_entry = c4.toggle("Entry marker", value=DEFAULT_CHART_SETTINGS["entry"], key="chart_entry")
+        st.caption("Charts are interactive: drag to zoom, double-click to reset, hover for values.")
 
     for idx, item in enumerate(filtered):
         a = item.get("analysis", {})
@@ -265,15 +355,30 @@ def render_news_feed():
         symbol = item.get("chart_symbol")
         st.markdown('<div class="chart-wrap">', unsafe_allow_html=True)
         if symbol:
-            hist_dict = cached_price_history(symbol, range_cfg["period"], range_cfg["interval"])
-            if hist_dict:
-                series = pd.Series(hist_dict)
+            # Keying on default_range makes a card's override reset whenever
+            # the global default changes, otherwise it'd silently stick.
+            card_range = st.segmented_control(
+                f"📉 {symbol}", list(CHART_RANGES.keys()), default=default_range,
+                key=f"range_{item['id']}_{default_range}", label_visibility="visible",
+            ) or default_range
+            range_cfg = CHART_RANGES[card_range]
+            df = cached_ohlc_history(symbol, range_cfg["period"], range_cfg["interval"])
+            if df is not None and not df.empty:
                 entry_price = item.get("entry_price")
-                caption = f"📉 {symbol} - {chart_range.lower()} view"
-                if entry_price is not None:
-                    caption += f" · entry price when flagged: ${entry_price}"
+                last_close = float(df["Close"].iloc[-1])
+                caption = f"{symbol} · {card_range} · last {last_close:,.2f}"
+                if entry_price:
+                    move = (last_close - entry_price) / entry_price * 100
+                    caption += f" · entry {entry_price:,.2f} when flagged ({move:+.1f}% since)"
                 st.caption(caption)
-                st.line_chart(series, height=160)
+                fig = build_price_figure(
+                    df, symbol, range_cfg["interval"], chart_type, indicators,
+                    entry_price if show_entry else None,
+                    report.get("generated_at") if show_entry else None,
+                    position,
+                )
+                st.plotly_chart(fig, use_container_width=True, key=f"chart_{item['id']}",
+                                config={"displaylogo": False, "scrollZoom": True})
             else:
                 st.caption(f"Chart unavailable for {symbol} on this timeframe right now.")
         else:
