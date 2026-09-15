@@ -45,6 +45,38 @@ SECTORS = {
     },
 }
 
+# Company names the scraper accepts as a headline mention of a ticker
+# (headlines say "Pfizer" far more often than "PFE"). Keep names specific -
+# "Lilly" or "Mosaic" alone would false-match ordinary words.
+COMPANY_NAMES = {
+    "AAPL": ["Apple"],
+    "MSFT": ["Microsoft"],
+    "NVDA": ["Nvidia"],
+    "AMZN": ["Amazon", "AWS"],
+    "TSLA": ["Tesla"],
+    "JNJ": ["Johnson & Johnson", "J&J"],
+    "UNH": ["UnitedHealth"],
+    "LLY": ["Eli Lilly"],
+    "PFE": ["Pfizer"],
+    "JPM": ["JPMorgan", "JP Morgan"],
+    "GS": ["Goldman Sachs", "Goldman"],
+    "BAC": ["Bank of America"],
+    "WFC": ["Wells Fargo"],
+    "XOM": ["Exxon", "ExxonMobil"],
+    "CVX": ["Chevron"],
+    "OXY": ["Occidental"],
+    "ADM": ["Archer-Daniels-Midland", "Archer Daniels"],
+    "DE": ["Deere"],
+    "MOS": ["Mosaic Co"],
+    "CTVA": ["Corteva"],
+    "BA": ["Boeing"],
+    "LMT": ["Lockheed"],
+    "CAT": ["Caterpillar"],
+    "PG": ["Procter & Gamble", "P&G"],
+    "KO": ["Coca-Cola"],
+    "WMT": ["Walmart"],
+}
+
 # Derived lookups - built once here so scraper.py/analyzer.py/dashboard
 # don't each have to flatten SECTORS themselves.
 WATCHLIST = [t for s in SECTORS.values() for t in s["tickers"]]

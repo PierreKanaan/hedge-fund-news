@@ -16,6 +16,7 @@ import trafilatura
 from src.config import (
     RSS_FEEDS,
     WATCHLIST,
+    COMPANY_NAMES,
     MACRO_KEYWORDS,
     LOOKBACK_HOURS,
     MAX_ITEMS_PER_RUN,
@@ -27,8 +28,16 @@ FINNHUB_BASE = "https://finnhub.io/api/v1"
 
 # Word-boundary matching (not a naive substring check) - short tickers like
 # "DE" or "MS" would otherwise false-match inside unrelated words ("MADE",
-# "MSFT") or other tickers.
-_TICKER_PATTERNS = {t: re.compile(rf"\b{re.escape(t)}\b") for t in WATCHLIST}
+# "MSFT") or other tickers. Symbols are case-sensitive (headlines write
+# tickers in caps; "de" in "Rio de Janeiro" must not match DE), company
+# names are not.
+_TICKER_PATTERNS = {
+    t: re.compile(
+        rf"\b{re.escape(t)}\b"
+        + "".join(rf"|(?i:\b{re.escape(n)}\b)" for n in COMPANY_NAMES.get(t, []))
+    )
+    for t in WATCHLIST
+}
 
 
 def _item_id(url: str) -> str:
@@ -36,16 +45,19 @@ def _item_id(url: str) -> str:
 
 
 def _match_tickers(text: str) -> list:
-    text_upper = text.upper()
-    return [t for t, pattern in _TICKER_PATTERNS.items() if pattern.search(text_upper)]
+    return [t for t, pattern in _TICKER_PATTERNS.items() if pattern.search(text)]
 
 
-def _resolve_sector(tickers: list):
-    """Sector of the highest-weighted matched ticker, or None if no ticker
-    matched (a pure macro/cross-asset item)."""
-    if not tickers:
+def _resolve_sector(headline_tickers: list):
+    """Sector of the highest-weighted ticker named in the HEADLINE, or None
+    (macro/cross-asset) if the headline names none. Body/summary mentions
+    deliberately don't count: a Corning story whose summary says "Goldman
+    Sachs is the sales agent" is not Financials news, and a Qualcomm story
+    that mentions AWS is not an Amazon story - both got filed that way when
+    sector came from any mention at all."""
+    if not headline_tickers:
         return None
-    best = max(tickers, key=lambda t: TICKER_SECTOR_WEIGHT.get(t, 0))
+    best = max(headline_tickers, key=lambda t: TICKER_SECTOR_WEIGHT.get(t, 0))
     return TICKER_SECTOR.get(best)
 
 
@@ -95,6 +107,7 @@ def fetch_rss_items() -> list:
                     "source": source,
                     "published_at": published.isoformat(),
                     "tickers": _match_tickers(combined),
+                    "headline_tickers": _match_tickers(title),
                     "is_macro": _is_macro(combined),
                 }
             )
@@ -137,6 +150,7 @@ def fetch_finnhub_items(api_key: str) -> list:
                         "source": entry.get("source", "Finnhub"),
                         "published_at": published.isoformat(),
                         "tickers": _match_tickers(combined),
+                        "headline_tickers": _match_tickers(title),
                         "is_macro": _is_macro(combined) or category == "forex",
                     }
                 )
@@ -176,7 +190,11 @@ def fetch_finnhub_items(api_key: str) -> list:
                         "url": url,
                         "source": entry.get("source", "Finnhub"),
                         "published_at": published.isoformat(),
+                        # Finnhub returns anything that so much as mentions the
+                        # queried ticker, so it only counts as a weak (body) tag
+                        # unless the headline itself names the company.
                         "tickers": sorted(set(_match_tickers(f"{title} {summary}") + [ticker])),
+                        "headline_tickers": _match_tickers(title),
                         "is_macro": _is_macro(f"{title} {summary}"),
                     }
                 )
@@ -196,11 +214,14 @@ def dedupe(items: list) -> list:
             # Prefer the version that already has tickers/macro tags if duplicate
             existing = seen[key]
             existing["tickers"] = sorted(set(existing["tickers"] + item["tickers"]))
+            existing["headline_tickers"] = sorted(
+                set(existing["headline_tickers"] + item["headline_tickers"])
+            )
             existing["is_macro"] = existing["is_macro"] or item["is_macro"]
 
     result = list(seen.values())
     for item in result:
-        item["sector"] = _resolve_sector(item["tickers"])
+        item["sector"] = _resolve_sector(item["headline_tickers"])
     return result
 
 
@@ -217,8 +238,11 @@ def _item_score(item: dict) -> float:
         hours_old = LOOKBACK_HOURS
     recency = max(0.0, 1.0 - hours_old / LOOKBACK_HOURS)  # 1.0 = brand new, 0.0 = at the edge of the window
 
-    ticker_weights = [TICKER_SECTOR_WEIGHT.get(t, 1.0) for t in item["tickers"]]
-    sector_component = max(ticker_weights) if ticker_weights else 0.0
+    # A company named in the headline earns its sector's full weight; a
+    # body-only mention earns half - still relevant, but not *about* it.
+    headline_weights = [TICKER_SECTOR_WEIGHT.get(t, 1.0) for t in item.get("headline_tickers", [])]
+    body_weights = [0.5 * TICKER_SECTOR_WEIGHT.get(t, 1.0) for t in item["tickers"]]
+    sector_component = max(headline_weights + body_weights, default=0.0)
 
     macro_component = 0.5 if item["is_macro"] else 0.0
 
@@ -232,7 +256,13 @@ def rank_and_trim(items: list, limit: int) -> list:
     have genuinely relevant news that day. So each sector present gets a
     guaranteed shot at one slot (its own single best-scoring item) first;
     everything else - which will still mostly be Technology, given its
-    weight and volume - fills the remaining slots by pure weighted score."""
+    weight and volume - fills the remaining slots by pure weighted score.
+
+    "Present" means a headline actually names one of the sector's companies
+    (item["sector"] is headline-derived, see _resolve_sector). A sector with
+    no such story that day simply gets no reserved slot - its slot falls
+    through to the next best item overall rather than being filled with a
+    stale or tangential article just to tick the sector box."""
     ranked = sorted(items, key=_item_score, reverse=True)
 
     guaranteed = []
