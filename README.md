@@ -30,11 +30,23 @@ ticker when there is one, else parsed from the instrument text for FX/
 futures/plain tickers; a specific options contract is left unchartable
 rather than guessed at) and an `entry_price` snapshot, captured at analysis
 time via `yfinance`. The dashboard uses these for:
-- A small price chart under each news card (News Feed tab).
-- A **Track Record** tab: every long/short pick vs. its price today, scored
-  Hit/Miss once at least 2 days have passed (younger picks show "too early"
-  rather than being scored), with an overall hit rate. Holds aren't
-  directional bets, so they're excluded from scoring.
+- An interactive Plotly chart under each news card (News Feed tab):
+  per-card timeframe (1D-5Y), line or candles, SMA 20/50 + volume, and the
+  entry price drawn as a marker. Defaults live in the "Chart defaults"
+  expander at the top of the feed.
+- A **Track Record** tab, backed by `data/track_record.json`. The daily
+  pipeline run registers every long/short pick (holds aren't directional
+  bets) and appends one daily OHLC bar per tracked symbol, so any pick can
+  be judged as of any past date without a yfinance call per pick. Two
+  scoring rules, switchable in the tab:
+  - **Directional** (default): a move in the pick's direction above 0.2% is
+    a Hit, against it a Miss, inside that band a Flat. Re-judged live on
+    every view, so a Hit can become a Miss the next day; the "As of" date
+    picker shows how things stood on any earlier day.
+  - **Take-profit / stop-loss**: walks daily highs/lows since entry, first
+    touch of +TP% wins / -SL% loses (defaults 3% / 3%), untouched picks
+    stay Open with unrealized P&L.
+  `python -m src.tracker --backfill` rebuilds the file from `data/history/`.
 
 `yfinance` hits Yahoo Finance's unofficial API, so treat it like the other
 free-tier dependencies here: usually reliable, occasionally flaky - a

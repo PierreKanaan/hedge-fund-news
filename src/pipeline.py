@@ -18,7 +18,7 @@ import os
 from datetime import datetime, timezone
 
 from src.config import LATEST_PATH, HISTORY_DIR, DATA_DIR
-from src import scraper, sentiment, prices
+from src import scraper, sentiment, prices, tracker
 
 
 def _mock_analysis(items: list) -> list:
@@ -78,6 +78,9 @@ def run(dry_run: bool = False, skip_groq: bool = False) -> dict:
     with open(history_path, "w") as f:
         json.dump(report, f, indent=2)
     print(f"[pipeline] wrote {LATEST_PATH} and {history_path}")
+
+    print("[pipeline] updating track record...")
+    tracker.update_from_report(report)
 
     if not dry_run:
         from src import emailer

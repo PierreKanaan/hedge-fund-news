@@ -25,11 +25,12 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
-from src import prices  # noqa: E402
+from src import prices, tracker  # noqa: E402
 
 DATA_DIR = os.path.join(_REPO_ROOT, "data")
 LATEST_PATH = os.path.join(DATA_DIR, "latest.json")
 HISTORY_DIR = os.path.join(DATA_DIR, "history")
+TRACK_RECORD_PATH = os.path.join(DATA_DIR, "track_record.json")
 
 GITHUB_OWNER = "PierreKanaan"
 GITHUB_REPO = "hedge-fund-news"
@@ -40,9 +41,16 @@ ASSET_CLASS_ICONS = {
     "equity": "📈", "etf": "🧺", "option": "🎯", "commodity": "🛢️",
     "future": "⏳", "currency": "💱", "bond": "🏦",
 }
-VERDICT_LABELS = {"hit": "✅ Hit", "miss": "❌ Miss", "too_early": "⏳ Too early"}
-TRACK_RECORD_GRACE_DAYS = 2
-TRACK_RECORD_THRESHOLD_PCT = 2.0  # a realistic take-profit/stop-out level, not noise-level movement
+VERDICT_LABELS = {
+    "hit": "✅ Hit", "miss": "❌ Miss", "flat": "➖ Flat", "open": "⏳ Open", "n/a": "— n/a",
+}
+# Directional mode: a move smaller than this (either way) is noise, not a
+# verdict. 0.2% is roughly a large-cap's bid/ask + a few ticks.
+FLUKE_PCT = 0.2
+# Take-profit / stop-loss mode defaults - the class's eventual "real"
+# strategy; a 2-3% adverse move is within the allowed margin, not a loss.
+DEFAULT_TAKE_PROFIT_PCT = 3.0
+DEFAULT_STOP_LOSS_PCT = 3.0
 
 # yfinance (period, interval) per timeframe. Intraday bars for the short
 # ranges, daily for the medium ones, weekly for 5Y so the chart stays light.
@@ -388,92 +396,137 @@ def render_news_feed():
 
 def render_track_record():
     st.subheader("📊 Track Record")
-    st.caption(
-        f"Every long/short pick vs. its live/last-close price whenever you open this tab "
-        f"(not a scheduled market-open check). Picks younger than {TRACK_RECORD_GRACE_DAYS} days "
-        f"are marked \"too early\" - not enough time has passed to judge the thesis fairly. "
-        f"Once past that, a move needs to clear ±{TRACK_RECORD_THRESHOLD_PCT:.0f}% "
-        f"(a realistic take-profit/stop-out level) to count as a Hit or Miss - anything smaller "
-        f"still shows as pending. Holds aren't directional bets, so they're excluded from scoring."
-    )
 
-    files = sorted(glob.glob(os.path.join(HISTORY_DIR, "*.json")))
-    rows = []
-    for f in files:
-        rep = load_report(f)
-        if not rep:
-            continue
-        report_date = rep.get("generated_at", "")[:10]
-        for item in rep.get("items", []):
-            a = item.get("analysis", {})
-            position = a.get("position")
-            symbol = item.get("chart_symbol")
-            entry_price = item.get("entry_price")
-            if position not in ("long", "short") or not symbol or entry_price is None:
-                continue
-            rows.append(
-                {
-                    "date": report_date,
-                    "title": item.get("title", "")[:70],
-                    "position": position,
-                    "instrument": a.get("instrument", ""),
-                    "symbol": symbol,
-                    "entry_price": entry_price,
-                }
-            )
-
-    if not rows:
-        st.info("No scoreable long/short picks yet - track record fills in as reports accumulate.")
+    track = load_report(TRACK_RECORD_PATH)
+    if not track or not track.get("picks"):
+        st.info("No scoreable long/short picks yet - the track record fills in as daily runs accumulate.")
         return
 
+    pick_dates = sorted({p["date"] for p in track["picks"].values()})
+    first_day = date.fromisoformat(pick_dates[0])
     today = date.today()
-    for row in rows:
-        current_price = cached_last_price(row["symbol"])
-        row["current_price"] = current_price
-        try:
-            days_old = (today - date.fromisoformat(row["date"])).days
-        except ValueError:
-            days_old = 0
 
-        if current_price is None:
-            row["pct_change"] = None
-            row["verdict"] = "n/a"
+    with st.container(border=True):
+        c1, c2, c3 = st.columns([2, 2, 1.4])
+        mode_label = c1.segmented_control(
+            "Scoring rule", ["Directional", "Take-profit / stop-loss"],
+            default="Directional", key="tr_mode",
+        ) or "Directional"
+        mode = "directional" if mode_label == "Directional" else "tp_sl"
+        if mode == "directional":
+            fluke = c2.number_input(
+                "Ignore moves smaller than (%)", min_value=0.0, max_value=5.0,
+                value=FLUKE_PCT, step=0.1, format="%.1f", key="tr_fluke",
+                help="Anything inside this band is a flat, not a hit or a miss.",
+            )
+            tp = sl = None
+        else:
+            cc1, cc2 = c2.columns(2)
+            tp = cc1.number_input("Take profit (%)", 0.5, 50.0, DEFAULT_TAKE_PROFIT_PCT, 0.5, key="tr_tp")
+            sl = cc2.number_input("Stop loss (%)", 0.5, 50.0, DEFAULT_STOP_LOSS_PCT, 0.5, key="tr_sl")
+            fluke = FLUKE_PCT
+        as_of = c3.date_input("As of", value=today, min_value=first_day, max_value=today, key="tr_asof")
+        live = as_of >= today
+        if mode == "directional":
+            st.caption(
+                f"Every long/short pick vs. {'the live price right now' if live else f'the close on {as_of}'}. "
+                f"A move in the pick's direction above {fluke:.1f}% is a Hit, against it a Miss, inside that band a Flat. "
+                "Re-judged every time you look, so a Hit can turn into a Miss tomorrow - pick a past date to see how it stood then."
+            )
+        else:
+            st.caption(
+                f"Walks each pick's daily highs/lows since entry: first touch of +{tp:.1f}% is a Hit, "
+                f"-{sl:.1f}% a Miss (same-day touch of both counts as the stop). Untouched picks stay Open with unrealized P&L. "
+                f"Evaluated as of {'now' if live else as_of}."
+            )
+
+    as_of_str = as_of.isoformat()
+    rows = []
+    for pid, pick in track["picks"].items():
+        if pick["date"] > as_of_str:
             continue
+        path = tracker.price_path(track, pick["symbol"], pick["date"], as_of_str)
+        live_price = cached_last_price(pick["symbol"]) if live else None
+        result = tracker.score_pick(
+            pick, path, live_price=live_price, mode=mode, fluke_pct=fluke,
+            take_profit_pct=tp or DEFAULT_TAKE_PROFIT_PCT, stop_loss_pct=sl or DEFAULT_STOP_LOSS_PCT,
+        )
+        sign = 1 if pick["position"] == "long" else -1
+        spark = [round(sign * (c - pick["entry_price"]) / pick["entry_price"] * 100, 2) for _d, _o, _h, _l, c in path]
+        if live_price is not None:
+            spark.append(round(sign * (live_price - pick["entry_price"]) / pick["entry_price"] * 100, 2))
+        rows.append({
+            "date": pick["date"], "title": pick["title"][:70], "position": pick["position"],
+            "instrument": pick["instrument"], "symbol": pick["symbol"],
+            "entry_price": pick["entry_price"], "price": result["price"],
+            "pnl_pct": result["pct"], "verdict": result["verdict"], "path": spark or [0.0],
+            "days": len(path),
+        })
 
-        pct_change = (current_price - row["entry_price"]) / row["entry_price"] * 100
-        row["pct_change"] = round(pct_change, 2)
-
-        if days_old < TRACK_RECORD_GRACE_DAYS:
-            row["verdict"] = "too_early"
-        elif row["position"] == "long":
-            row["verdict"] = "hit" if pct_change >= TRACK_RECORD_THRESHOLD_PCT else (
-                "miss" if pct_change <= -TRACK_RECORD_THRESHOLD_PCT else "too_early"
-            )
-        else:  # short
-            row["verdict"] = "hit" if pct_change <= -TRACK_RECORD_THRESHOLD_PCT else (
-                "miss" if pct_change >= TRACK_RECORD_THRESHOLD_PCT else "too_early"
-            )
+    if not rows:
+        st.info("No picks on or before that date.")
+        return
 
     hits = sum(1 for r in rows if r["verdict"] == "hit")
     misses = sum(1 for r in rows if r["verdict"] == "miss")
-    too_early = sum(1 for r in rows if r["verdict"] in ("too_early", "n/a"))
+    undecided = len(rows) - hits - misses
     scored = hits + misses
-    hit_rate = f"{hits / scored:.0%}" if scored else "n/a"
+    pnls = [r["pnl_pct"] for r in rows if r["pnl_pct"] is not None]
+    avg_pnl = sum(pnls) / len(pnls) if pnls else None
 
-    metric_cols = st.columns(4)
-    metric_cols[0].metric("Hit rate", hit_rate)
-    metric_cols[1].metric("Hits", hits)
-    metric_cols[2].metric("Misses", misses)
-    metric_cols[3].metric("Too early / pending", too_early)
+    m = st.columns(5)
+    m[0].metric("Hit rate", f"{hits / scored:.0%}" if scored else "n/a")
+    m[1].metric("Hits", hits)
+    m[2].metric("Misses", misses)
+    m[3].metric("Flat / open", undecided)
+    m[4].metric("Avg P&L per pick", f"{avg_pnl:+.2f}%" if avg_pnl is not None else "n/a",
+                help="Signed in the pick's favour: a short that fell 2% counts as +2%.")
 
-    df = pd.DataFrame(rows).sort_values("date", ascending=False)
+    # Per-report-day scoreboard: "what did the news from day X turn into?"
+    by_day = {}
+    for r in rows:
+        d = by_day.setdefault(r["date"], {"picks": 0, "hits": 0, "misses": 0, "pnl": []})
+        d["picks"] += 1
+        d["hits"] += r["verdict"] == "hit"
+        d["misses"] += r["verdict"] == "miss"
+        if r["pnl_pct"] is not None:
+            d["pnl"].append(r["pnl_pct"])
+    day_rows = []
+    for d, v in sorted(by_day.items(), reverse=True):
+        sc = v["hits"] + v["misses"]
+        day_rows.append({
+            "Report day": d, "Picks": v["picks"], "Hits": v["hits"], "Misses": v["misses"],
+            "Undecided": v["picks"] - sc,
+            "Hit rate": f"{v['hits'] / sc:.0%}" if sc else "n/a",
+            "Avg P&L": f"{sum(v['pnl']) / len(v['pnl']):+.2f}%" if v["pnl"] else "n/a",
+        })
+    st.markdown("**By report day**")
+    st.dataframe(pd.DataFrame(day_rows), width="stretch", hide_index=True)
+
+    st.markdown("**Every pick**")
+    df = pd.DataFrame(rows).sort_values(["date", "pnl_pct"], ascending=[False, False])
     df["verdict"] = df["verdict"].map(lambda v: VERDICT_LABELS.get(v, "— n/a"))
     df = df.rename(columns={
         "date": "Date", "title": "Headline", "position": "Position", "instrument": "Instrument",
-        "symbol": "Chart symbol", "entry_price": "Entry $", "current_price": "Current $",
-        "pct_change": "% change", "verdict": "Verdict",
+        "symbol": "Symbol", "entry_price": "Entry $", "price": "Price $", "pnl_pct": "P&L %",
+        "verdict": "Verdict", "path": "Path since entry", "days": "Days",
     })
-    st.dataframe(df, width="stretch", hide_index=True)
+    st.dataframe(
+        df, width="stretch", hide_index=True,
+        column_config={
+            "P&L %": st.column_config.NumberColumn(format="%+.2f%%"),
+            "Entry $": st.column_config.NumberColumn(format="%.2f"),
+            "Price $": st.column_config.NumberColumn(format="%.2f"),
+            "Path since entry": st.column_config.LineChartColumn(
+                "P&L path %", help="Daily P&L % in the pick's favour since entry (last point = latest price)",
+            ),
+        },
+    )
+    st.caption(
+        f"{len(track['picks'])} picks tracked since {pick_dates[0]} across {len(track.get('prices', {}))} symbols. "
+        "Daily bars are stored by the morning pipeline run, so past-date views use official closes; "
+        "today's view uses the live price."
+    )
 
 
 # ---------- Header + top controls ----------
