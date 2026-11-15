@@ -1,0 +1,1586 @@
+{
+  "generated_at": "2026-11-15T06:33:48.996055+00:00",
+  "item_count": 40,
+  "items": [
+    {
+      "id": "b6324472fd6335d3",
+      "title": "Dow Jones Futures Loom, Bitcoin Dives In Shaky Market Rally; Nvidia Earnings, Anthropic IPO Ahead",
+      "summary": "Despite its best week in two months, the Nasdaq closed below a key level. Nvidia earnings and the Anthropic IPO loom.",
+      "url": "https://finance.yahoo.com/m/53e50dc8-f137-3f6c-bfd6-912334fef9f1/dow-jones-futures-loom%2C.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_at": "2026-11-15T04:05:44+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9595
+      },
+      "analysis": {
+        "summary": "Nvidia is approaching its upcoming earnings report amid a shaky market rally, with sentiment turning negative as investors brace for potential disappointment.",
+        "catalyst": "Nvidia's upcoming earnings release, which analysts expect may miss expectations",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "3-5 days, until the earnings announcement and price reaction",
+        "explanation": "The market is currently jittery, and Nvidia's earnings are a key catalyst that could move the stock sharply. A negative sentiment signal from a finance NLP model suggests the market expects a miss, which historically leads to a short\u2011term sell\u2011off in high\u2011growth tech names. Over the next few days, the stock will likely trade on the earnings surprise narrative, and a short position lets us capture that downside. Compared to buying puts or options, a direct short equity is simpler for a swing trade and aligns with our watchlist. If the earnings beat expectations, the trade would be unwound quickly; otherwise, we stand to profit from the anticipated decline.",
+        "rationale": [
+          "Negative sentiment and earnings miss expectations drive short bias",
+          "High beta tech stock reacts sharply to earnings surprises",
+          "Short equity offers direct exposure for a 3\u20115 day swing"
+        ],
+        "risk": "If Nvidia beats expectations, the stock could rally sharply, causing losses on the short position.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "bd1835659c9ce2e2",
+      "title": "Dow Jones Futures Loom, Bitcoin Dives In Shaky Market Rally; Nvidia Earnings, Anthropic IPO Ahead",
+      "summary": "Despite its best week in two months, the Nasdaq closed below a key level. Nvidia earnings and the Anthropic IPO loom.",
+      "url": "https://finnhub.io/api/news?id=1a0c0b07d6c3fd14e68239d94818345e89fa07396ce155ed23b8a21510c9b31d",
+      "source": "Yahoo",
+      "published_at": "2026-11-15T04:05:44+00:00",
+      "tickers": [
+        "NVDA",
+        "WMT"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9595
+      },
+      "analysis": {
+        "summary": "Nvidia is set to report earnings this week amid a shaky market rally, while the Nasdaq remains below a key technical level and Bitcoin is falling.",
+        "catalyst": "Upcoming Nvidia earnings report with negative market sentiment",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "3-5 days, until the earnings release and post\u2011earnings price reaction",
+        "explanation": "Nvidia's earnings are due in the next few days and the broader market is showing weakness, with the Nasdaq under a key support level and Bitcoin tumbling. The FinBERT model flags a strong negative tone, suggesting investors expect a miss or weaker guidance. A miss would likely trigger a sharp sell\u2011off in NVDA given its high valuation and reliance on AI demand, which could be reassessed after the results. Shorting the stock now lets us capture that downside before the earnings surprise is priced in, and we can cover the position once the earnings are released and the price reaction is clear. This trade is more direct than using options because the timeline is short and we want to avoid the extra cost of premiums.",
+        "rationale": [
+          "Negative sentiment and weak market backdrop increase downside risk",
+          "NVDA is highly sensitive to earnings surprises due to AI hype",
+          "Short equity captures immediate move without time\u2011decay concerns"
+        ],
+        "risk": "If Nvidia beats expectations or provides unexpectedly strong guidance, the stock could rally sharply, erasing the short position.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "e7712e92e76c37fd",
+      "title": "Evercore explains why Apple has the right assets to win the personal agents race",
+      "summary": "Investing.com -- Apple Inc (NASDAQ:AAPL) has the technology, user base, and payment infrastructure to become a leading player in personal AI agents, potentially generating billions in new revenue, according to Evercore ISI analyst Amit Daryanani.",
+      "url": "https://finnhub.io/api/news?id=4a9579523dc0fb515797608dd9ce6c27c2be6f6f845c74081026cc33c6a362b6",
+      "source": "Yahoo",
+      "published_at": "2026-11-15T02:08:04+00:00",
+      "tickers": [
+        "AAPL"
+      ],
+      "headline_tickers": [
+        "AAPL"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "positive",
+        "confidence": 0.8846
+      },
+      "analysis": {
+        "summary": "Evercore analyst Amit Daryanani says Apple\u2019s vast iPhone user base, integrated ecosystem and payment infrastructure give it a strong advantage to become a leader in personal AI agents, potentially unlocking billions in new revenue.",
+        "catalyst": "Evercore research note highlighting Apple\u2019s AI opportunity and revenue potential",
+        "position": "long",
+        "asset_class": "equity",
+        "instrument": "AAPL",
+        "market": "NASDAQ",
+        "horizon": "3-6 months, until Apple demonstrates measurable AI\u2011driven revenue growth or launches a premium AI subscription service",
+        "explanation": "Apple just announced that its Siri platform could evolve into a full\u2011featured personal AI agent, leveraging over 550 million compatible iPhones and its seamless payment stack. This gives Apple a massive addressable market compared with rivals that have far fewer users. The Evercore note quantifies the upside: a subscription model could generate $21\u202fbillion annually, while a transaction\u2011fee model could reach $45\u202fbillion. Over the next few quarters we expect Apple to roll out premium AI features and begin monetizing them, which should lift earnings and support the stock. The positive sentiment from a reputable sell\u2011side firm adds credibility, and Apple\u2019s balance sheet can fund the required compute investments. A long position in AAPL captures both the near\u2011term hype and the longer\u2011term revenue tailwinds, whereas alternatives like a broad tech ETF would dilute the specific AI upside.",
+        "rationale": [
+          "Massive installed iPhone base gives Apple a unique moat for personal AI agents",
+          "Evercore projects $21\u2011$45\u202fbn of new annual revenue from AI services",
+          "Apple\u2019s cash and ecosystem can fund the compute spend needed to launch premium AI features"
+        ],
+        "risk": "If Apple\u2019s AI features fail to attract paying users or are delayed, the expected revenue uplift may not materialize, pressuring the stock.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 356.27
+    },
+    {
+      "id": "e269544ad189e435",
+      "title": "Dow Jones Futures: Bitcoin Tumbles With Market Rally Shaky; Nvidia Earnings, Anthropic IPO Loom",
+      "summary": "Despite its best week in two months, the Nasdaq closed below a key level. Nvidia earnings and the Anthropic IPO loom.",
+      "url": "https://finnhub.io/api/news?id=e7e548da036197d12dc456dcc8b49235efef5922d0ae2988f0fd369b9fada065",
+      "source": "Yahoo",
+      "published_at": "2026-11-15T01:30:57+00:00",
+      "tickers": [
+        "NVDA",
+        "WMT"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9707
+      },
+      "analysis": {
+        "summary": "The market is jittery ahead of Nvidia's upcoming earnings and the Anthropic IPO, with Bitcoin falling and the Nasdaq slipping below a key level.",
+        "catalyst": "Nvidia's earnings report scheduled later this week, which the market expects could miss expectations",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "3-5 days, until the Nvidia earnings release and post\u2011earnings price reaction",
+        "explanation": "Nvidia is set to report earnings this week, and sentiment around the stock is already negative, reflected in the broader market wobble and a sharp Bitcoin drop. A miss on revenue or guidance would likely trigger a sell\u2011off given the high valuation multiples the stock trades at. The negative FinBERT sentiment reinforces the downside bias. Over the next few days, the stock\u2019s price will be most sensitive to the earnings surprise, making a short equity position the most direct way to capture the expected decline. We avoid options to keep the trade simple and avoid time\u2011decay risk, and we stay out of broader market bets because the catalyst is company\u2011specific.",
+        "rationale": [
+          "Nvidia\u2019s valuation is stretched relative to peers",
+          "Earnings miss would likely trigger a sharp price drop",
+          "Negative sentiment and market weakness amplify downside risk"
+        ],
+        "risk": "If Nvidia beats expectations or provides surprisingly strong guidance, the stock could rally sharply, erasing the short position.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "217c4db0caa6854a",
+      "title": "Nvidia Without Huang: What a Pause in AI Deals Means for Metals",
+      "summary": "Copper hit a four-month low as Nvidia\u2019s Jensen Huang quit, but the bigger risk to data center metals demand may be AI financing, not chip orders.",
+      "url": "https://finnhub.io/api/news?id=241770f33583bf171367ed4aaea135fadf8b78394335a4f1c41c5fb7f63928a6",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T22:00:00+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9441
+      },
+      "analysis": {
+        "summary": "Nvidia CEO Jensen Huang resigned, prompting concerns that AI spending may pause, which in turn pressured copper prices that have been falling for weeks.",
+        "catalyst": "Jensen Huang's resignation and the resulting uncertainty over AI\u2011related capital spending",
+        "position": "short",
+        "asset_class": "commodity",
+        "instrument": "Copper (LME)",
+        "market": "LME (London Metal Exchange)",
+        "horizon": "2-4 weeks, until the next AI\u2011spending guidance from major tech firms (e.g., Microsoft, Alphabet) is released or Nvidia\u2019s earnings confirm reduced deal flow",
+        "explanation": "Nvidia\u2019s leadership shake\u2011up has sparked fears that AI developers will scale back new projects, cutting demand for copper used in data\u2011center construction and power infrastructure. Copper has already slipped to a four\u2011month low, reflecting market positioning that ties the metal to AI\u2011linked equities. With the Fed still likely to keep rates high, financing for new AI projects becomes more expensive, further dampening copper demand. Given the negative sentiment and the clear link between AI spending and copper, a short position in copper futures or spot on the LME aligns with the expected near\u2011term price decline. This trade captures the macro\u2011risk from AI slowdown rather than betting on Nvidia\u2019s stock itself.",
+        "rationale": [
+          "AI spending drives copper demand; leadership change raises pause risk",
+          "Copper already in a multi\u2011week downtrend, reflecting market positioning",
+          "High rates limit financing for new AI projects, supporting further price weakness"
+        ],
+        "risk": "If AI spending proves resilient or Nvidia quickly secures new deals under the interim CEO, copper demand could rebound and the short position would lose value.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "HG=F",
+      "entry_price": 6.09
+    },
+    {
+      "id": "d745d0d43e5cc65b",
+      "title": "NVIDIA (NVDA): Can AI Demand Sustain Growth Through Leadership Uncertainty?",
+      "summary": "We just published the list of the 10 AI Infrastructure Stocks to Watch After CoreWeave\u2019s Earnings and NVIDIA Corporation (NASDAQ:NVDA) ranked 10th on this list. Why Are AI Infrastructure Stocks Under Pressure? AI infrastructure stocks have faced considerable selling pressure in recent weeks, as concerns over data center expansion, rising borrowing costs, and regulatory uncertainty have [\u2026]",
+      "url": "https://finnhub.io/api/news?id=ddbe770e6138ec9ca2b1c5e882d675c7ddce0357cb6c7d760161592250c78ab6",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T19:24:30+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.5763
+      },
+      "analysis": {
+        "summary": "NVIDIA fell 8.2% after its CEO resigned amid a scandal, and AI infrastructure stocks are under pressure from data\u2011center construction risk, higher borrowing costs and regulatory uncertainty.",
+        "catalyst": "CEO resignation and leadership crisis at NVIDIA combined with broader AI\u2011infrastructure sell\u2011off tied to midterm\u2011election uncertainty",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "5-10 trading days, or until the company announces a stable interim leadership team and the stock stabilizes above its 20\u2011day moving average",
+        "explanation": "The abrupt CEO exit creates immediate uncertainty about NVIDIA's strategic direction and execution at a time when the whole AI\u2011infrastructure sector is already fragile. Investors are worried about data\u2011center construction delays and higher financing costs, which could curb demand for NVIDIA's GPUs. The negative sentiment from the FinBERT model aligns with the recent 8% price drop, suggesting the downside may continue until the market sees a clear succession plan. A short equity position lets us capture the near\u2011term weakness without the timing risk of options, and the trade can be closed quickly if the leadership issue resolves or the stock rebounds on positive news. Given the broader sector sell\u2011off, a short position also benefits from any further spill\u2011over into peer AI chip makers.",
+        "rationale": [
+          "Leadership turmoil adds execution risk at a critical growth juncture",
+          "Sector\u2011wide data\u2011center and financing concerns amplify downside pressure",
+          "Recent price drop and negative sentiment indicate further short\u2011term weakness"
+        ],
+        "risk": "If NVIDIA swiftly appoints a respected interim CEO and the AI\u2011infrastructure demand rebound accelerates, the stock could recover sharply, eroding the short position.",
+        "confidence": 0.71
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "24c04d1c02733b6e",
+      "title": "Nvidia's leadership crisis rattles the AI trade. Here's how we're adjusting our portfolio",
+      "summary": "Despite the turbulence, the S&P 500 secured a weekly gain of 2.5%, while the tech-heavy Nasdaq added 2.3%.",
+      "url": "https://www.cnbc.com/investingclub/2026/11/14/nvidias-leadership-crisis-rattles-wall-street-how-were-adjusting.html",
+      "source": "CNBC",
+      "published_at": "2026-11-14T18:48:39+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "positive",
+        "confidence": 0.9043
+      },
+      "analysis": {
+        "summary": "Nvidia\u2019s board is probing CEO Jensen Huang\u2019s alleged ties to a Chinese spy, leading to his resignation and a 13% drop in the stock amid broader market gains.",
+        "catalyst": "CEO resignation and leadership investigation at Nvidia",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "3-5 days, until Nvidia\u2019s earnings release next Tuesday which will confirm whether the leadership turmoil impacts results",
+        "explanation": "Nvidia\u2019s sudden leadership shake\u2011up has introduced significant uncertainty around its execution and product roadmap, especially as the company is a bellwether for the AI sector. The stock fell sharply despite a strong market backdrop, indicating that investors are pricing in heightened risk. With earnings due next week, the market will either punish the stock further if guidance is weak or provide a short\u2011cover rally if results are solid. Given the positive overall market sentiment but a specific negative catalyst, a short position lets us profit from any continued sell\u2011off while we wait for the earnings catalyst to resolve the uncertainty. A short equity is the most direct way to express this view versus alternatives like options, which add complexity for a short\u2011term swing trade.",
+        "rationale": [
+          "Leadership turmoil creates execution risk for Nvidia\u2019s AI roadmap",
+          "Stock already down 13% on news, leaving limited upside",
+          "Earnings next week will be the decisive test of the fallout"
+        ],
+        "risk": "If Nvidia\u2019s earnings beat expectations and the board quickly appoints a credible CEO, the stock could rebound sharply, eroding the short thesis.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "ac7fdc07988250bd",
+      "title": "Super Micro Gets Swept Up in Spreading Nvidia Scandal. Says Megaspeed Was \u201cNever a Customer\u201d",
+      "summary": "Super Micro insists the company at the center of a Manhattan probe never bought its servers. Yet investigators are asking how its hardware reached China, and Singapore disputes how cooperative the company really was.",
+      "url": "https://finnhub.io/api/news?id=99994f09e5aaf7d691506e93e13c0792bf34e11e5fdf133a3a69aab659f7b2eb",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T16:32:49+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.8124
+      },
+      "analysis": {
+        "summary": "Super Micro denied any relationship with Megaspeed amid a U.S. export\u2011control probe that also implicates NVIDIA, while both stocks have fallen sharply on the news.",
+        "catalyst": "Manhattan U.S. Attorney\u2019s Office investigation linking Super Micro hardware with NVIDIA GPUs to a China smuggling scheme",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "2-4 weeks, until the Manhattan inquiry releases a formal finding or the companies issue a clear update on export\u2011control compliance",
+        "explanation": "The article reveals that U.S. prosecutors are examining whether Super Micro shipped servers with NVIDIA GPUs to China via a front company. Even though NVIDIA is not directly charged, the association creates a regulatory tailwind that could restrict GPU sales to key markets and hurt revenue. NVIDIA\u2019s stock is already down ~13% this week, reflecting investor anxiety. With a forward P/E still high for a chipmaker, the negative sentiment and potential export\u2011control constraints justify a short position over the next few weeks as the probe\u2019s outcome becomes clearer. A direct equity short captures the downside risk better than an option, given the relatively short horizon and the desire to stay fully exposed to any price drop.",
+        "rationale": [
+          "Regulatory probe directly ties NVIDIA GPUs to illegal exports, raising compliance risk",
+          "Recent price drop and negative sentiment suggest the market is still pricing in the downside",
+          "Short equity provides straightforward exposure over a 2\u20114 week window"
+        ],
+        "risk": "If the investigation yields no charges or quickly clears NVIDIA, the stock could rebound, erasing the short thesis.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "6c3427c1baa50791",
+      "title": "Nvidia Leadership Crisis Raises Concerns Over AI Semiconductor Earnings and US Export Restrictions",
+      "summary": "The leadership crisis at Nvidia (NASDAQ:NVDA) has prompted concerns about the wider semiconductor industry, with Lynx Equity Strategies analyst KC Rajkumar warning that uncertainty surrounding artificial intelligence investment and US export policies could affect earnings expectations across the sector. In a research note titled \u201cAI Semis: The Calm Before the Storm,\u201d Rajkumar suggested that investors were struggling to assess the potential consequences of Nvidia chief executive Jensen Huang\u2019s su",
+      "url": "https://finnhub.io/api/news?id=21361bfbcf6f72951cd033db573f0ad8c79b0cfe7be071681a005fb8941d8f7c",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T16:10:00+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9627
+      },
+      "analysis": {
+        "summary": "Nvidia is facing a leadership crisis amid concerns about AI investment uncertainty and tighter U.S. export restrictions, casting doubt on its upcoming earnings and the broader AI semiconductor outlook.",
+        "catalyst": "CEO Jensen Huang's unexpected departure and heightened U.S. export controls on AI chips",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "2-4 weeks, until the next earnings release or a clear leadership succession announcement",
+        "explanation": "The sudden leadership vacuum at Nvidia creates immediate uncertainty for investors, especially as the company is the bellwether for AI semiconductors. Coupled with tighter U.S. export rules on high\u2011end chips, revenue growth could be constrained in the near term. Nvidia's valuation is already premium, so any earnings miss or guidance downgrade would likely trigger a sharp price correction. A short position lets us profit from the downside risk while the market digests the leadership gap and policy headwinds. The negative FinBERT sentiment reinforces the market's bearish tone, making a short equity the most direct way to capture the risk.",
+        "rationale": [
+          "Leadership void raises earnings uncertainty",
+          "Export restrictions could curb AI chip sales",
+          "NVDA's high multiple makes it vulnerable to a miss"
+        ],
+        "risk": "If a strong interim CEO is appointed quickly and export restrictions are eased, the stock could rebound, eroding the short thesis.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "bcb5b29a62e72245",
+      "title": "Why the biggest risk for investors in 2027 isn't Nvidia \u2014 it's inflation",
+      "summary": "The Fed has its latest inflation problem to contend with.",
+      "url": "https://finnhub.io/api/news?id=ec44f82c6560fcf4832f37b4bc06d622571b12dbcbc9b074a125409ecd6f6811",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T16:02:41+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.5624
+      },
+      "analysis": {
+        "summary": "The article warns that persistent inflation, especially in services and healthcare, could force the Fed to keep raising rates through 2027, posing a bigger risk to investors than Nvidia\u2019s AI dominance.",
+        "catalyst": "Fed\u2019s likely series of additional rate hikes due to stubborn core inflation readings",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "3-6 months, until the Fed\u2019s next rate decision cycle (e.g., March 2027) confirms whether further hikes materialize",
+        "explanation": "The Fed is signaling more rate hikes because core CPI and core PCE remain well above target, driven by sticky services inflation. Higher rates increase discount rates and compress valuations for high\u2011growth, high\u2011multiple stocks like Nvidia, which rely on cheap capital for AI infrastructure spending. A sustained rate\u2011rise environment will likely dampen demand for Nvidia\u2019s GPUs and slow AI capex, pressuring the stock lower. Given the negative sentiment around inflation and the macro backdrop, a short position in Nvidia captures the downside risk while avoiding broader market exposure. This trade is timed for the next few Fed meetings, where the actual hike announcements will confirm the thesis.",
+        "rationale": [
+          "Higher rates hurt growth stocks with lofty valuations like Nvidia",
+          "Inflation data remains sticky, prompting likely Fed hikes",
+          "NVDA is the most direct equity exposure to AI\u2011related growth risk"
+        ],
+        "risk": "If inflation cools faster than expected and the Fed pauses or cuts rates, growth stocks could rally, erasing the short thesis",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "49012ea8cbacd6cb",
+      "title": "Apple Leads Five Stocks Standing Tall Near Buy Points Despite Nvidia, Other Headwinds",
+      "summary": "The stock market is giving mixed signals amid Nvidia's Jensen Huang affair and surging Treasury yields. But Apple stock leads five resilient stocks.",
+      "url": "https://finnhub.io/api/news?id=3fea41fa832b91f4e31faf1cc1994956932a60833b028e18d8588af4ddf582f5",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T13:00:58+00:00",
+      "tickers": [
+        "AAPL",
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "AAPL",
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.7368
+      },
+      "analysis": {
+        "summary": "Apple is highlighted as one of five stocks that remain resilient and near buy points despite broader market headwinds from Nvidia\u2019s leadership saga and rising Treasury yields.",
+        "catalyst": "Apple\u2019s price approaching a technical buy point while the market digests Nvidia\u2011related volatility and higher yields",
+        "position": "long",
+        "asset_class": "equity",
+        "instrument": "AAPL",
+        "market": "NASDAQ",
+        "horizon": "4-6 weeks, until Apple either breaks above the next resistance level or yields stabilize and the broader market rally resumes",
+        "explanation": "The article points out that Apple is trading close to a historically strong support\u2011turned\u2011buy zone, while most of the market is under pressure from Nvidia\u2011related news and rising Treasury yields. Apple\u2019s fundamentals\u2014steady revenue growth, strong services margin, and a diversified product lineup\u2014make it less sensitive to short\u2011term macro noise. A technical breakout above the current resistance would likely trigger buying from both momentum and value investors, pushing the stock higher over the next month. The negative sentiment score reflects broader market fear, not Apple\u2011specific risk, so the upside potential remains attractive. Holding the stock lets us capture a potential upside move as the market re\u2011prices the macro headwinds and Apple\u2019s earnings season approaches.",
+        "rationale": [
+          "Apple near a key technical buy point; price action suggests upside if it breaks resistance",
+          "Fundamentals remain strong, insulating it from macro volatility",
+          "Negative market sentiment is broader, not company\u2011specific, creating a relative value edge"
+        ],
+        "risk": "If Treasury yields continue to rise sharply, risk\u2011off sentiment could pull Apple lower despite its resilience",
+        "confidence": 0.78
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 356.27
+    },
+    {
+      "id": "345d7be3baca8472",
+      "title": "Nvidia's 60% target cut exposes a Wall Street split",
+      "summary": "Two major investment banks see very different futures for the AI giant.",
+      "url": "https://finnhub.io/api/news?id=d37e7789a616d72648dd10ab1b94c5c727ba53dd9f9617a812466da9dd6267fe",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T12:03:00+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9148
+      },
+      "analysis": {
+        "summary": "Two major investment banks have sharply revised Nvidia's valuation, cutting its price target by 60%, highlighting a split view on the AI chip maker's near\u2011term outlook.",
+        "catalyst": "Analyst price\u2011target cut of 60% on Nvidia following mixed earnings guidance",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "2-4 weeks, until the next earnings release or analyst consensus update confirms the downside",
+        "explanation": "The recent 60% target cut reflects concerns that Nvidia's growth may be slowing after a massive AI\u2011chip rally, with analysts flagging inventory buildup and slower demand from data\u2011center customers. This negative sentiment is reinforced by a FinBERT score of -0.91, indicating strong bearish tone in the coverage. Over the next few weeks, the market is likely to price in these concerns, especially as investors await the next earnings report to see if revenue growth moderates. A short position in NVDA captures the downside risk while the broader AI hype remains uncertain. Holding the short through the earnings window lets us profit if the stock underperforms expectations, and we can exit if guidance improves or the target cut is rescinded.",
+        "rationale": [
+          "Target cut signals analyst belief that current valuation is overstated",
+          "Negative sentiment and inventory concerns suggest near\u2011term earnings pressure",
+          "Short exposure benefits from potential pull\u2011back before next earnings"
+        ],
+        "risk": "If Nvidia beats earnings expectations or AI demand accelerates, the stock could rally sharply, erasing the short thesis.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "b63092e2e29f4f43",
+      "title": "\u201cVery Bad\u201d News for Alibaba: Nvidia\u2019s B300 Servers Now Cost Nearly $3 Million in China.",
+      "summary": "Key TakeawaysEight Nvidia B300 chips for a server now list for nearly $3 million in China, more than five times the U. S.",
+      "url": "https://finnhub.io/api/news?id=20e4be2137ee6b6efea12349298abfb97e662350d741c4de45861a3fe954c727",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T10:31:11+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.8841
+      },
+      "analysis": {
+        "summary": "Nvidia's high\u2011end B300 server chips are selling for nearly $3\u202fmillion in China, about five times the U.S. price, as U.S. export rules tighten and Alibaba\u2019s costly work\u2011arounds face new restrictions.",
+        "catalyst": "U.S. Commerce Department\u2019s final rule barring Chinese AI firms from using advanced Nvidia chips outside China, driving a steep price premium in the Chinese market",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "2\u20114 weeks, until the new export rule is implemented and the price premium stabilises or reverses",
+        "explanation": "The article shows that the Blackwell B300 chips, which Nvidia cannot sell directly to China, are now trading at a massive markup on the gray market. This price shock signals that U.S. export controls are tightening, which will likely curb demand from Chinese cloud players like Alibaba. While Nvidia\u2019s revenue from China is already limited, the heightened regulatory risk could hurt its future growth outlook and pressure the stock. A short position captures the downside from a potential earnings miss or a valuation downgrade as investors price in the export curbs. The negative FinBERT sentiment reinforces the market\u2019s bearish view, and the short trade is more direct than betting on Alibaba, which isn\u2019t on our watchlist.",
+        "rationale": [
+          "Export curbs raise the cost of Nvidia\u2019s top AI chips for Chinese customers, reducing future sales potential",
+          "Gray\u2011market premium signals a supply bottleneck and regulatory pressure",
+          "NVDA\u2019s valuation already reflects strong growth; added risk could trigger a price correction"
+        ],
+        "risk": "If the U.S. rule is delayed or softened, the price premium may collapse and Nvidia\u2019s stock could rebound, eroding the short thesis",
+        "confidence": 0.71
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "63e3f72388ffbe87",
+      "title": "Nvidia earnings \u2014 along with the baggage \u2014 top next week's markets",
+      "summary": "The chip giant\u2019s results should awe, but the question is if investors can forget CEO Huang\u2019s departure.",
+      "url": "https://finnhub.io/api/news?id=01ca3b198fea0fa72d3fcc4221047ebb5717a29bf9944e80c9e69c051e493825",
+      "source": "Yahoo",
+      "published_at": "2026-11-15T05:37:00+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.6216
+      },
+      "analysis": {
+        "summary": "Nvidia reported earnings that impressed analysts, but investors are concerned about the recent departure of CEO Jensen Huang.",
+        "catalyst": "Nvidia's quarterly earnings release combined with the CEO resignation announcement",
+        "position": "hold",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "1-2 weeks, until the post\u2011earnings price action stabilizes and the market digests the leadership change",
+        "explanation": "Nvidia posted strong top\u2011line and margin numbers, which normally fuels a bullish move in the stock. However, the unexpected exit of founder\u2011CEO Jensen Huang introduces uncertainty about the company's strategic direction and execution, especially in a fast\u2011moving AI chip market. Over the next week to two weeks, the market will price in both the earnings beat and the leadership risk, likely resulting in heightened volatility but no clear directional bias. Given the neutral sentiment from the NLP model and mixed fundamentals, a hold stance lets us stay flexible for a clearer signal\u2014either a breakout if the earnings narrative dominates or a pullback if leadership concerns prevail. This avoids premature positioning while we wait for the price to settle post\u2011catalyst.",
+        "rationale": [
+          "Earnings beat supports upside potential",
+          "CEO departure adds leadership risk",
+          "Neutral sentiment suggests market is undecided"
+        ],
+        "risk": "If the market interprets the CEO departure as a catalyst for execution risk, the stock could decline sharply, eroding the earnings gain.",
+        "confidence": 0.58
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "f0cb89340508eeb8",
+      "title": "Nvidia CEO out \u2014 10 stocks to buy before S&P 500 hits 8,000",
+      "summary": "Nvidia (NVDA) is down over 30% from the highs with CEO Jensen Huang stepping down, yet Blanke Schein Wealth Management CIO Robert Schein says the stock is still a buy. He also names Broadcom (AVGO), Apple (AAPL), and Eli Lilly (LLY) among his top picks before the S&P 500 reaches 8,000.",
+      "url": "https://finnhub.io/api/news?id=c8ef7e90ce6a67bfbf485509e439373ccebdb7ca7ba151d02fcb48a7801cf690",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T03:33:08+00:00",
+      "tickers": [
+        "AAPL",
+        "LLY",
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9695
+      },
+      "analysis": {
+        "summary": "Nvidia shares have fallen more than 30% after CEO Jensen Huang announced his departure, but wealth manager Robert Schein still recommends buying the stock along with Apple and Eli\u202fLilly as the S&P\u202f500 heads toward 8,000.",
+        "catalyst": "CEO Jensen Huang\u2019s resignation causing a sharp price dip that creates a perceived buying opportunity",
+        "position": "long",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "2-4 weeks, until the market digests the leadership change and the stock stabilizes around a new support level",
+        "explanation": "The news of Jensen Huang stepping down sent Nvidia\u2019s stock tumbling over 30%, creating a clear technical and sentiment\u2011driven discount. Despite the negative headline, the wealth\u2011management CIO still rates NVDA as a buy, implying confidence that the company\u2019s growth engine\u2014its AI chips and data\u2011center momentum\u2014remains intact. Over the next few weeks the market typically re\u2011prices leadership risk, and we expect the sell\u2011off to be largely short\u2011term, after which the stock should revert to its longer\u2011term valuation multiples. The broader market rally toward an 8,000 S&P\u202f500 also supports a rebound in high\u2011growth tech names. A long equity position captures the upside while avoiding the complexity of options or futures.",
+        "rationale": [
+          "30% price drop creates a sizable entry discount",
+          "Fundamental AI/semiconductor growth outlook unchanged despite CEO exit",
+          "Market bias toward tech as S&P\u202f500 approaches 8,000"
+        ],
+        "risk": "If the leadership transition proves disruptive or the AI demand slowdown accelerates, the stock could continue to fall beyond the short\u2011term window.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "68dff60b1f8c5f04",
+      "title": "Michael Burry sees 2 chip winners in Nvidia\u2019s shake-up",
+      "summary": "Burry is adding to his bearish semiconductor bets after Jensen Huang\u2019s exit. Not every Nvidia rival is in his crosshairs.",
+      "url": "https://finnhub.io/api/news?id=61e6a922ed970c7c60dcb0ef95fb9974c12a06e543706e494078e0b639bec088",
+      "source": "Yahoo",
+      "published_at": "2026-11-15T03:33:00+00:00",
+      "tickers": [
+        "CAT",
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.8045
+      },
+      "analysis": {
+        "summary": "Michael Burry notes Jensen Huang\u2019s departure from Nvidia and says he is adding to his bearish semiconductor bets while identifying two other chip makers as potential winners.",
+        "catalyst": "Jensen Huang\u2019s announced exit from Nvidia leadership",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "2-4 weeks, until the market digests the leadership change and Nvidia\u2019s next earnings release",
+        "explanation": "Burry\u2019s comment signals a shift in confidence for Nvidia, the market\u2019s premier AI chip maker, after its founder\u2011CEO steps down. A leadership transition often creates execution risk and can slow product rollouts, which is especially material for a company whose valuation is heavily tied to near\u2011term AI demand. The neutral sentiment from the article suggests the market hasn\u2019t fully priced in any downside yet, leaving room for a short thesis. Nvidia\u2019s current P/E is well above historical averages, implying the stock is vulnerable to a pullback if growth expectations are revised. By shorting NVDA we capture that potential correction without taking a directional bet on the unnamed winners Burry mentions, which are outside our watchlist.",
+        "rationale": [
+          "Leadership change raises execution risk for Nvidia\u2019s AI roadmap",
+          "Valuation remains stretched relative to peers",
+          "Market likely hasn\u2019t priced in downside yet"
+        ],
+        "risk": "If Nvidia quickly appoints a strong successor and maintains its AI momentum, the stock could rally, erasing the short position.",
+        "confidence": 0.71
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "2a019ed70bd4d201",
+      "title": "Broadcom Jumped as Nvidia Fell. This Is What Has Investors Excited.",
+      "summary": "Broadcom may be able to capitalize on Nvidia's misstep.",
+      "url": "https://www.fool.com/investing/2026/11/14/broadcom-jumped-as-nvidia-fell-this-is-what-has-investors-excited/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_at": "2026-11-15T02:20:02+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "positive",
+        "confidence": 0.9007
+      },
+      "analysis": {
+        "summary": "Nvidia shares have fallen about 21% amid CEO news, while Broadcom has risen nearly 6% as investors view it as a potential AI chip alternative.",
+        "catalyst": "Negative news surrounding Nvidia's CEO causing a sharp price drop",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "2-4 weeks, until Nvidia stabilizes its leadership narrative and the stock rebounds to its pre\u2011news level",
+        "explanation": "Nvidia\u2019s recent slide is tied to a specific corporate governance issue, not fundamentals, creating a temporary overshoot on the downside. The market is also shifting attention to Broadcom, which is positioning itself as a cost\u2011efficient AI chip provider and is trading at a deep discount to earnings. Because the catalyst is a short\u2011term sentiment shock, a short position in Nvidia lets us capture the rebound risk premium while the broader AI demand remains intact. The stock is still fundamentally strong, so the downside is limited; we plan to cover once the news fades and the price re\u2011establishes its prior trend. This trade isolates the sentiment move without betting on Broadcom directly, which may take longer to fully reflect its growth story.",
+        "rationale": [
+          "Nvidia down 21% on CEO news \u2013 a clear, non\u2011fundamental catalyst",
+          "Broadcom\u2019s AI chip push offers a narrative substitute, keeping sector demand alive",
+          "Shorting NVDA captures the near\u2011term over\u2011reaction with limited upside risk"
+        ],
+        "risk": "If the CEO issue resolves quickly or Nvidia announces a positive catalyst, the stock could rebound sharply, eroding the short position.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "658653a085b3c81a",
+      "title": "Broadcom Jumped as Nvidia Fell. This Is What Has Investors Excited.",
+      "summary": "Broadcom may be able to capitalize on Nvidia's misstep.",
+      "url": "https://finnhub.io/api/news?id=8b03da7443d9354279fd21dc8ff0e4eeb39d3ba937fa00500103682490a5986d",
+      "source": "Yahoo",
+      "published_at": "2026-11-15T02:20:02+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "positive",
+        "confidence": 0.9007
+      },
+      "analysis": {
+        "summary": "Broadcom is gaining market share as Nvidia\u2019s stock falls amid CEO news, with Broadcom\u2019s AI chip division growing rapidly and trading at a discount to peers.",
+        "catalyst": "Negative news around Nvidia\u2019s CEO causing a sharp sell\u2011off in NVDA shares",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "5-10 trading days, until Nvidia\u2019s earnings release or the CEO story subsides and the stock stabilises",
+        "explanation": "Nvidia has dropped about 21% this month after unsettling news about its CEO, creating a clear short\u2011term weakness in the stock. The market is also shifting attention to Broadcom, which is positioning itself as a cost\u2011efficient AI chip alternative and is trading at a cheap forward multiple. Over the next week\u2011plus, the negative sentiment should keep pressure on NVDA while investors re\u2011price the competitive threat. A short position in NVDA captures this downside risk without betting on Broadcom directly, which is already reflected in its modest price appreciation. The trade is supported by a strong positive FinBERT sentiment on the news and the fact that NVDA\u2019s valuation remains high despite the recent pull\u2011back, making the short side attractive on a swing horizon.",
+        "rationale": [
+          "Nvidia down ~21% on CEO controversy \u2013 clear short\u2011term catalyst",
+          "Broadcom\u2019s AI chip growth and cheap valuation shift investor focus away from Nvidia",
+          "High forward P/E for NVDA vs. 17x for Broadcom makes short side relatively cheap"
+        ],
+        "risk": "If Nvidia\u2019s CEO issue resolves quickly or the company releases better\u2011than\u2011expected earnings, the stock could rebound and erase short gains",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "51e1af72f4ae56cd",
+      "title": "Evercore explains why Apple has the right assets to win the personal agents race",
+      "summary": "",
+      "url": "https://www.investing.com/news/stock-market-news/evercore-explains-why-apple-has-the-right-assets-to-win-the-personal-agents-race-5027628",
+      "source": "Stock Market News",
+      "published_at": "2026-11-15T01:38:04+00:00",
+      "tickers": [
+        "AAPL"
+      ],
+      "headline_tickers": [
+        "AAPL"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.545
+      },
+      "analysis": {
+        "summary": "Evercore analysts argue that Apple\u2019s ecosystem, hardware base and services give it a competitive edge in the emerging personal\u2011assistant market.",
+        "catalyst": "Evercore\u2019s public endorsement of Apple\u2019s AI personal\u2011assistant strategy",
+        "position": "long",
+        "asset_class": "equity",
+        "instrument": "AAPL",
+        "market": "NASDAQ",
+        "horizon": "2-4 weeks, until the next earnings release or major AI product update",
+        "explanation": "Evercore highlighted Apple\u2019s tight integration of iOS, Siri, and its growing AI talent pool, suggesting the company can monetize personal assistants faster than rivals. That narrative supports a near\u2011term re\u2011rating of the stock as investors price in higher AI\u2011related revenue streams. The sentiment is neutral, but the endorsement from a top investment bank adds credibility and could shift analyst consensus. With Apple\u2019s valuation already premium, a modest upside is realistic if the market digests the AI narrative before earnings. A long position in AAPL captures that upside without the complexity of options, fitting a swing\u2011trade horizon of a few weeks.",
+        "rationale": [
+          "Evercore\u2019s AI endorsement may lift analyst expectations",
+          "Apple\u2019s ecosystem gives it a defensible moat in personal assistants",
+          "Potential upside before earnings as the market re\u2011prices AI growth"
+        ],
+        "risk": "If Apple\u2019s AI rollout stalls or competitors release superior agents, the stock could stay flat or decline, negating the catalyst effect.",
+        "confidence": 0.71
+      },
+      "chart_symbol": "AAPL",
+      "entry_price": 356.27
+    },
+    {
+      "id": "7bff6929dc74cb6b",
+      "title": "Nvidia Earnings Could Shift Focus To Cloudflare Stock And AI Cost Control",
+      "summary": "AI infrastructure spending is exploding, yet the real story is shifting to the quieter software players helping firms control cloud bills and monitor complex models. With Nvidia\u2019s Nov. 17 earnings and the Anthropic IPO set to test how durable this AI buildout really is, investors risk watching from the sidelines. This article unpacks how those catalysts could impact three stocks exposed to that news. The stocks in this article are only a starting sample, and the full screen surfaced 24 more...",
+      "url": "https://finnhub.io/api/news?id=a962347d3e6a99941545436ffde4ee0f54996106ff2e092842e213550633a765",
+      "source": "Yahoo",
+      "published_at": "2026-11-15T00:18:32+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.8684
+      },
+      "analysis": {
+        "summary": "Nvidia\u2019s upcoming earnings and the broader AI build\u2011out are shifting investor focus to software firms that help control cloud costs, with Cloudflare highlighted for its edge network that can lower AI\u2011related infrastructure expenses.",
+        "catalyst": "Nvidia\u2019s November 17 earnings and the Anthropic IPO spotlight AI spend, boosting demand for cost\u2011optimization providers like Cloudflare",
+        "position": "long",
+        "asset_class": "equity",
+        "instrument": "NET",
+        "market": "NYSE",
+        "horizon": "4\u20116 weeks, until Nvidia\u2019s earnings are digested and the Anthropic IPO pricing settles, after which AI\u2011cost\u2011optimization demand should be clearer",
+        "explanation": "Nvidia\u2019s earnings will reveal whether AI spending is sustainable; if investors see a need to curb cloud bills, they will favor companies that can offload traffic to the edge. Cloudflare\u2019s global edge platform directly reduces bandwidth and compute costs for AI workloads, making it a natural beneficiary. The stock trades at a reasonable forward P/E relative to peers and has been gaining market share in edge security, positioning it for upside as AI traffic grows. A neutral sentiment reading suggests the market hasn\u2019t priced this tailwind fully yet, so a long position captures the upside while the earnings catalyst unfolds. The trade is best expressed via the equity itself rather than a derivative, given the medium\u2011term horizon.",
+        "rationale": [
+          "AI spend sustainability will be judged post\u2011Nvidia earnings",
+          "Cloudflare\u2019s edge services directly lower AI cloud costs, a growing need",
+          "Valuation is attractive relative to peers and upside is not fully priced"
+        ],
+        "risk": "If Nvidia\u2019s earnings show weaker AI demand than expected, the need for cost\u2011optimization may fade, limiting Cloudflare\u2019s upside",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NET",
+      "entry_price": 305.81
+    },
+    {
+      "id": "b44b277987e92f15",
+      "title": "Nvidia's Ousted CEO Said a 1-Gigawatt Data Center Delay Costs $10 Billion a Quarter. Here's Why That Matters for Power Stocks.",
+      "summary": "Energy remains a critical bottleneck for AI growth.",
+      "url": "https://finnhub.io/api/news?id=aa46e17639764ce50e2cb63812130482721e272b67cdea8de46edcbb1b11505a",
+      "source": "Yahoo",
+      "published_at": "2026-11-15T00:05:00+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.601
+      },
+      "analysis": {
+        "summary": "Former Nvidia CEO Jensen Huang warned that a three\u2011month delay in building a 1\u2011GW AI data center could cost $10\u202fbillion in revenue, highlighting power as the biggest bottleneck to AI growth.",
+        "catalyst": "Huang\u2019s public quantification of the $10\u202fbillion revenue loss from data\u2011center power delays, underscoring immediate demand for additional electricity supply for AI workloads",
+        "position": "long",
+        "asset_class": "equity",
+        "instrument": "CEG",
+        "market": "NYSE",
+        "horizon": "4\u20116 weeks, until the next earnings season when Constellation Energy can report progress on new power\u2011capacity projects tied to AI demand",
+        "explanation": "The article makes clear that power, not capital, is the limiting factor for scaling AI data centers. As AI spend accelerates, utilities that can quickly add generation capacity stand to benefit. Constellation Energy (CEG) is one of the largest U.S. nuclear and gas generators and has announced plans to expand existing plants and restart older units, which can be done faster than building new fossil\u2011fuel plants. Over the next month\u2011plus, analysts expect CEG to disclose how much additional capacity it can bring online, providing a concrete catalyst. The neutral sentiment on Nvidia itself doesn\u2019t affect CEG, but the macro narrative about power scarcity creates a clear tailwind for utilities positioned to meet AI demand. A long position in CEG captures that upside without the execution risk of smaller, unproven SMR companies.",
+        "rationale": [
+          "Power is identified as the primary bottleneck for AI data\u2011center expansion",
+          "Constellation can add capacity faster than building new plants, aligning with short\u2011term AI power needs",
+          "Utility stocks like CEG trade at reasonable multiples, offering upside with limited downside"
+        ],
+        "risk": "If AI spending slows or alternative energy sources (e.g., renewables) meet demand faster than expected, CEG\u2019s capacity expansion may not translate into revenue growth.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "CEG",
+      "entry_price": 280.2
+    },
+    {
+      "id": "8e76d28fdad62a59",
+      "title": "Scott Bessent and Lutnick clash over Nvidia chips and China",
+      "summary": "Treasury Secretary Bessent had one question for Howard Lutnick about Megaspeed and Nvidia. Lutnick didn\u2019t have an answer.",
+      "url": "https://finnhub.io/api/news?id=497771b94c16e54e7a54dc51790df98c804c1d825e3b2d14dd7d81458c966b2d",
+      "source": "Yahoo",
+      "published_at": "2026-11-13T23:55:29+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.7401
+      },
+      "analysis": {
+        "summary": "Treasury Secretary Scott Bessent questioned Howard Lutnick of a major brokerage about Megaspeed and Nvidia chips and China, and Lutnick was unable to answer.",
+        "catalyst": "Public clash between Treasury Secretary and brokerage CEO over Nvidia chip exposure to China",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "5-10 days, until the market digests the regulatory and China\u2011exposure concerns and Nvidia\u2019s share price stabilizes",
+        "explanation": "The headline highlights a rare, high\u2011profile disagreement between the U.S. Treasury and a leading broker over Nvidia's chip business in China. That signals potential regulatory scrutiny or policy headwinds for Nvidia's growth in the world's biggest AI hardware market. A negative sentiment reading reinforces the market's perception that this could dampen demand or lead to export restrictions. Over the next week, investors will watch for any official statements or policy moves; a drop in NVDA price would reflect the risk premium. Shorting the stock directly captures this downside risk better than a broader tech ETF, which would dilute the exposure.",
+        "rationale": [
+          "Regulatory/policy risk to Nvidia's China sales could curb revenue growth",
+          "Negative sentiment and high\u2011profile clash suggest market may price in downside",
+          "Short position benefits from any near\u2011term price decline"
+        ],
+        "risk": "If the Treasury clarifies that no new restrictions are forthcoming or Nvidia announces a workaround, the negative impact could evaporate and the stock may rebound.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "7ebe0200a88a723a",
+      "title": "Warren Buffett\u2019s Berkshire Just Hit a Record High as Nvidia Sank. A 67-Year-Old Who Bought 1,000 Shares in 2016 Can Sell $106,000 of It This Year and Pay 0% on the Gain",
+      "summary": "Berkshire Hathaway rose all five days and closed Friday at a record $592.94, up 3.9% in the week Nvidia lost its CEO and fell 12.7%. A 67-year-old who bought 1,000 Class B shares ten years ago at $157.93 holds $592,940 and a $435,010 gain in a stock that pays no dividend. Under 2026's 0% capital gains ceiling he can sell 179 shares, about $106,000, and owe nothing on the gain; the only cost is $2,075 of tax on Social Security that the sale makes taxable.",
+      "url": "https://finnhub.io/api/news?id=cbea24e16426864a597294652f3c742a9f9dfc30777a985dd4f5554996b41afe",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T23:53:00+00:00",
+      "tickers": [
+        "AAPL",
+        "KO",
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.7505
+      },
+      "analysis": {
+        "summary": "Berkshire Hathaway shares hit a record high as Nvidia fell, while Apple and Coca\u2011Cola\u2014its two biggest holdings\u2014also set record closes.",
+        "catalyst": "Berkshire\u2019s $9.6\u202fbillion quarterly share buyback and record\u2011high stock price",
+        "position": "hold",
+        "asset_class": "equity",
+        "instrument": "BRK-B",
+        "market": "NYSE",
+        "horizon": "ongoing position; review quarterly earnings and buyback activity for any material change",
+        "explanation": "Berkshire\u2019s stock surged to a record $592.94 after the company announced its largest ever three\u2011month buyback, signaling confidence from management and returning capital to shareholders. The rally coincided with a sell\u2011off in Nvidia, suggesting investors are rotating from high\u2011growth tech to the stability of Berkshire\u2019s diversified businesses. While the article highlights a retiree\u2019s tax decision, the core market move is driven by the buyback, not a change in fundamentals. Over the next few quarters, continued buybacks or a slowdown would be the key drivers for price direction, so we maintain a neutral stance until a clearer catalyst emerges. Holding the stock lets us capture any upside from the buyback while avoiding premature exposure to a potentially overbought level.",
+        "rationale": [
+          "Berkshire\u2019s record buyback supports price strength",
+          "Rotation from tech (Nvidia) to defensive conglomerates is evident",
+          "No immediate earnings or regulatory catalyst to justify a directional trade"
+        ],
+        "risk": "If Berkshire\u2019s earnings miss expectations or the buyback pace slows, the stock could retreat from its record level.",
+        "confidence": 0.58
+      },
+      "chart_symbol": "BRK",
+      "entry_price": null
+    },
+    {
+      "id": "4866e1bc5c346e2d",
+      "title": "S&P 500, Dow, Nasdaq End Lower Amid Nvidia Turmoil, But Record Best Week Since August \u2014  SPCX, NVDA, ARM, AZN In Focus",
+      "summary": "Nvidia saw its worst week since April last year after Jensen Huang stepped down as CEO, and its board is looking for candidates.",
+      "url": "https://finnhub.io/api/news?id=8883930906339ea2702d39740cca5933cd51cd819a6ff65f5b6953a44eef2a78",
+      "source": "Yahoo",
+      "published_at": "2026-11-13T23:37:29+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9667
+      },
+      "analysis": {
+        "summary": "Nvidia shares plunged about 13% this week after CEO Jensen Huang resigned amid scandal, dragging down semiconductor ETFs and the Nasdaq, while investors await the company\u2019s earnings report on Nov\u202f17.",
+        "catalyst": "Jensen Huang\u2019s abrupt resignation and the ensuing leadership uncertainty ahead of Nvidia\u2019s November 17 earnings",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "3-5 days, until Nvidia\u2019s earnings release on Nov\u202f17 \u2013 close the short if the stock stabilizes or rebounds post\u2011earnings",
+        "explanation": "Nvidia\u2019s stock fell sharply after the unexpected CEO ouster, creating a clear negative catalyst. The leadership turmoil raises doubts about execution and order\u2011book stability just before a critical earnings report, which investors will scrutinize for any signs of slowdown. With the broader market already pressured and semiconductor ETFs down 3\u20114%, a short position on NVDA captures the immediate downside risk. The negative FinBERT sentiment (0.97 confidence) reinforces market pessimism. Holding the short through the earnings window lets us profit if the stock continues to slide or if earnings miss expectations; we\u2019ll exit if the stock rebounds sharply after the results, indicating the leadership issue is resolved or the market has priced it in.",
+        "rationale": [
+          "Leadership shock creates near\u2011term execution risk",
+          "Earnings on Nov\u202f17 will be a decisive test of order\u2011book health",
+          "Negative sentiment and sector weakness amplify downside"
+        ],
+        "risk": "If Nvidia\u2019s earnings beat expectations and the board quickly reinstates stable leadership, the stock could rally, erasing short gains.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "e74f8644606243e6",
+      "title": "Dan Ives Valued Nvidia at \u201c$225 Without Jensen.\u201d Now the Stock Trades Below It",
+      "summary": "Key TakeawaysNVIDIA (NVDA) fell approximately 12. 7% over five trading sessions, closing at $162.",
+      "url": "https://finnhub.io/api/news?id=e208f3bae3edea9ffc60d15be033e3cbd0a48280a24bcdf9b42ea60c6f03e5f1",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T23:11:42+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9753
+      },
+      "analysis": {
+        "summary": "Nvidia fell 12.7% after CEO Jensen Huang resigned, and analyst Dan Ives values the stock at $225 without him, implying ~38% upside from the current $163 price.",
+        "catalyst": "Jensen Huang\u2019s resignation and Dan Ives\u2019 $225 valuation target",
+        "position": "long",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "5-10 trading days, covering the upcoming earnings release on Nov 17 and the market\u2019s assessment of the new interim leadership",
+        "explanation": "Nvidia\u2019s shares dropped sharply after the unexpected CEO resignation, creating a price gap between the market and Dan Ives\u2019 $225 fair\u2011value estimate. The stock is now trading around $163, which is well below that target, suggesting a sizable upside if the company can demonstrate continued AI\u2011chip demand and a smooth leadership transition. The upcoming earnings report on Nov 17 will be the first data point under interim CEO Colette Kress, providing a clear catalyst to confirm whether growth momentum holds. With forward earnings multiples still low relative to historical averages, the valuation discount appears driven mainly by leadership risk rather than fundamentals, making a long position attractive. A short\u2011term swing trade into the earnings window lets us capture the potential re\u2011rating while limiting exposure if the leadership change proves disruptive.",
+        "rationale": [
+          "Shares ~38% below analyst\u2019s $225 target after a 12.7% drop",
+          "Low forward P/E (14x) versus 10\u2011year average (~37x) indicates valuation compression",
+          "Earnings on Nov 17 will test whether AI growth and margins persist under interim CEO"
+        ],
+        "risk": "If the new leadership fails to maintain AI customer relationships or earnings miss expectations, the stock could stay depressed or fall further.",
+        "confidence": 0.71
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "6ad13c843db7c836",
+      "title": "Wall Street stocks mostly lower as Nvidia extends slump",
+      "summary": "Wall Street stocks mostly fell Friday as tech shares remained under pressure following the shock downfall of Nvidia's chief Jensen Huang, while the dollar rose following additional data that showed US inflation is persisting.\"There is certainly a defensive leadership as we look at the sectors, which points to some caution,\" said Kourkafas, who expects AI to be in the spotlight again next week when Nvidia reports quarterly results and Anthropic makes its Wall Street debut.",
+      "url": "https://finnhub.io/api/news?id=0d9b9cfa98b5ec996c26cf12ec3cac006164623cc2af91af3c48da84732a5b82",
+      "source": "Yahoo",
+      "published_at": "2026-11-13T23:07:04+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9563
+      },
+      "analysis": {
+        "summary": "Nvidia shares fell further after CEO Jensen Huang resigned amid scandal, dragging down other AI stocks and contributing to a broadly lower Wall Street session.",
+        "catalyst": "Resignation of Nvidia CEO Jensen Huang following scandal",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "3-5 days, until Nvidia's earnings release next week and the market digests the leadership change",
+        "explanation": "Nvidia\u2019s stock is under pressure after the unexpected resignation of its charismatic CEO, which raises concerns about execution risk for its AI roadmap. The negative sentiment is amplified by a broader pullback in AI peers like AMD and Broadcom, suggesting a sector\u2011wide risk off. With the earnings report due next week, investors will likely scrutinize any guidance downgrade, creating a short\u2011term downside bias. The market is also reacting to sticky inflation and a stronger dollar, which can weigh on tech valuations. A short position in NVDA captures the immediate downside while we wait for the earnings catalyst to confirm the impact of the leadership change.",
+        "rationale": [
+          "CEO exit creates execution uncertainty for Nvidia\u2019s AI leadership",
+          "Sector peers are also falling, indicating broader risk off in AI",
+          "Earnings next week will provide a clear test of the fallout"
+        ],
+        "risk": "If Nvidia\u2019s earnings beat expectations and the new leadership is quickly accepted, the stock could rebound, eroding the short thesis.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "9a1bbc448b11cd16",
+      "title": "Walmart, Target, and Nvidia Headline a Pivotal Week for Q3 Earnings",
+      "summary": "Nvidia, Target, and Walmart reflect three notable upcoming releases in the Q3 earnings season, with Nvidia's release wrapping up the reporting cycle for the Magnificent 7 group. Total Q3 earnings for the S&P 500 members that have reported are up +24.9% year-over-year on +13.7% higher revenues.",
+      "url": "https://finnhub.io/api/news?id=d524aa851304b2cfc14d971f72abb41c19862eaa54a4fb0dd20690d99712288f",
+      "source": "Yahoo",
+      "published_at": "2026-11-13T23:00:00+00:00",
+      "tickers": [
+        "AMZN",
+        "NVDA",
+        "WMT"
+      ],
+      "headline_tickers": [
+        "NVDA",
+        "WMT"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "positive",
+        "confidence": 0.951
+      },
+      "analysis": {
+        "summary": "Walmart is set to report Q3 results on Nov 19 after a recent share dip and soft guidance, with analysts noting its high valuation and modest earnings beat expectations.",
+        "catalyst": "Walmart Q3 earnings release on Nov 19",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "WMT",
+        "market": "NASDAQ",
+        "horizon": "5-7 days, until the earnings reaction settles and guidance is confirmed",
+        "explanation": "Walmart's shares have been under pressure after a weaker-than-expected earnings beat and softer Q3 guidance, despite its defensive positioning. The stock trades at a 40.1x forward EPS multiple, near a decade-high, suggesting limited upside and higher downside risk if results miss expectations. With elevated fuel costs squeezing margins and consumer spending under pressure, the upcoming earnings report is a clear catalyst. A short position lets us profit from a potential post\u2011earnings sell\u2011off if guidance remains soft or misses consensus. The positive FinBERT sentiment reflects the broader market optimism around AI stocks, not Walmart, so the relative weakness should be priced in over the short horizon.",
+        "rationale": [
+          "High forward valuation (40.1x) leaves little room for upside",
+          "Recent earnings beat was modest and guidance is soft amid cost pressures",
+          "Earnings release is a near\u2011term catalyst that can trigger a sell\u2011off"
+        ],
+        "risk": "If Walmart surprises to the upside with stronger comps or raises guidance, the stock could rally, eroding the short thesis.",
+        "confidence": 0.68
+      },
+      "chart_symbol": "WMT",
+      "entry_price": 128.09
+    },
+    {
+      "id": "11dccf952f114833",
+      "title": "ASML vs. NVIDIA: Which Technology Stock Is a Better Buy for 2027?",
+      "summary": "ASML and Nvidia sit at opposite ends of the chip supply chain, and their valuations tell very different stories for investors weighing new money.",
+      "url": "https://finnhub.io/api/news?id=2a652f9ff4264cf0c0451a92ef62c2ddde9638eaa4effc94da3629e4648b211c",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T22:14:02+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.8866
+      },
+      "analysis": {
+        "summary": "The article compares ASML\u2019s lithography equipment business with Nvidia\u2019s GPU dominance, highlighting growth, financial strength, and risks for each company.",
+        "catalyst": "Analyst comparison highlighting Nvidia\u2019s rapid revenue growth and concentration risk versus ASML\u2019s near\u2011monopoly in EUV lithography",
+        "position": "hold",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "3-6 months, until the next earnings release or any major regulatory change affecting AI chip exports",
+        "explanation": "Nvidia posted eye\u2011popping 83% revenue growth driven by AI demand, but its earnings are increasingly tied to a few large customers and to export\u2011control risk. The stock is already priced for strong growth, so a short\u2011term swing is risky. Over the next few quarters, the company\u2019s earnings guidance and any regulatory updates will be the key drivers. Holding the position lets us capture upside if AI spending stays robust while we stay protected from a sudden downside if export rules tighten or a major customer cuts orders. The neutral sentiment from the model reflects the balanced view in the article, so we avoid a new directional bet and simply maintain exposure.",
+        "rationale": [
+          "NVDA\u2019s growth is strong but concentration and regulatory risks are high",
+          "Stock is fairly valued on forward earnings, limiting upside in the near term",
+          "Holding allows us to benefit from continued AI demand while monitoring risk triggers"
+        ],
+        "risk": "A sudden tightening of U.S. export controls or a major customer reducing orders could sharply depress Nvidia\u2019s revenue and share price.",
+        "confidence": 0.68
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "29f13fae0784a65d",
+      "title": "3 AI Chip Stocks Retail Investors May Be Missing Beyond Nvidia",
+      "summary": "Jensen Huang\u2019s sudden exit from Nvidia has rattled the AI hardware story and thrown a spotlight on the quieter giants that actually build and supply the chips behind it. When a single leadership change can shake confidence in such a critical piece of infrastructure, attention often shifts to where the manufacturing and tooling power really sits. This article unpacks three global semiconductor foundry and chip supply stocks that could see fresh interest from investors trying to reassess where...",
+      "url": "https://finnhub.io/api/news?id=f342e107bafaec9331f93d75814d0bc8af1c75422a14e3d29269ae8979138e32",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T22:09:06+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.6681
+      },
+      "analysis": {
+        "summary": "Jensen Huang's unexpected departure from Nvidia has shaken confidence in the AI hardware sector, prompting investors to look at alternative chip manufacturers and suppliers.",
+        "catalyst": "Jensen Huang's sudden exit as Nvidia CEO",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "2-4 weeks, until the market stabilizes around Nvidia's new leadership and any earnings guidance updates",
+        "explanation": "Nvidia's AI dominance is heavily tied to founder Jensen Huang, and his abrupt exit creates uncertainty about the company's strategic direction and execution risk. In the short term, investors often overreact to leadership turmoil, pushing the stock lower despite the broader AI demand. The neutral sentiment from the article reflects mixed views, but the immediate market reaction is likely negative, offering a short opportunity. With Nvidia's next earnings call still weeks away, the price will reflect how quickly the board can reassure investors and outline a clear roadmap. A short position captures the downside risk while we wait for the leadership transition to be priced in, rather than betting on a longer-term recovery that depends on execution under new management.",
+        "rationale": [
+          "Leadership change creates execution uncertainty for a high\u2011growth AI play",
+          "Short\u2011term market sentiment likely turns negative, offering a price dip",
+          "Earnings window in 2\u20114 weeks provides a clear exit trigger"
+        ],
+        "risk": "If the new leadership quickly reassures the market and Nvidia delivers strong guidance, the stock could bounce, erasing the short thesis.",
+        "confidence": 0.68
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "56f9cd992984dab2",
+      "title": "Nvidia Fell While AMD and Broadcom Jumped. Here\u2019s What History Says Happens Next to All 3  Stocks.",
+      "summary": "The news that led Jensen Huang to step down as CEO of Nvidia has crushed the company's stock price.",
+      "url": "https://finnhub.io/api/news?id=41c191d9f7ef47697c26f7a8936601531c67b15d13d2fda3390cab9a28c94271",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T21:55:02+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9537
+      },
+      "analysis": {
+        "summary": "Nvidia\u2019s shares fell sharply after CEO Jensen Huang announced his resignation amid a personal scandal, while rivals AMD and Broadcom rose modestly.",
+        "catalyst": "CEO resignation and scandal involving Jensen Huang",
+        "position": "short",
+        "asset_class": "option",
+        "instrument": "NVDA Dec-2026 300 Put",
+        "market": "NASDAQ",
+        "horizon": "2-3 weeks, until the market digests the leadership change and the stock stabilizes",
+        "explanation": "Nvidia dropped over 20% this month after news that its charismatic CEO is stepping down amid an affair scandal, creating immediate headwinds for the stock. The negative sentiment is reflected in a strong FinBERT negative score and a widening gap to peers: AMD and Broadcom are holding up better and even gaining. While Nvidia\u2019s forward P/E is now cheap, the short\u2011term risk of execution gaps and investor wariness outweighs the valuation upside. A short put option lets us profit from further downside while limiting risk to the premium paid, and the contract expires after the market has had time to price in the leadership transition. If the stock stabilizes or rebounds, the loss is capped at the premium, making it appropriate for a swing trade.",
+        "rationale": [
+          "CEO scandal creates immediate sell pressure and uncertainty",
+          "NVDA down >20% with negative sentiment, peers are stable",
+          "Put option caps downside risk while capturing further moves"
+        ],
+        "risk": "If the market quickly discounts the scandal and Nvidia rebounds on fundamentals, the put could expire worthless.",
+        "confidence": 0.68
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "e0fb5c4551b2cbc1",
+      "title": "Update: Wall Street Notches Weekly Gains Despite Nvidia Sell-Off",
+      "summary": "(Updates with market moves at the end of the day, and other changes, if any.) The Nasdaq Composit",
+      "url": "https://finnhub.io/api/news?id=2f66e8fe3205e20de0020a430485506bf5b3bad0e37febca38a41ea028937519",
+      "source": "Yahoo",
+      "published_at": "2026-11-13T21:49:35+00:00",
+      "tickers": [
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.8147
+      },
+      "analysis": {
+        "summary": "Wall Street posted weekly gains even as Nvidia shares fell sharply, indicating broader market strength despite a pullback in the AI\u2011chip leader.",
+        "catalyst": "Recent sharp sell\u2011off in Nvidia stock after disappointing short\u2011term guidance",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "5-10 trading days, or until Nvidia releases its next earnings report and guidance stabilizes",
+        "explanation": "Nvidia\u2019s price dropped sharply after the company warned that AI\u2011related demand may be softer than expected in the next quarter. The broader market is still rallying, so the sell\u2011off appears isolated to Nvidia rather than a sector\u2011wide rotation. With a neutral sentiment reading, the market isn\u2019t pricing in a deeper correction, leaving a gap between the current price and where fundamentals suggest it should be. Over the next week\u2011plus, investors will watch Nvidia\u2019s upcoming earnings and any further guidance; a continued decline would validate a short position. Shorting the equity directly captures the downside risk without the time decay of options, and the trade can be closed quickly if the stock rebounds on positive news.",
+        "rationale": [
+          "Nvidia guidance miss creates near\u2011term price pressure",
+          "Broader market still bullish, so downside is likely isolated",
+          "Short equity offers direct exposure and easy exit"
+        ],
+        "risk": "If Nvidia releases stronger\u2011than\u2011expected earnings or new AI product news, the stock could rebound sharply, erasing gains on the short.",
+        "confidence": 0.68
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "6667672c3740e388",
+      "title": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang",
+      "summary": "The petition had attracted more than 115,000 signatures as of Saturday afternoon.",
+      "url": "https://finnhub.io/api/news?id=f6700a3820f7bffdb5ef4d4afe02f0db8ccf4aa43ba905ca70b0ebec1b4ed931",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T21:41:22+00:00",
+      "tickers": [
+        "NVDA",
+        "TSLA"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": false,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.8353
+      },
+      "analysis": {
+        "summary": "A petition with over 115,000 signatures, including Elon Musk, urges Nvidia to reinstate ousted CEO Jensen Huang after his resignation amid personal scandal, while the board has installed CFO Colette Kress as interim CEO.",
+        "catalyst": "The leadership turmoil and board\u2019s interim CEO appointment following Jensen Huang\u2019s resignation",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "5-10 trading days, until Nvidia announces a permanent CEO or the stock stabilizes post\u2011announcement",
+        "explanation": "Nvidia\u2019s stock has already dropped sharply after the unexpected resignation of Jensen Huang, creating a clear downside bias. The petition, while high\u2011profile, is unlikely to reverse the board\u2019s decision and may even highlight governance concerns, keeping pressure on the share price. With AI funding expectations now uncertain and a temporary CFO at the helm, investors will demand clarity, which typically drags the stock lower in the short term. Given the neutral sentiment from the article and the lack of any positive catalyst, a short position captures the near\u2011term risk of further declines as the market digests the leadership vacuum. The trade is expressed via a direct short equity position in NVDA on NASDAQ, the most liquid way to profit from this downside over the next week or so.",
+        "rationale": [
+          "Leadership shock and interim CEO increase execution risk",
+          "Petition unlikely to force board reversal, may amplify governance worries",
+          "Short-term price pressure expected until a permanent CEO is named"
+        ],
+        "risk": "If Nvidia quickly appoints a credible permanent CEO or the petition spurs a board reversal, the stock could rally, eroding the short position.",
+        "confidence": 0.71
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "8c0fb1c1c8831485",
+      "title": "Dow Jones Futures: Market Rally Shaky As Nvidia Earnings, Anthropic IPO Loom; SpaceX Starship Flight 15 Soon.",
+      "summary": "The new market rally is isn't giving clear directions. A SpaceX Starship launch is imminent. Nvidia earnings and Anthropic IPO loom.",
+      "url": "https://finnhub.io/api/news?id=0bf55f5f7a941e3d2c84102ba84faf300f162813deede65cbbeea85f61ef630c",
+      "source": "Yahoo",
+      "published_at": "2026-11-13T21:39:48+00:00",
+      "tickers": [
+        "NVDA",
+        "TSLA",
+        "WMT"
+      ],
+      "headline_tickers": [
+        "NVDA"
+      ],
+      "is_macro": true,
+      "sector": "Technology / AI & Semiconductors",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.5258
+      },
+      "analysis": {
+        "summary": "Nvidia is set to report earnings soon while the Anthropic AI IPO and a SpaceX Starship flight also loom, and the market rally is showing signs of weakness.",
+        "catalyst": "Upcoming Nvidia earnings release, expected to be a miss per negative sentiment",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "NVDA",
+        "market": "NASDAQ",
+        "horizon": "3-5 days, until the earnings press release and initial market reaction",
+        "explanation": "Nvidia\u2019s earnings are due in the next few days and the FinBERT model flags the surrounding sentiment as negative, suggesting analysts expect a miss on revenue or margins. A miss would likely trigger a sharp pullback in the stock, especially after a recent rally that left the Nasdaq still below key technical support. Shorting NVDA now lets us capture that downside once the results hit and the market digests the disappointment. The trade is limited to the earnings window because beyond that the broader AI hype could re\u2011price the stock higher again, so we exit after the initial reaction. This approach is more direct than betting on a broader tech ETF, which would dilute the specific earnings risk.",
+        "rationale": [
+          "Negative earnings sentiment points to a potential miss",
+          "NVDA is a high\u2011beta stock, so a miss can produce a sizable short\u2011term decline",
+          "Holding period aligns with the earnings release window"
+        ],
+        "risk": "If Nvidia beats expectations or the broader AI rally strengthens, the stock could rally sharply, eroding the short position.",
+        "confidence": 0.71
+      },
+      "chart_symbol": "NVDA",
+      "entry_price": 162.85
+    },
+    {
+      "id": "bb4bf7853c5c6f12",
+      "title": "Amazon (AMZN) Has Its First Binding Union Contract In North America",
+      "summary": "Amazon.com (NasdaqGS:AMZN) warehouse workers in Canada have secured the company's first binding union contract in North America. The collective agreement follows a labor board ruling that found Amazon used anti union tactics during the organizing effort. The contract covers hundreds of employees, setting out wage terms and added protections after regulator intervention in the bargaining process. This first union contract for Canadian warehouse staff at Amazon, imposed after labor board...",
+      "url": "https://finnhub.io/api/news?id=85f4fc9cde96ed3797b862f92590a40d6914ad415fab0787126ab0568f6e6dbd",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T23:08:57+00:00",
+      "tickers": [
+        "AMZN"
+      ],
+      "headline_tickers": [
+        "AMZN"
+      ],
+      "is_macro": true,
+      "sector": "Consumer Discretionary",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.6491
+      },
+      "analysis": {
+        "summary": "Amazon\u2019s Canadian warehouse workers secured the company\u2019s first binding union contract in North America, setting wage terms and protections after a labor board ruling.",
+        "catalyst": "Binding union contract signed with Canadian warehouse staff",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "AMZN",
+        "market": "NASDAQ",
+        "horizon": "4-8 weeks, until the cost impact of the contract is reflected in earnings guidance or the next quarterly report",
+        "explanation": "The news that Amazon has been forced to negotiate a binding union contract in Canada signals a potential shift in its labor cost structure. Unionized workers typically demand higher wages, better benefits, and stricter work rules, which can erode the thin margins in Amazon\u2019s fulfillment network. Over the next month or two, we expect analysts to factor in higher operating expenses and possibly lower productivity gains from automation, pressuring the stock price. The sentiment model is negative, reflecting market concerns about rising costs. A short position in AMZN captures this downside risk, while a long position would require a clear offsetting catalyst, such as a surprise in AWS growth, which is not present here.",
+        "rationale": [
+          "Higher labor costs could compress Amazon's already thin fulfillment margins",
+          "Union precedent may spread to U.S. warehouses, increasing cost exposure",
+          "Negative sentiment and lack of offsetting growth catalysts support a short thesis"
+        ],
+        "risk": "If Amazon quickly offsets higher wages with accelerated automation or AWS outperforms expectations, the cost impact could be muted and the stock may rebound.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "AMZN",
+      "entry_price": 266.66
+    },
+    {
+      "id": "1374485a194e425f",
+      "title": "Bank Of America (BAC) Agrees To Settle Unauthorized Account Openings Class Action",
+      "summary": "Bank of America (NYSE:BAC) has agreed to settle a class-action lawsuit over allegedly unauthorized customer account openings. The agreement resolves claims that the bank opened accounts without proper customer consent, mirroring issues previously seen at other large lenders. Settlement terms are subject to court approval, with affected customers expected to receive compensation through a claims process. This alleged unauthorized account opening settlement is important context, but investors...",
+      "url": "https://finnhub.io/api/news?id=d5cd154142c74df534d3d90e943ec873e7fe1a2f0c664997878c16037295f1eb",
+      "source": "Yahoo",
+      "published_at": "2026-11-15T02:08:00+00:00",
+      "tickers": [
+        "BAC"
+      ],
+      "headline_tickers": [
+        "BAC"
+      ],
+      "is_macro": false,
+      "sector": "Financials / Banks",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.6228
+      },
+      "analysis": {
+        "summary": "Bank of America agreed to settle a class\u2011action lawsuit alleging it opened customer accounts without consent, adding a new legal cost to the bank.",
+        "catalyst": "Settlement of the unauthorized\u2011account\u2011openings class action",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "BAC",
+        "market": "NYSE",
+        "horizon": "2\u20114 weeks, until the next quarterly earnings release or any update on the settlement\u2019s financial impact",
+        "explanation": "The settlement introduces an unexpected compliance expense and potential reputational hit for BAC. While the bank\u2019s fundamentals remain solid, the added legal cost could compress margins in the near term, especially as the firm is already budgeting for higher AI\u2011driven efficiency spend. Investors typically react negatively to fresh litigation risk, and the market may price in a short\u2011term downside as analysts adjust earnings forecasts. A short position lets us capture that downside while we wait for the next earnings report to see if the charge materially dents profit guidance. If the settlement amount is modest and management signals no lasting impact, the trade can be closed with limited loss.",
+        "rationale": [
+          "New legal expense adds headwind to margin outlook",
+          "Market tends to penalize banks for compliance scandals",
+          "Short exposure aligns with expected near\u2011term earnings pressure"
+        ],
+        "risk": "If the settlement amount is small and the bank\u2019s earnings beat expectations, the stock could rebound, erasing the short thesis.",
+        "confidence": 0.71
+      },
+      "chart_symbol": "BAC",
+      "entry_price": 51.02
+    },
+    {
+      "id": "6f8db18dc692e7cc",
+      "title": "Coca-Cola and J&J Just Hit Record Highs. A 62-Year-Old Put $300,000 Into Them and Procter & Gamble in 2016. Here\u2019s How Much the Now 72-Year-Old Gets Paid Every Single Month",
+      "summary": "A 62-year-old split $300,000 across Johnson & Johnson, Procter & Gamble and Coca-Cola on Nov. 14, 2016. Ten years of dividend raises later, here is the monthly check at 72, the cash collected, what the shares are worth after Friday's record highs, the reinvested version, and the federal tax on the checks.",
+      "url": "https://finnhub.io/api/news?id=4b8ed5d29d778006f2cbd96b52858148266ffbc68a13170c582cb878b62a0456",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T21:47:00+00:00",
+      "tickers": [
+        "JNJ",
+        "KO",
+        "PG"
+      ],
+      "headline_tickers": [
+        "JNJ",
+        "KO",
+        "PG"
+      ],
+      "is_macro": false,
+      "sector": "Healthcare / Pharma",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.9344
+      },
+      "analysis": {
+        "summary": "Three dividend aristocrats\u2014Johnson & Johnson, Coca\u2011Cola and Procter & Gamble\u2014have hit record highs and now deliver roughly a 5% yield, outpacing the 10\u2011year Treasury.",
+        "catalyst": "Recent record\u2011high price levels combined with continued dividend increases for JNJ, KO and PG.",
+        "position": "hold",
+        "asset_class": "equity",
+        "instrument": "JNJ, KO, PG",
+        "market": "NYSE",
+        "horizon": "6-12 months, until the next dividend announcement cycle or a material price correction",
+        "explanation": "The article shows that a $300k investment made in 2016 has more than doubled in value and now yields about 5%, which is slightly above the current 10\u2011year Treasury rate. All three companies have a long history of raising dividends\u201464 years for JNJ and KO, 70 for PG\u2014so the income stream is likely to keep growing. Their record\u2011high prices suggest strong market confidence, but the yield remains attractive for income\u2011focused investors, especially in a low\u2011rate environment. Holding the stocks lets us capture both capital appreciation and rising cash flow, while the dividend safety net reduces downside risk. Since the story is about a historical performance track record rather than a new catalyst, a short\u2011term trade isn\u2019t warranted; we stay positioned to benefit from the next quarterly payouts and any further price upside.",
+        "rationale": [
+          "Dividend aristocrats with >60 years of annual increases",
+          "Current yield (~5%) exceeds 10\u2011yr Treasury (~5%)",
+          "Record highs indicate market confidence and potential upside"
+        ],
+        "risk": "If earnings deteriorate or dividend cuts occur, the yield advantage disappears and the stocks could fall back from record highs.",
+        "confidence": 0.68
+      },
+      "chart_symbol": "JNJ",
+      "entry_price": 285.75
+    },
+    {
+      "id": "fab4e68f6dbd4225",
+      "title": "Coca-Cola Has Paid a Growing Dividend for 64 Years. Here's the Income $5,000 Can Start You With.",
+      "summary": "The beverage giant's asset-light model produces high-margin profits on mountains of revenue.",
+      "url": "https://finnhub.io/api/news?id=ed9ba8489e7b46a6ded930d95aae80ebce454a200aae8ee60b4d6e6f4a734a2b",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T19:16:57+00:00",
+      "tickers": [
+        "KO",
+        "NVDA"
+      ],
+      "headline_tickers": [
+        "KO"
+      ],
+      "is_macro": false,
+      "sector": "Consumer Staples",
+      "sentiment": {
+        "label": "neutral",
+        "confidence": 0.6506
+      },
+      "analysis": {
+        "summary": "Coca\u2011Cola (KO) highlighted its 64\u2011year streak of raising dividends, strong revenue growth and an asset\u2011light model that boosts profitability.",
+        "catalyst": "Recent disclosure of continued dividend increases and 7% YoY revenue growth confirming the dividend\u2011king narrative",
+        "position": "long",
+        "asset_class": "equity",
+        "instrument": "KO",
+        "market": "NYSE",
+        "horizon": "6-12 months, until the next quarterly dividend announcement or earnings release that could confirm or challenge the growth trajectory",
+        "explanation": "Coca\u2011Cola just reported a solid 7% revenue rise and an 11% jump in adjusted net income, underscoring the strength of its asset\u2011light franchise model. The company has raised its dividend for 64 straight years, making it a classic Dividend King and appealing to income\u2011focused investors. With a current quarterly payout of $0.53 per share and a 29% net margin, the stock offers both yield and defensive growth. Over the next several quarters, the market will price in the expected dividend increase and continued earnings momentum, likely supporting the share price relative to broader indices. A long position in KO captures both the dividend stream and the potential upside from sustained earnings growth, making it a better fit than a generic consumer\u2011staples ETF for a focused thesis.",
+        "rationale": [
+          "Strong earnings beat and margin expansion signal durable profitability",
+          "Dividend\u2011king status provides a reliable income floor and attracts yield\u2011seeking capital",
+          "Asset\u2011light bottler model limits capex, enhancing cash flow for dividend growth"
+        ],
+        "risk": "If consumer demand softens or input cost inflation erodes margins, the company may pause dividend hikes, hurting price appreciation and yield appeal.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "KO",
+      "entry_price": 99.25
+    },
+    {
+      "id": "bb5f7b659d09926d",
+      "title": "VSAT, AVAV, LMT Secure Multi-Million-Dollar Defense Contracts This Week \u2014 But One Stock Stole The Spotlight",
+      "summary": "AEVEX stock saw the biggest gains in the group this week after the company picked up roughly $400 million in military contracts.",
+      "url": "https://finnhub.io/api/news?id=7cad86dd904bbfe139c7ade8023a6f5c6882b20a1f11025cd7a6176ed9c5ecba",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T01:30:00+00:00",
+      "tickers": [
+        "LMT"
+      ],
+      "headline_tickers": [
+        "LMT"
+      ],
+      "is_macro": false,
+      "sector": "Industrials / Defense",
+      "sentiment": {
+        "label": "positive",
+        "confidence": 0.9081
+      },
+      "analysis": {
+        "summary": "Lockheed Martin (LMT) secured an $88.2\u202fmillion U.S. Navy contract modification for submarine systems engineering and integration, alongside other defense firms winning multi\u2011million\u2011dollar contracts this week.",
+        "catalyst": "Award of the $88.2\u202fmillion submarine systems contract to Lockheed Martin",
+        "position": "long",
+        "asset_class": "equity",
+        "instrument": "LMT",
+        "market": "NYSE",
+        "horizon": "4\u20116 weeks, until the contract work begins to show up in quarterly earnings or management commentary",
+        "explanation": "The Navy contract adds incremental revenue to Lockheed's already sizable defense backlog, reinforcing its position as a primary supplier of submarine systems. Over the next month or two, analysts will look for guidance upgrades or higher-than\u2011expected order\u2011backlog growth in earnings calls, which typically lift the stock. The news sentiment is strongly positive and the market has already priced in a modest gain, leaving upside if the broader defense spending outlook stays supportive despite political uncertainty. Compared to peers, LMT has deeper cash flow and a diversified portfolio, making a direct equity long the cleanest way to capture the contract\u2019s impact. The trade avoids speculative options and focuses on the fundamental earnings boost from the new work.",
+        "rationale": [
+          "New Navy contract adds ~0.5% incremental revenue to FY24 backlog",
+          "Defense spending remains resilient even with midterm election concerns",
+          "LMT\u2019s scale and cash generation amplify the earnings impact"
+        ],
+        "risk": "If Congress delays defense appropriations or the Navy reduces the contract scope, the expected revenue boost could evaporate.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "LMT",
+      "entry_price": 596.04
+    },
+    {
+      "id": "968586cb3bbb618d",
+      "title": "Is ExxonMobil Holdings (XOM) Undervalued After Its $12.5b Guyana Longtail Approval?",
+      "summary": "ExxonMobil Holdings (XOM) just approved a US$12.5b Longtail development offshore Guyana, targeting non associated gas and condensate. This gives investors a fresh long term project to factor into the stock\u2019s risk profile. The Longtail decision comes at a time when ExxonMobil Holdings\u2019 share price has been strong, with a year to date share price return of 39.09% and a 1 year total shareholder return of 45.87% backed by dividends. Short term momentum has cooled a little, with the 30 day share...",
+      "url": "https://finnhub.io/api/news?id=35d9185c577192ff99a7e10ff1b604947dc86ff8bda4d0113702d8adbd32834a",
+      "source": "Yahoo",
+      "published_at": "2026-11-14T01:13:12+00:00",
+      "tickers": [
+        "XOM"
+      ],
+      "headline_tickers": [
+        "XOM"
+      ],
+      "is_macro": false,
+      "sector": "Energy",
+      "sentiment": {
+        "label": "positive",
+        "confidence": 0.8182
+      },
+      "analysis": {
+        "summary": "ExxonMobil (XOM) received approval for its $12.5\u202fbillion Longtail development in offshore Guyana, adding a new long\u2011term gas and condensate project while the stock trades below a fair\u2011value estimate of $180.96.",
+        "catalyst": "Approval of the $12.5\u202fbn Longtail Guyana development project",
+        "position": "long",
+        "asset_class": "equity",
+        "instrument": "XOM",
+        "market": "NYSE",
+        "horizon": "3\u20116 months, until the first capital spend milestone or earnings release that confirms project budgeting and early production guidance",
+        "explanation": "Exxon\u2019s Longtail approval gives the company a fresh, multi\u2011year growth engine that should lift earnings per share over the next few years. The stock is currently trading about 6% below a consensus fair\u2011value estimate, creating a valuation gap that the new project can help close. With a strong balance sheet, high dividend yield and recent buybacks, the upside from the project outweighs short\u2011term momentum weakness. The positive sentiment from the news and the sector\u2019s recent price recovery support a medium\u2011term rally as investors re\u2011price the added cash flow. A direct equity position lets us capture both the valuation re\u2011rating and the dividend yield, which is more efficient than a derivative proxy for this thesis.",
+        "rationale": [
+          "Longtail adds ~2\u20113% incremental EPS per year once online, narrowing the valuation gap",
+          "Exxon\u2019s balance sheet and dividend yield provide downside protection",
+          "Current price ~6% below fair value gives immediate upside potential"
+        ],
+        "risk": "If Longtail experiences cost overruns or regulatory delays, the expected earnings boost could be postponed, keeping the stock undervalued.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "XOM",
+      "entry_price": 170.59
+    },
+    {
+      "id": "bef2e1f8d50dedea",
+      "title": "Corteva Q3 Earnings Call Highlights Brazil Woes and Outlook Cut",
+      "summary": "CTVA cuts its 2026 profit outlook as Brazil's inventory glut and pricing pressures weigh on results, while new products and cost cuts support recovery plans.",
+      "url": "https://finnhub.io/api/news?id=33e5f6e562ed8d49a044d4721521a9ea04b8746b17e7d820192fa263549d419d",
+      "source": "Yahoo",
+      "published_at": "2026-11-13T14:00:00+00:00",
+      "tickers": [
+        "CTVA"
+      ],
+      "headline_tickers": [
+        "CTVA"
+      ],
+      "is_macro": false,
+      "sector": "Agriculture / Commodities",
+      "sentiment": {
+        "label": "negative",
+        "confidence": 0.9709
+      },
+      "analysis": {
+        "summary": "Corteva reported Q3 2026 earnings that missed estimates and cut its full\u2011year outlook, citing a severe slowdown in Brazil with inventory excess, pricing pressure and lower volumes.",
+        "catalyst": "Management cut 2026 EBITDA guidance due to Brazil weakness and inventory imbalances",
+        "position": "short",
+        "asset_class": "equity",
+        "instrument": "CTVA",
+        "market": "NASDAQ",
+        "horizon": "3-4 months, until the next earnings release or clear signs of inventory normalization in Brazil",
+        "explanation": "Corteva\u2019s Q3 call highlighted a 31% drop in Latin American organic sales and a $100\u202fmillion EBITDA hit tied to excess inventory in Brazil. The guidance cut reduces the 2026 EBITDA target by roughly $200\u202fmillion, signaling weaker cash flow and earnings momentum. While North America and other regions remain resilient, the Brazil segment represents a material portion of Corteva\u2019s revenue, and the inventory issue is unlikely to resolve quickly. Given the negative sentiment, earnings miss, and lowered guidance, the stock is likely to underperform over the next few months as investors price in the Brazil risk. A short position captures this downside, and we avoid alternatives like buying the broader agriculture ETF because the catalyst is company\u2011specific.",
+        "rationale": [
+          "Earnings miss and guidance cut directly tied to Brazil inventory problem",
+          "Brazil accounts for a sizable revenue share, so weakness is material",
+          "Short exposure isolates the downside risk without broader market beta"
+        ],
+        "risk": "If Brazil\u2019s inventory clears faster than expected and pricing stabilizes, Corteva could rebound sooner, limiting the short thesis.",
+        "confidence": 0.78
+      },
+      "chart_symbol": "CTVA",
+      "entry_price": 9.43
+    }
+  ]
+}
